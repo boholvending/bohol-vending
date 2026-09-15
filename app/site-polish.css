@@ -33,6 +33,10 @@ img { max-width: 100%; }
   color: var(--site-ink) !important;
   border-bottom: 1px solid #d9dede !important;
 }
+
+/* Keep navigation available while visitors browse long company and product pages. */
+.site-header { position: fixed !important; top: 0; left: 0; right: 0; }
+.inner-header { position: sticky; top: 0; z-index: 50; }
 .site-header { position: absolute; }
 .brand { flex: 0 0 auto; font-size: 21px; }
 .brand-lockup {
