@@ -2,7 +2,8 @@ name: Deploy BOHOL website
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
 
 concurrency:
   group: production
@@ -13,4 +14,4 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: Deploy website
-       run: sudo /var/www/bohol-vending/deploy/deploy.sh
+        run: sudo /var/www/bohol-vending/deploy/deploy.sh
