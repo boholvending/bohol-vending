@@ -13,4 +13,4 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: Deploy website
-        run: /var/www/bohol-vending/deploy/deploy.sh
+       run: sudo /var/www/bohol-vending/deploy/deploy.sh
