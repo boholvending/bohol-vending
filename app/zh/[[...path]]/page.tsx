@@ -89,6 +89,7 @@ export async function generateMetadata({
 }
 function Header() {
   return (
+    <>
     <header
       className="inner-header zh-header"
       style={{
@@ -109,6 +110,8 @@ function Header() {
         获取报价 <ArrowUpRight size={15} />
       </Link>
     </header>
+    <div className="header-spacer" aria-hidden="true" />
+    </>
   );
 }
 function Footer() {

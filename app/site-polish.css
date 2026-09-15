@@ -35,9 +35,14 @@ img { max-width: 100%; }
 }
 
 /* Keep navigation available while visitors browse long company and product pages. */
-.site-header { position: fixed !important; top: 0; left: 0; right: 0; }
-.inner-header { position: sticky; top: 0; z-index: 50; }
-.site-header { position: absolute; }
+.site-header,
+.inner-header { position: fixed !important; top: 0; left: 0; right: 0; z-index: 50; }
+.header-spacer { height: 72px; flex: 0 0 72px; }
+html { scroll-padding-top: 88px; }
+@media (max-width: 760px) {
+  .header-spacer { height: 68px; flex-basis: 68px; }
+  html { scroll-padding-top: 84px; }
+}
 .brand { flex: 0 0 auto; font-size: 21px; }
 .brand-lockup {
   display: inline-flex;
