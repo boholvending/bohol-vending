@@ -10,12 +10,7 @@ concurrency:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
-      - name: Deploy on Google Cloud VM
-        uses: appleboy/ssh-action@v1.2.2
-        with:
-          host: ${{ secrets.DEPLOY_HOST }}
-          username: ${{ secrets.DEPLOY_USER }}
-          key: ${{ secrets.DEPLOY_SSH_KEY }}
-          script: /var/www/bohol-vending/deploy/deploy.sh
+      - name: Deploy website
+        run: /var/www/bohol-vending/deploy/deploy.sh
