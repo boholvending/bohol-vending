@@ -1,0 +1,34 @@
+.browser{margin-top:46px}
+.dropdownRow{display:flex;align-items:center;margin:0 0 24px}
+.selectBox{position:relative;display:grid;width:min(470px,100%);background:#fbfcfb;border:1px solid #c5cecd;color:#071014}
+.selectBox>span{position:absolute;left:18px;top:12px;z-index:1;color:#1599b6;font-size:9px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;pointer-events:none}
+.selectBox select{width:100%;height:72px;padding:26px 54px 10px 18px;border:0;background:transparent;color:#071014;font:800 14px var(--font-body);appearance:none;cursor:pointer;outline:none}
+.selectBox select:focus-visible{box-shadow:inset 0 0 0 2px #1599b6}
+.selectBox svg{position:absolute;right:18px;top:50%;transform:translateY(-50%);color:#1599b6;pointer-events:none}
+.preferenceBar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:22px 0 38px}
+.preferenceBar>span{margin-right:10px;color:#1599b6;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.preferenceBar button{height:38px;padding:0 14px;border:1px solid #c5cecd;background:transparent;color:#071014;font-size:11px;font-weight:800;cursor:pointer;transition:background .18s ease,border-color .18s ease,color .18s ease}
+.preferenceBar button:hover,.preferenceBar button:focus-visible{border-color:#1599b6;outline:none}
+.preferenceBar button.preferenceActive{border-color:#58d9f9;background:#58d9f9;color:#071014}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.card{display:grid;grid-template-rows:360px 1fr;min-height:690px;background:#fbfcfb;border:1px solid #c7d0cf;color:#071014;overflow:hidden;transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
+.card:hover{transform:translateY(-4px);border-color:#1599b6;box-shadow:0 22px 50px rgba(7,16,20,.11)}
+.imageWrap{position:relative;background:#e2e8e7;overflow:hidden}
+.imageWrap img{width:100%;height:100%;object-fit:contain;padding:16px;transition:transform .38s ease}
+.card:hover .imageWrap img{transform:scale(1.035)}
+.imageWrap>span{position:absolute;left:18px;bottom:18px;padding:8px 10px;background:rgba(7,16,20,.88);color:#fff;font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.cardBody{display:flex;flex-direction:column;padding:23px}
+.cardTop{display:flex;justify-content:space-between;gap:15px;align-items:center}
+.cardTop small{color:#1599b6;font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.cardTop b{display:flex;align-items:center;gap:5px;color:#0d7f97;font-size:10px;white-space:nowrap}
+.cardTop svg{fill:#58d9f9;stroke:#1599b6}
+.card h3{margin:22px 0 12px;font:600 28px/1.05 var(--font-display);letter-spacing:-.025em}
+.card p{min-height:63px;margin:0;color:#607075;font-size:13px;line-height:1.62}
+.goodPoints{display:grid;gap:9px;margin:25px 0 28px;padding-top:22px;border-top:1px solid #d8dfde}
+.goodPoints span{display:grid;grid-template-columns:18px 1fr;gap:8px;color:#35464b;font-size:11px;line-height:1.4}
+.goodPoints svg{color:#1599b6}
+.cardFooter{display:flex;justify-content:space-between;gap:18px;align-items:end;margin-top:auto;padding-top:20px;border-top:1px solid #d8dfde}
+.cardFooter>span{max-width:180px;color:#6c7a7f;font-size:10px;line-height:1.4}
+.cardFooter b{display:flex;align-items:center;gap:6px;font-size:10px;font-weight:900;text-transform:uppercase;white-space:nowrap}
+@media(max-width:1100px){.grid{grid-template-columns:1fr 1fr}.card{grid-template-rows:330px 1fr}}
+@media(max-width:650px){.browser{margin-top:34px}.grid{grid-template-columns:1fr}.card{min-height:0}.preferenceBar{align-items:flex-start}.preferenceBar>span{width:100%;margin:0 0 4px}.selectBox select{font-size:12px}}

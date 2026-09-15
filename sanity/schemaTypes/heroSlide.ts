@@ -1,0 +1,1 @@
+export default{name:"heroSlide",title:"Hero Slide",type:"document",fields:[{name:"title",type:"string"},{name:"kicker",type:"string"},{name:"product",type:"reference",to:[{type:"product"}]},{name:"image",type:"image",options:{hotspot:true}},{name:"order",type:"number"},{name:"accent",type:"string"}]}

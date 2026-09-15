@@ -1,0 +1,14 @@
+.section { background: #fff; padding: 80px 24px 96px; color: #102b32; scroll-margin-top: 80px; }
+.section > h2 { margin: 0 auto 56px; text-align: center; font: 700 clamp(28px, 3vw, 38px)/1.2 var(--font-display); letter-spacing: -.025em; }
+.section > h2 span { color: #117f94; }
+.layout { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.38fr) minmax(0,1fr); gap: 32px; max-width: 1040px; margin: auto; align-items: stretch; }
+.column { display: grid; gap: 24px; align-content: center; padding-block: 12px; }
+.column article { background: #f5f6f5; border-radius: 14px; padding: 25px; }
+.column h3 { margin: 0 0 12px; font: 700 21px/1.15 var(--font-display); letter-spacing: -.015em; }
+.column p { margin: 0; font-size: 14px; line-height: 1.55; color: #414b4e; }
+.visual { position: relative; min-height: 590px; margin: 28px 0; border-radius: 14px; overflow: hidden; background: #e9edeb; }
+.visual { display: flex; flex-direction: column; justify-content: center; background: #eeeae3; }
+.visual img { display: block; width: 100%; height: auto; object-fit: contain; }
+.visual figcaption { padding: 10px 12px; text-align: center; font-size: 10px; line-height: 1.5; color: #48545a; background: #f5f6f5; }
+@media(max-width: 1000px) { .layout { gap: 20px; grid-template-columns: 1fr 1.2fr 1fr; } .column article { padding: 20px; } .column h3 { font-size: 19px; } }
+@media(max-width: 700px) { .section { padding: 56px 20px; } .section > h2 { margin-bottom: 32px; } .layout { grid-template-columns: 1fr; gap: 20px; max-width: 480px; } .visual { grid-row: 1; min-height: 0; aspect-ratio: 3/4; margin: 0; } .column { gap: 16px; padding: 0; } .column article { padding: 24px; } }

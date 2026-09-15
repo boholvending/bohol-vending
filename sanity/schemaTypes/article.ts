@@ -1,0 +1,1 @@
+export default{name:"article",title:"Article / Case",type:"document",fields:[{name:"type",type:"string",options:{list:["insight","case"]}},{name:"title",type:"string"},{name:"slug",type:"slug",options:{source:"title"}},{name:"excerpt",type:"text"},{name:"image",type:"image"},{name:"publishedAt",type:"datetime"},{name:"body",type:"array",of:[{type:"block"},{type:"image"}]}]}
