@@ -1,1 +1,47 @@
-export default{name:"product",title:"Product",type:"document",fields:[{name:"name",type:"string",validation:(r:any)=>r.required()},{name:"slug",type:"slug",options:{source:"name"}},{name:"category",type:"string"},{name:"summary",type:"text"},{name:"heroImage",type:"image",options:{hotspot:true},fields:[{name:"alt",type:"string"}]},{name:"gallery",type:"array",of:[{type:"image"}]},{name:"features",type:"array",of:[{type:"string"}]},{name:"seo",type:"object",fields:[{name:"title",type:"string"},{name:"description",type:"text"}]}]}
+import { defineField, defineType } from "sanity";
+
+export default defineType({
+  name: "product",
+  title: "Products",
+  type: "document",
+  groups: [
+    { name: "basic", title: "Basic" },
+    { name: "commerce", title: "Price & selling" },
+    { name: "media", title: "Media" },
+    { name: "details", title: "Detail page" },
+    { name: "seo", title: "SEO / GEO" },
+  ],
+  fields: [
+    defineField({ name: "status", title: "Publish status", type: "string", group: "basic", initialValue: "draft", options: { list: [{ title: "Draft", value: "draft" }, { title: "Published", value: "published" }] } }),
+    defineField({ name: "name", title: "Product name", type: "string", group: "basic", validation: (rule) => rule.required() }),
+    defineField({ name: "slug", title: "Slug", type: "slug", group: "basic", options: { source: "name" }, validation: (rule) => rule.required() }),
+    defineField({ name: "category", title: "Category", type: "string", group: "basic", options: { list: ["Food & beverage", "Age-restricted retail", "Beauty retail", "Collectibles retail", "Gentle delivery", "Custom OEM / ODM"] } }),
+    defineField({ name: "summary", title: "Short description", type: "text", rows: 3, group: "basic" }),
+    defineField({ name: "buyerTypes", title: "Best for", type: "array", group: "basic", of: [{ type: "string" }], options: { list: ["Brand owners", "Operators", "Distributors", "Premium products", "Compact retail", "OEM / ODM projects"] } }),
+    defineField({ name: "priceMode", title: "Price display", type: "string", group: "commerce", initialValue: "quote", options: { list: [{ title: "Request quote", value: "quote" }, { title: "Show starting price", value: "starting" }, { title: "Show fixed price", value: "fixed" }] } }),
+    defineField({ name: "currency", title: "Currency", type: "string", group: "commerce", initialValue: "USD", options: { list: ["USD", "EUR", "GBP", "AUD", "CNY"] } }),
+    defineField({ name: "price", title: "Price", type: "number", group: "commerce" }),
+    defineField({ name: "minimumOrderQuantity", title: "Minimum order quantity", type: "number", group: "commerce", initialValue: 1 }),
+    defineField({ name: "leadTime", title: "Lead time", type: "string", group: "commerce" }),
+    defineField({ name: "paymentOptions", title: "Payment options", type: "array", group: "commerce", of: [{ type: "string" }], options: { list: ["Card payment", "Mobile wallet", "Cash", "QR payment", "Custom integration"] } }),
+    defineField({ name: "heroImage", title: "Main product image", type: "image", group: "media", options: { hotspot: true }, fields: [{ name: "alt", title: "Alt text", type: "string" }] }),
+    defineField({ name: "gallery", title: "Product gallery", type: "array", group: "media", of: [{ type: "image", options: { hotspot: true }, fields: [{ name: "alt", title: "Alt text", type: "string" }] }] }),
+    defineField({ name: "brochure", title: "Brochure / spec PDF", type: "file", group: "media" }),
+    defineField({ name: "features", title: "Key selling points", type: "array", group: "details", of: [{ type: "string" }] }),
+    defineField({ name: "attributes", title: "Product attributes", type: "array", group: "details", of: [{ type: "object", fields: [{ name: "name", title: "Attribute", type: "string" }, { name: "value", title: "Value", type: "string" }] }] }),
+    defineField({ name: "specifications", title: "Specifications", type: "array", group: "details", of: [{ type: "object", fields: [{ name: "key", title: "Specification", type: "string" }, { name: "value", title: "Value", type: "string" }] }] }),
+    defineField({ name: "highlights", title: "Detail highlights", type: "array", group: "details", of: [{ type: "object", fields: [{ name: "title", title: "Title", type: "string" }, { name: "description", title: "Description", type: "text", rows: 3 }] }] }),
+    defineField({ name: "applications", title: "Application scenarios", type: "array", group: "details", of: [{ type: "object", fields: [{ name: "title", title: "Scenario", type: "string" }, { name: "description", title: "Description", type: "text", rows: 3 }] }] }),
+    defineField({ name: "body", title: "Rich detail content", type: "array", group: "details", of: [{ type: "block" }, { type: "image", options: { hotspot: true } }, { type: "code" }] }),
+    defineField({ name: "faq", title: "FAQ", type: "array", group: "details", of: [{ type: "object", fields: [{ name: "question", title: "Question", type: "string" }, { name: "answer", title: "Answer", type: "text", rows: 3 }] }] }),
+    defineField({ name: "geoMarkets", title: "GEO target markets", type: "array", group: "seo", of: [{ type: "string" }], options: { list: ["Global", "United States", "Canada", "Europe", "United Kingdom", "Australia", "UAE / Middle East", "Singapore / Southeast Asia"] } }),
+    defineField({ name: "seoTitle", title: "SEO title", type: "string", group: "seo" }),
+    defineField({ name: "seoDescription", title: "SEO description", type: "text", rows: 3, group: "seo" }),
+    defineField({ name: "seoKeywords", title: "SEO keywords", type: "array", group: "seo", of: [{ type: "string" }] }),
+    defineField({ name: "canonicalUrl", title: "Canonical URL", type: "url", group: "seo" }),
+    defineField({ name: "ogImage", title: "Social share image", type: "image", group: "seo", options: { hotspot: true } }),
+  ],
+  preview: {
+    select: { title: "name", subtitle: "category", media: "heroImage" },
+  },
+});

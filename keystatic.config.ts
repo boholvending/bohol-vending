@@ -129,6 +129,26 @@ export default config({
             itemLabel: (props) => props.fields.name.value || "Attribute",
           },
         ),
+        highlights: fields.array(
+          fields.object({
+            title: fields.text({ label: "Highlight title", validation: { isRequired: true } }),
+            description: fields.text({ label: "Highlight description", multiline: true, validation: { isRequired: true } }),
+          }),
+          {
+            label: "Product detail highlights",
+            itemLabel: (props) => props.fields.title.value || "Highlight",
+          },
+        ),
+        applications: fields.array(
+          fields.object({
+            title: fields.text({ label: "Application scenario", validation: { isRequired: true } }),
+            description: fields.text({ label: "Scenario description", multiline: true, validation: { isRequired: true } }),
+          }),
+          {
+            label: "Application scenarios",
+            itemLabel: (props) => props.fields.title.value || "Application",
+          },
+        ),
         specifications: fields.array(
           fields.object({
             key: fields.text({ label: "Specification", validation: { isRequired: true } }),
@@ -137,6 +157,26 @@ export default config({
           {
             label: "Specifications",
             itemLabel: (props) => props.fields.key.value || "Specification",
+          },
+        ),
+        faq: fields.array(
+          fields.object({
+            question: fields.text({ label: "Question", validation: { isRequired: true } }),
+            answer: fields.text({ label: "Answer", multiline: true, validation: { isRequired: true } }),
+          }),
+          {
+            label: "Product FAQ",
+            itemLabel: (props) => props.fields.question.value || "FAQ",
+          },
+        ),
+        downloads: fields.array(
+          fields.object({
+            label: fields.text({ label: "Download label", validation: { isRequired: true } }),
+            url: fields.url({ label: "File or page URL", validation: { isRequired: true } }),
+          }),
+          {
+            label: "Downloads / external links",
+            itemLabel: (props) => props.fields.label.value || "Download",
           },
         ),
         seoTitle: fields.text({
