@@ -8,10 +8,10 @@ export default function config(phase: string): NextConfig {
     distDir: development ? ".next-preview" : ".next",
     compress: true,
     poweredByHeader: false,
-    images: { formats: ["image/avif", "image/webp"], minimumCacheTTL: 3600 },
+    images: { formats: ["image/avif", "image/webp"], minimumCacheTTL: 31536000 },
     async headers() {
       // Next.js manages hashed asset caching. Never make development chunks immutable.
-      return [{ source: "/images/:path*", headers: [{ key: "Cache-Control", value: development ? "no-store" : "public, max-age=3600, must-revalidate" }] }];
+      return [{ source: "/images/:path*", headers: [{ key: "Cache-Control", value: development ? "no-store" : "public, max-age=31536000, immutable" }] }];
     },
   };
 }

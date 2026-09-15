@@ -13,6 +13,7 @@ const slides = [
 
 export function HeroCarousel() {
   const [active, setActive] = useState(0);
+  const activeSlide = slides[active];
 
   useEffect(() => {
     const timer = setInterval(() => setActive((value) => (value + 1) % slides.length), 6500);
@@ -20,10 +21,10 @@ export function HeroCarousel() {
   }, []);
 
   return <>
-    <div className={`product-stage ${slides[active].studio ? "studio-active" : ""}`} aria-live="polite">
+    <div className={`product-stage ${activeSlide.studio ? "studio-active" : ""}`} aria-live="polite">
       <div className="stage-glow" />
-      {slides.map((slide, index) => <Image key={slide.image} className={`hero-product ${slide.studio ? "studio-product" : ""} ${index === active ? "is-active" : ""}`} src={slide.image} alt={`${slide.name} product view`} width={1024} height={1536} priority={index === 0} sizes="(max-width: 700px) 70vw, 38vw" />)}
-      <p className="visual-note">{slides[active].name.toUpperCase()}<br /><span>3D PRODUCT VISUAL</span></p>
+      <Image key={activeSlide.image} className={`hero-product ${activeSlide.studio ? "studio-product" : ""} is-active`} src={activeSlide.image} alt={`${activeSlide.name} product view`} width={1024} height={1536} priority={active === 0} sizes="(max-width: 700px) 70vw, 38vw" />
+      <p className="visual-note">{activeSlide.name.toUpperCase()}<br /><span>3D PRODUCT VISUAL</span></p>
     </div>
     <div className="hero-rail">
       {slides.map((slide, index) => <button onClick={() => setActive(index)} className={index === active ? "active" : ""} key={slide.name} style={{ "--accent": slide.accent } as React.CSSProperties}><span>{slide.index}</span><div><small>{slide.kicker}</small><strong>{slide.name}</strong></div><ChevronRight size={17} /></button>)}
