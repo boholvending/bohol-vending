@@ -5,7 +5,7 @@ export function BrandLogo() {
     <span className="brand-lockup" aria-hidden="true">
       <Image
         className="brand-logo-image"
-        src="/images/brand/bohol-nav-mark.png"
+        src="/images/brand/bohol-nav-mark.webp"
         alt=""
         width={192}
         height={192}

@@ -15,7 +15,7 @@ export function WhyBohol() {
     <h2 id="why-bohol-title">Why choose <span>BOHOL<br />Smart Vending</span></h2>
     <div className={styles.layout}>
       <div className={styles.column}>{benefits.slice(0, 3).map(item => <article key={item.title}><h3>{item.title}</h3><p>{item.text}</p></article>)}</div>
-      <figure className={styles.visual}><Image src="/images/catalog/cold-drink-queue-concept.png" alt="International shoppers queue to purchase drinks from a BOHOL vending machine" width={1024} height={1536} sizes="(max-width: 700px) 90vw, (max-width: 1000px) 40vw, 360px" /></figure>
+      <figure className={styles.visual}><Image src="/images/catalog/cold-drink-queue-concept.webp" alt="International shoppers queue to purchase drinks from a BOHOL vending machine" width={1024} height={1536} sizes="(max-width: 700px) 90vw, (max-width: 1000px) 40vw, 360px" /></figure>
       <div className={styles.column}>{benefits.slice(3).map(item => <article key={item.title}><h3>{item.title}</h3><p>{item.text}</p></article>)}</div>
     </div>
   </section>;

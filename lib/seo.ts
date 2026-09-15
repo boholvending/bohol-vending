@@ -6,7 +6,7 @@ export const organizationJsonLd = {
   "@id": `${siteUrl}/#organization`,
   name: "BOHOL",
   url: siteUrl,
-  logo: `${siteUrl}/images/brand/bohol-logo.png`,
+  logo: `${siteUrl}/images/brand/bohol-logo.webp`,
   description: "Source-direct intelligent vending machine manufacturer based in Panyu, Guangzhou, Guangdong, China.",
   address: {
     "@type": "PostalAddress",

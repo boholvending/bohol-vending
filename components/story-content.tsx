@@ -5,18 +5,18 @@ import { notFound } from "next/navigation";
 import { stories } from "@/lib/stories";
 
 const storyImages:Record<string,string>={
-  "office-smart-store":"/images/cases/office-smart-store-bohol.png",
-  "apartment-lobby-vending":"/images/cases/apartment-lobby-bohol.png",
-  "hotel-lobby-vending":"/images/cases/hotel-lobby-bohol.png",
-  "gym-vending":"/images/cases/gym-smart-store-bohol.png",
-  "hospital-vending":"/images/cases/hospital-bohol.png",
-  "school-campus-vending":"/images/cases/school-bohol.png",
-  "public-building-vending":"/images/cases/government-bohol.png",
-  "commercial-breakroom-vending":"/images/cases/breakroom.jpg",
-  "residential-tower-vending":"/images/cases/residential-lobby.jpg",
-  "dessert-bakery-vending":"/images/cases/dessert-retail.jpg",
-  "customer-pickup-vending":"/images/cases/customer-buying.jpg",
-  "distributor-showroom-vending":"/images/cases/market-wall.jpg",
+  "office-smart-store":"/images/cases/office-smart-store-bohol.webp",
+  "apartment-lobby-vending":"/images/cases/apartment-lobby-bohol.webp",
+  "hotel-lobby-vending":"/images/cases/hotel-lobby-bohol.webp",
+  "gym-vending":"/images/cases/gym-smart-store-bohol.webp",
+  "hospital-vending":"/images/cases/hospital-bohol.webp",
+  "school-campus-vending":"/images/cases/school-bohol.webp",
+  "public-building-vending":"/images/cases/government-bohol.webp",
+  "commercial-breakroom-vending":"/images/cases/breakroom.webp",
+  "residential-tower-vending":"/images/cases/residential-lobby.webp",
+  "dessert-bakery-vending":"/images/cases/dessert-retail.webp",
+  "customer-pickup-vending":"/images/cases/customer-buying.webp",
+  "distributor-showroom-vending":"/images/cases/market-wall.webp",
 };
 
 export function StoryContent({kind,slug,locale="en"}:{kind:string;slug:string;locale?:"en"|"zh"}) {

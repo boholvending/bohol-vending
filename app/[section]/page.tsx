@@ -15,25 +15,25 @@ export async function generateMetadata({ params }: { params: Promise<{ section: 
       title: "Vending Industry News, Market Research & Buying Guides",
       description: "Explore sourced vending industry analysis, European and US market trends, cashless payment guidance and OEM buying advice from BOHOL.",
       keywords: ["vending industry news", "vending market research", "cashless vending", "OEM vending machine guide"],
-      image: "/images/cases/hotel-lobby-bohol.png",
+      image: "/images/cases/hotel-lobby-bohol.webp",
     },
     solutions: {
       title: "Overseas Vending Solutions for Offices, Hotels, Gyms and Campuses",
       description: "BOHOL smart vending solutions for overseas offices, apartments, hotels, gyms, hospitals, schools and public facilities, with OEM/ODM hardware, payment and operation support.",
       keywords: ["overseas vending solutions", "smart vending machine", "office vending machine", "hotel vending machine", "gym vending machine", "apartment lobby vending", "custom vending machine manufacturer", "China vending machine supplier"],
-      image: "/images/cases/office-smart-store-bohol.png",
+      image: "/images/cases/office-smart-store-bohol.webp",
     },
     "oem-odm": {
       title: "OEM ODM Custom Vending Machine Manufacturer for Global Markets",
       description: "BOHOL builds custom vending machines for global rollout, including cabinet branding, product channels, payment integration, prototypes and mass production.",
       keywords: ["OEM vending machine", "ODM vending machine", "custom vending machine manufacturer", "vending machine factory China", "smart vending cabinet", "global vending machine supplier"],
-      image: "/images/cases/team-installation.jpg",
+      image: "/images/cases/team-installation.webp",
     },
     projects: {
       title: "Overseas Smart Vending Application Cases | BOHOL",
       description: "Explore BOHOL overseas vending application cases for the United States, Canada, Europe, UK, UAE, Singapore, Australia and global distributors.",
       keywords: ["vending machine case study", "overseas vending cases", "USA office vending", "Canada apartment vending", "Europe hotel vending", "UAE gym vending", "Singapore hospital vending", "Australia campus vending"],
-      image: "/images/cases/customer-buying.jpg",
+      image: "/images/cases/customer-buying.webp",
     },
   };
   const meta = seo[section];
