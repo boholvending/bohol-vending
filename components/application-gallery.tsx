@@ -4,9 +4,9 @@ import { ArrowUpRight } from "lucide-react";
 import styles from "./application-gallery.module.css";
 
 const scenes = [
-  { image: "lobby", title: "A refreshment stop in the lobby.", description: "Explore a drinks vending layout for shared entrances and waiting areas." },
-  { image: "lounge", title: "Refreshments beside the lounge.", description: "Consider how vending can fit alongside an existing break area." },
-  { image: "office", title: "Everyday drinks at the workplace.", description: "Plan a convenient drinks point for staff and visitors." },
+  { image: "lobby-clean", title: "A refreshment stop in the lobby.", description: "Explore a drinks vending layout for shared entrances and waiting areas." },
+  { image: "lounge-clean", title: "Refreshments beside the lounge.", description: "Consider how vending can fit alongside an existing break area." },
+  { image: "office-clean", title: "Everyday drinks at the workplace.", description: "Plan a convenient drinks point for staff and visitors." },
 ];
 
 export function ApplicationGallery() {
