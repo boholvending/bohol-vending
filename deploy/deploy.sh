@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-APP_DIR="${APP_DIR:-/var/www/bohol-vending}"
+APP_DIR="${APP_DIR:-/home/boholvending/htdocs/boholvending.com}"
 cd "$APP_DIR"
 
 git fetch origin main
