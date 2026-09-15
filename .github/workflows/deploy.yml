@@ -2,16 +2,30 @@ name: Deploy BOHOL website
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 concurrency:
   group: production
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   deploy:
-    runs-on: self-hosted
+    runs-on: [self-hosted, Linux, X64]
+    timeout-minutes: 20
     steps:
-      - name: Deploy website
-        run: sudo /var/www/bohol-vending/deploy/deploy.sh
+      - name: Update and deploy website
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+          cd /var/www/bohol-vending
+          test "$(whoami)" = "sicotcna03"
+          git pull --ff-only origin main
+          npm ci --include=dev
+          npm run build
+          pm2 restart bohol-vending --update-env
+          pm2 save
+          curl --fail --retry 10 --retry-connrefused --retry-delay 3 http://127.0.0.1:3000/ --output /dev/null
