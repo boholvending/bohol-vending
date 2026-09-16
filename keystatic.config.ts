@@ -33,33 +33,33 @@ export default config({
   ui: { brand: { name: "BOHOL Content" } },
   collections: {
     products: collection({
-      label: "Products",
+      label: "产品管理",
       slugField: "name",
       path: "content/products/*",
       format: { contentField: "details" },
       schema: {
-        name: fields.slug({ name: { label: "Product name", validation: { isRequired: true } } }),
+        name: fields.slug({ name: { label: "产品名称（网站显示英文）", validation: { isRequired: true } } }),
         status: fields.select({
-          label: "Publish status",
+          label: "发布状态",
           defaultValue: "draft",
           options: [
-            { label: "Draft", value: "draft" },
-            { label: "Published", value: "published" },
+            { label: "草稿", value: "draft" },
+            { label: "已发布", value: "published" },
           ],
         }),
         category: fields.select({
-          label: "Category",
+          label: "产品分类",
           defaultValue: "food-beverage",
           options: productCategoryOptions,
         }),
         marketRegions: fields.multiselect({
-          label: "GEO target markets",
+          label: "GEO 目标市场",
           defaultValue: ["global"],
           options: marketOptions,
           description: "Used for GEO/market targeting, landing-page copy and structured product context.",
         }),
         buyerTypes: fields.multiselect({
-          label: "Best for",
+          label: "适用客户类型",
           defaultValue: ["operator"],
           options: [
             { label: "Brand owners", value: "brand" },
@@ -71,45 +71,45 @@ export default config({
           ],
         }),
         coverImage: fields.image({
-          label: "Cover image",
+          label: "封面图片",
           directory: "public/uploads/products",
           publicPath: "/uploads/products/",
         }),
         gallery: fields.array(
           fields.image({
-            label: "Gallery image",
+            label: "图库图片",
             directory: "public/uploads/products/gallery",
             publicPath: "/uploads/products/gallery/",
           }),
           {
-            label: "Product gallery",
+          label: "产品图库",
             itemLabel: () => "Gallery image",
           },
         ),
-        summary: fields.text({ label: "Short description", multiline: true, validation: { isRequired: true } }),
+        summary: fields.text({ label: "简短描述（网站显示英文）", multiline: true, validation: { isRequired: true } }),
         priceMode: fields.select({
-          label: "Price display",
+          label: "价格显示方式",
           defaultValue: "quote",
           options: [
-            { label: "Request quote", value: "quote" },
-            { label: "Show starting price", value: "starting" },
-            { label: "Show fixed price", value: "fixed" },
+            { label: "询价", value: "quote" },
+            { label: "显示起始价格", value: "starting" },
+            { label: "显示固定价格", value: "fixed" },
           ],
         }),
-        currency: fields.select({ label: "Currency", defaultValue: "USD", options: currencyOptions }),
+        currency: fields.select({ label: "货币", defaultValue: "USD", options: currencyOptions }),
         price: fields.number({
-          label: "Price",
+          label: "价格",
           step: 0.01,
           description: "Leave empty if pricing is quote-based.",
         }),
         minimumOrderQuantity: fields.integer({
-          label: "Minimum order quantity",
+          label: "最小起订量",
           defaultValue: 1,
           validation: { min: 1 },
         }),
-        leadTime: fields.text({ label: "Lead time", description: "Example: 25–45 days after deposit" }),
+        leadTime: fields.text({ label: "交货周期", description: "示例：定金后 25–45 天" }),
         paymentOptions: fields.multiselect({
-          label: "Payment options",
+          label: "支付方式",
           defaultValue: ["card", "mobile"],
           options: [
             { label: "Card payment", value: "card" },
@@ -121,51 +121,51 @@ export default config({
         }),
         productAttributes: fields.array(
           fields.object({
-            name: fields.text({ label: "Attribute", validation: { isRequired: true } }),
-            value: fields.text({ label: "Value", validation: { isRequired: true } }),
+            name: fields.text({ label: "属性名称", validation: { isRequired: true } }),
+            value: fields.text({ label: "属性值", validation: { isRequired: true } }),
           }),
           {
-            label: "Product attributes",
+            label: "产品属性",
             itemLabel: (props) => props.fields.name.value || "Attribute",
           },
         ),
         highlights: fields.array(
           fields.object({
-            title: fields.text({ label: "Highlight title", validation: { isRequired: true } }),
-            description: fields.text({ label: "Highlight description", multiline: true, validation: { isRequired: true } }),
+            title: fields.text({ label: "卖点标题（英文）", validation: { isRequired: true } }),
+            description: fields.text({ label: "卖点说明（英文）", multiline: true, validation: { isRequired: true } }),
           }),
           {
-            label: "Product detail highlights",
+            label: "产品核心卖点",
             itemLabel: (props) => props.fields.title.value || "Highlight",
           },
         ),
         applications: fields.array(
           fields.object({
-            title: fields.text({ label: "Application scenario", validation: { isRequired: true } }),
-            description: fields.text({ label: "Scenario description", multiline: true, validation: { isRequired: true } }),
+            title: fields.text({ label: "应用场景标题（英文）", validation: { isRequired: true } }),
+            description: fields.text({ label: "场景说明（英文）", multiline: true, validation: { isRequired: true } }),
           }),
           {
-            label: "Application scenarios",
+            label: "应用场景",
             itemLabel: (props) => props.fields.title.value || "Application",
           },
         ),
         specifications: fields.array(
           fields.object({
-            key: fields.text({ label: "Specification", validation: { isRequired: true } }),
-            value: fields.text({ label: "Value", validation: { isRequired: true } }),
+            key: fields.text({ label: "规格名称", validation: { isRequired: true } }),
+            value: fields.text({ label: "规格值", validation: { isRequired: true } }),
           }),
           {
-            label: "Specifications",
+            label: "技术规格",
             itemLabel: (props) => props.fields.key.value || "Specification",
           },
         ),
         faq: fields.array(
           fields.object({
-            question: fields.text({ label: "Question", validation: { isRequired: true } }),
-            answer: fields.text({ label: "Answer", multiline: true, validation: { isRequired: true } }),
+            question: fields.text({ label: "常见问题（英文）", validation: { isRequired: true } }),
+            answer: fields.text({ label: "问题答案（英文）", multiline: true, validation: { isRequired: true } }),
           }),
           {
-            label: "Product FAQ",
+            label: "产品常见问题 FAQ",
             itemLabel: (props) => props.fields.question.value || "FAQ",
           },
         ),
@@ -180,29 +180,29 @@ export default config({
           },
         ),
         seoTitle: fields.text({
-          label: "SEO title",
+          label: "SEO 标题（英文）",
           description: "Recommended under 60 characters. If empty, product name is used.",
         }),
         seoDescription: fields.text({
-          label: "SEO description",
+          label: "SEO 描述（英文）",
           multiline: true,
           description: "Recommended 140–160 characters. If empty, short description is used.",
         }),
         seoKeywords: fields.array(fields.text({ label: "Keyword" }), {
-          label: "SEO keywords",
+          label: "SEO 关键词（英文）",
           itemLabel: (props) => props.value || "Keyword",
         }),
         canonicalUrl: fields.url({
-          label: "Canonical URL",
+          label: "规范链接 Canonical",
           description: "Optional. Leave empty to use the normal product page URL.",
         }),
         ogImage: fields.image({
-          label: "Social share image",
+          label: "社交分享图片",
           directory: "public/uploads/products/seo",
           publicPath: "/uploads/products/seo/",
         }),
         details: fields.document({
-          label: "Product detail page content",
+          label: "产品详情页内容（英文，可插入图片/代码）",
           images: {
             directory: "public/uploads/products/details",
             publicPath: "/uploads/products/details/",
