@@ -26,8 +26,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const fallback = stories[kind][slug];
   if (!cms && article) return { title: article.title, description: article.description, keywords: article.keywords, alternates: { canonical: `/insights/${slug}`, languages: { en: `/insights/${slug}` } }, openGraph: { type: "article", title: article.title, description: article.description, publishedTime: insightDate, modifiedTime: insightDate, images: [{ url: article.image, alt: article.imageAlt }] }, twitter: { card: "summary_large_image", title: article.title, description: article.description, images: [article.image] } };
   if (!cms && !fallback) return {};
-  const title = cms?.title || fallback.title.en;
-  const description = cms?.excerpt || fallback.intro.en;
+  const title = cms?.seoTitle || cms?.title || fallback.title.en;
+  const description = cms?.seoDescription || cms?.excerpt || fallback.intro.en;
   const image = cms?.coverImage ? [cms.coverImage] : [];
   return { title, description, alternates: { canonical: `/${kind}/${slug}`, languages: { en: `/${kind}/${slug}`, "zh-CN": `/zh/${kind}/${slug}` } }, openGraph: { title, description, images: image }, twitter: { title, description, images: image } };
 }

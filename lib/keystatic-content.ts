@@ -113,8 +113,8 @@ function productFromEntry(slug: string, entry: Awaited<ReturnType<typeof reader.
     name: entry.name,
     category: categoryLabel(entry.category),
     summary: entry.summary,
-    image: entry.coverImage || "/images/hero/vape-machine.webp",
-    features: [...attributes.map((item) => `${item.name}: ${item.value}`), ...specifications.map((item) => `${item.key}: ${item.value}`)],
+    image: entry.coverImage || entry.existingImage || "/images/hero/vape-machine.webp",
+    features: [...attributes.map((item) => `${item.name}: ${item.value}`), ...specifications.map((item) => `${item.key}: ${item.value}`), ...(entry.highlights || []).map(item => item.title)],
     status: entry.status,
     marketRegions: entry.marketRegions,
     buyerTypes: entry.buyerTypes,
@@ -191,11 +191,11 @@ export async function getProducts(): Promise<ProductRecord[]> {
 export async function getProduct(slug: string): Promise<ProductRecord | null> {
   if (sanityConfigured && sanity) {
     const entry = await sanity.fetch<SanityProduct | null>(`*[_type == "product" && slug.current == $slug][0] ${sanityProductProjection}`, { slug });
-    if (entry) return productFromSanity(entry);
+    if (entry) return entry.status === "published" ? productFromSanity(entry) : null;
   }
   const entry = await reader.collections.products.read(slug);
   if (!entry) return fallbackProducts.find((product) => product.slug === slug) || null;
-  return productFromEntry(slug, entry);
+  return entry.status === "draft" ? null : productFromEntry(slug, entry);
 }
 
 export async function getProductDocument(slug: string) {
@@ -206,10 +206,20 @@ export async function getProductDocument(slug: string) {
 export async function getNews() {
   const records = await reader.collections.news.all();
   return records
+    .filter(({ entry }) => entry.status !== "draft")
     .map(({ slug, entry }) => ({ slug, ...entry }))
     .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
 }
 
 export async function getNewsArticle(slug: string) {
-  return reader.collections.news.read(slug);
+  const entry = await reader.collections.news.read(slug);
+  return entry?.status === "draft" ? null : entry;
+}
+
+export async function getAdminContent() {
+  const [products, news] = await Promise.all([reader.collections.products.all(), reader.collections.news.all()]);
+  return {
+    products: products.map(({slug, entry}) => ({slug, title:entry.name, status:entry.status, category:categoryLabel(entry.category)})),
+    news: news.map(({slug, entry}) => ({slug, title:entry.title, status:entry.status, category:entry.publishedAt})),
+  };
 }

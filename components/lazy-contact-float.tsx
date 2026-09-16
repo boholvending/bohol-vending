@@ -11,7 +11,7 @@ const ContactFloat = dynamic(
 export function LazyContactFloat() {
   const pathname = usePathname();
 
-  if (pathname.startsWith("/keystatic")) return null;
+  if (pathname.startsWith("/keystatic") || pathname.startsWith("/admin")) return null;
 
   return <ContactFloat />;
 }

@@ -86,6 +86,7 @@ export default config({
             itemLabel: () => "Gallery image",
           },
         ),
+        existingImage: fields.text({ label: "现有图片路径", description: "保留网站已有图片，例如 /images/hero/vape-machine.webp；上传新封面后优先使用新封面。" }),
         summary: fields.text({ label: "简短描述（网站显示英文）", multiline: true, validation: { isRequired: true } }),
         priceMode: fields.select({
           label: "价格显示方式",
@@ -132,7 +133,7 @@ export default config({
         highlights: fields.array(
           fields.object({
             title: fields.text({ label: "卖点标题（英文）", validation: { isRequired: true } }),
-            description: fields.text({ label: "卖点说明（英文）", multiline: true, validation: { isRequired: true } }),
+            description: fields.text({ label: "卖点说明（英文，可选）", multiline: true }),
           }),
           {
             label: "产品核心卖点",
@@ -211,21 +212,24 @@ export default config({
       },
     }),
     news: collection({
-      label: "News & Blog",
+      label: "文章与新闻",
       slugField: "title",
       path: "content/news/*",
       format: { contentField: "content" },
       schema: {
-        title: fields.slug({ name: { label: "Article title", validation: { isRequired: true } } }),
-        publishedAt: fields.date({ label: "Publication date", validation: { isRequired: true } }),
+        title: fields.slug({ name: { label: "文章标题（英文）", validation: { isRequired: true } } }),
+        status: fields.select({ label: "发布状态", defaultValue: "draft", options: [{ label: "草稿", value: "draft" }, { label: "已发布", value: "published" }] }),
+        seoTitle: fields.text({ label: "SEO 标题（英文）", description: "留空使用文章标题。" }),
+        seoDescription: fields.text({ label: "SEO 描述（英文）", multiline: true, description: "留空使用文章摘要。" }),
+        publishedAt: fields.date({ label: "发布日期", validation: { isRequired: true } }),
         coverImage: fields.image({
           label: "Cover image",
           directory: "public/uploads/news",
           publicPath: "/uploads/news/",
         }),
-        excerpt: fields.text({ label: "Summary", multiline: true, validation: { isRequired: true } }),
+        excerpt: fields.text({ label: "文章摘要（英文）", multiline: true, validation: { isRequired: true } }),
         content: fields.document({
-          label: "Article content",
+          label: "文章正文（英文，支持图片）",
           images: { directory: "public/uploads/news/content", publicPath: "/uploads/news/content/" },
         }),
       },
