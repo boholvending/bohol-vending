@@ -30,6 +30,7 @@
 7. GA4 报表需要读取授权或 Looker Studio 报表；测量 ID 不等于报表权限。
 8. 自定义后台 skill 已创建：C:/Users/admin/.codex/skills/bohol-admin/SKILL.md。已使用 efficient-delivery、skill-creator；沿用 Impeccable Operate 规范。
 9. 本次验证成功后才决定推送；必须报告部署是否实际确认。
+10. 用户放弃 Google/Data Studio，改用 Umami 作为网站访问统计。已开始接入 Umami，但服务器安装、DNS、反向代理、真实 Website ID 和 Share URL 仍未完成。
 
 ## 继续位置
 先运行构建确认迁入条目可读；检查 /admin/products 与 Keystatic 返回导航。
@@ -45,3 +46,11 @@
 - bohol-admin Skill 校验通过（python -X utf8 quick_validate.py）。
 - 已向用户询问管理员登录方式：独立账号密码 / Google 登录。回复前不假设已授权 Google 登录配置。
 - 本轮先保留本地提交；不宣称生产部署完成。
+
+## Umami 统计接入记录
+- 新增 components/umami-analytics.tsx：读取 NEXT_PUBLIC_UMAMI_SCRIPT_URL 与 NEXT_PUBLIC_UMAMI_WEBSITE_ID，使用 lazyOnload 加载。
+- app/layout.tsx 改为加载 Umami，不再加载 GoogleAnalytics 组件。
+- /admin/analytics 改为 Umami 面板：配置 NEXT_PUBLIC_UMAMI_SHARE_URL 后嵌入报表；未配置时显示真实待办，不显示假数字。
+- 报价表单、聊天面板和联系方式按钮已加 Umami 事件标记。
+- 新增 deploy/umami-docker-compose.yml 与 docs/umami-analytics.md，准备服务器自托管方案。
+- 尚未安装服务器 Umami，尚未拿到真实 Website ID / Share URL，尚未验证生产数据流。
