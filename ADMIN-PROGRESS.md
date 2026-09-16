@@ -53,4 +53,6 @@
 - /admin/analytics 改为 Umami 面板：配置 NEXT_PUBLIC_UMAMI_SHARE_URL 后嵌入报表；未配置时显示真实待办，不显示假数字。
 - 报价表单、聊天面板和联系方式按钮已加 Umami 事件标记。
 - 新增 deploy/umami-docker-compose.yml 与 docs/umami-analytics.md，准备服务器自托管方案。
-- 尚未安装服务器 Umami，尚未拿到真实 Website ID / Share URL，尚未验证生产数据流。
+- Umami 已安装并可通过 http://stats.boholvending.com 访问；真实 Website ID 为 67526bd7-f75d-45f3-b748-86d84ac8ab32。
+- 仍需给 stats.boholvending.com 配置 HTTPS，否则 https 主站会拦截 http 统计脚本。
+- 尚未拿到 Share URL，后台 /admin/analytics 还不能嵌入真实报表。
