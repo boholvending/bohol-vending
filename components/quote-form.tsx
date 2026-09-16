@@ -3,13 +3,11 @@ import { useState } from "react";
 
 export function QuoteForm({ locale = "en", productName = "" }: { locale?: "en" | "zh"; productName?: string }) {
   const zh = locale === "zh";
-  const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "";
   const [status, setStatus] = useState<{ type: "idle" | "success" | "error"; message: string }>({ type: "idle", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   async function submitEnquiry(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (isSubmitting) return;
-    if (!accessKey || accessKey.startsWith("replace")) return setStatus({ type: "error", message: zh ? "在线发送暂未开通，请发送邮件至 sales@boholvending.com。内容已保留。" : "Online sending is not available yet. Please email sales@boholvending.com. Your entries have been kept." });
     const form = event.currentTarget;
     setIsSubmitting(true); setStatus({ type: "idle", message: "" });
     try {
@@ -25,6 +23,7 @@ export function QuoteForm({ locale = "en", productName = "" }: { locale?: "en" |
         data.set("First landing page", sessionStorage.getItem("bohol.entryPage") || window.location.pathname);
         data.set("External referrer", sessionStorage.getItem("bohol.externalReferrer") || "Direct / unavailable");
       } catch { data.set("Previous page", document.referrer || "Unavailable"); }
+      data.set("Source", "quote-form");
       const response = await fetch(form.action, { method: "POST", body: data, headers: { Accept: "application/json" }, signal: AbortSignal.timeout(20000) });
       const result = await response.json();
       if (!response.ok || !result.success) throw new Error(result.message || "Submission failed");
@@ -35,8 +34,7 @@ export function QuoteForm({ locale = "en", productName = "" }: { locale?: "en" |
       setStatus({ type: "error", message: zh ? "暂时无法发送，请检查网络后重试。您填写的内容仍保留在页面中。" : "We could not send your enquiry. Check your connection and try again; your entries are still here." });
     } finally { setIsSubmitting(false); }
   }
-  return <form className="quote-form" action="https://api.web3forms.com/submit" method="POST" onSubmit={submitEnquiry}>
-    <input type="hidden" name="access_key" value={accessKey} />
+  return <form className="quote-form" action="/api/inquiries" method="POST" onSubmit={submitEnquiry}>
     <input type="hidden" name="subject" value="New BOHOL vending machine enquiry" />
     <input type="hidden" name="from_name" value="BOHOL Website" />
     <input type="checkbox" name="botcheck" tabIndex={-1} autoComplete="off" style={{ display: "none" }} aria-hidden="true" />
