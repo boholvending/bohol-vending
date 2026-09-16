@@ -15,7 +15,7 @@ Umami replaces the unfinished Google/Data Studio analytics flow.
 ```env
 NEXT_PUBLIC_UMAMI_SCRIPT_URL=https://stats.boholvending.com/script.js
 NEXT_PUBLIC_UMAMI_WEBSITE_ID=67526bd7-f75d-45f3-b748-86d84ac8ab32
-NEXT_PUBLIC_UMAMI_SHARE_URL=https://stats.boholvending.com/share/replace_with_share_token/boholvending.com
+NEXT_PUBLIC_UMAMI_SHARE_URL=https://stats.boholvending.com/share/TDZJE9DwE8PFyJe4
 ```
 
 ## Events already marked
@@ -32,5 +32,4 @@ NEXT_PUBLIC_UMAMI_SHARE_URL=https://stats.boholvending.com/share/replace_with_sh
 - Install Umami on the server.
 - Add DNS for `stats.boholvending.com`.
 - Add an HTTPS reverse proxy in CloudPanel or Nginx.
-- Put the real Share URL into production environment.
-- Rebuild and deploy the website.
+- Rebuild and deploy the website after Share URL changes.

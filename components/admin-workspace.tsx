@@ -12,7 +12,7 @@ const navigation = [
 export function AdminWorkspace({content,section}:{content:{products:Entry[];news:Entry[]};section:string}){
   const [search,setSearch] = useState("");
   const [status,setStatus] = useState("all");
-  const umamiShareUrl = process.env.NEXT_PUBLIC_UMAMI_SHARE_URL || "";
+  const umamiShareUrl = process.env.NEXT_PUBLIC_UMAMI_SHARE_URL || "https://stats.boholvending.com/share/TDZJE9DwE8PFyJe4";
   const umamiScriptUrl = process.env.NEXT_PUBLIC_UMAMI_SCRIPT_URL || "https://stats.boholvending.com/script.js";
   const umamiWebsiteId = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID || "67526bd7-f75d-45f3-b748-86d84ac8ab32";
   const title = navigation.find(n=>n[0]===section)?.[1] || "工作台";

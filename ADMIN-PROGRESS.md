@@ -55,4 +55,4 @@
 - 新增 deploy/umami-docker-compose.yml 与 docs/umami-analytics.md，准备服务器自托管方案。
 - Umami 已安装并可通过 http://stats.boholvending.com 访问；真实 Website ID 为 67526bd7-f75d-45f3-b748-86d84ac8ab32。
 - 仍需给 stats.boholvending.com 配置 HTTPS，否则 https 主站会拦截 http 统计脚本。
-- 尚未拿到 Share URL，后台 /admin/analytics 还不能嵌入真实报表。
+- Share URL 已生成：https://stats.boholvending.com/share/TDZJE9DwE8PFyJe4，并准备接入后台 /admin/analytics。
