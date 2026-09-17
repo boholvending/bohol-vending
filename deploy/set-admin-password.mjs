@@ -1,4 +1,4 @@
-import { pbkdf2Sync, randomBytes } from 'node:crypto';
+import { pbkdf2Sync, randomBytes, randomInt } from 'node:crypto';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { homedir } from 'node:os';
 import { join } from 'node:path';
@@ -22,6 +22,7 @@ function hiddenInput(prompt) {
           reject(new Error('已取消'));
           return;
         } else if (key === '\r' || key === '\n') {
+          if (!value) continue;
           process.stdout.write('\n');
           finish();
           resolve(value);
@@ -42,10 +43,14 @@ function hiddenInput(prompt) {
   });
 }
 
-const first = await hiddenInput('设置后台安全码（8–12 位，输入不显示）：');
-const second = await hiddenInput('再次输入安全码：');
+const generated = process.argv.includes('--generate');
+const alphabet = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789';
+const first = generated
+  ? Array.from({ length: 12 }, () => alphabet[randomInt(alphabet.length)]).join('')
+  : await hiddenInput('设置后台安全码（8–12 位，输入不显示）：');
+const second = generated ? first : await hiddenInput('再次输入安全码：');
 if (first.length < 8 || first.length > 12 || first !== second) {
-  console.error('两次输入不一致，或安全码不是 8–12 位；未修改配置。');
+  console.error(`两次输入不一致，或安全码不是 8–12 位（输入长度：${first.length} 和 ${second.length}）；未修改配置。`);
   process.exit(1);
 }
 
@@ -64,4 +69,5 @@ if (restart.status !== 0) {
   process.exit(1);
 }
 spawnSync('pm2', ['save'], { stdio: 'inherit', env });
+if (generated) console.log(`初始安全码（只在此终端显示，请登录后修改）：${first}`);
 console.log('后台安全码设置成功。请打开 https://boholvending.com/login 登录。');

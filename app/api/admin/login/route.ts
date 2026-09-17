@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { adminCookie, adminUrl, createSession, sameOrigin, sessionSeconds, validPassword } from "@/lib/admin-auth";
+import { adminConfigured, adminCookie, adminUrl, createSession, sameOrigin, sessionSeconds, validPassword } from "@/lib/admin-auth";
 
 export const runtime = "nodejs";
 const attempts = new Map<string, number[]>();
@@ -15,7 +15,7 @@ export async function POST(request: NextRequest) {
   const form = await request.formData();
   const password = form.get("password");
   if (typeof password !== "string" || !(await validPassword(password))) {
-    const reason = process.env.BOHOL_ADMIN_PASSWORD_HASH && process.env.BOHOL_ADMIN_SESSION_SECRET ? "invalid" : "setup";
+    const reason = adminConfigured() ? "invalid" : "setup";
     return NextResponse.redirect(adminUrl(request, `/login?error=${reason}`), 303);
   }
   attempts.delete(ip);
