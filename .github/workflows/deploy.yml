@@ -26,6 +26,11 @@ jobs:
           git pull --ff-only origin main
           npm ci --include=dev
           npm run build
+          if [ -f "$HOME/.config/bohol-vending/admin.env" ]; then
+            set -a
+            source "$HOME/.config/bohol-vending/admin.env"
+            set +a
+          fi
           pm2 restart bohol-vending --update-env
           pm2 save
           curl --fail --retry 10 --retry-connrefused --retry-delay 3 http://127.0.0.1:3000/ --output /dev/null

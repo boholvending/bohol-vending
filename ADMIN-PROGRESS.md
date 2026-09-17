@@ -60,3 +60,11 @@
 - 新增 /api/inquiries：前台询盘表单和右下角聊天留言保存到服务器文件，/admin/inbox 读取真实留言列表；历史聊天无法补回，管理员登录保护仍待接入。
 - 2026-09-17 线上 POST 诊断返回 `EACCES: permission denied, mkdir '/var/lib/bohol-vending'`，证明此前提交没有保存。默认路径改为网站运行账户的 `~/.local/share/bohol-vending/inquiries.jsonl`（可用 `BOHOL_INQUIRIES_FILE` 覆盖），目录和文件分别按 0700、0600 创建。需在部署后实测 POST、读回及后台页面；备份此目录。当前仅“留下联系方式”保存，聊天框即时自动回复不保存。
 - 修复提交 37f8d9a 已部署（GitHub Actions 35168057395 成功）。线上测试提交返回 200 和 ID `mu4td7v3-c6f25553-3123-4f77-8418-d8a13f887cbf`；GET 读回及 /admin/inbox HTML 均包含 `BOHOL delivery test`。此测试记录仍需服务器权限清理；旧失败提交未写入，无法恢复。管理员鉴权仍待完成。
+
+## 后台安全加固（2026-09-17）
+- 用户选择自行指定安全码；不要在聊天或仓库中记录。已新增隐藏输入的服务器设置脚本 `deploy/set-admin-password.mjs`，把 PBKDF2 摘要和会话密钥保存于运行账户私有配置文件；部署脚本在重启前加载它。
+- `/login`、签名 HttpOnly Cookie、8 小时会话、退出、错误安全码限制；后台页面、Keystatic 编辑页面及 API 需登录。未配置时后台锁定。
+- `/api/inquiries` 删除公开 GET；前台写入加同源、大小和限流检查；配置安全响应头。备份/恢复和设置步骤见 `docs/admin-security.md`。
+- 待办：本地功能测试、部署后用户在 SSH 终端运行一次设置脚本、线上登录与权限/前台询盘回归测试。服务器防火墙与系统更新不由网站代码替代。
+- 本地生产构建通过；以临时测试安全码运行后验证：匿名 `/admin/inbox` 307、匿名 Keystatic 编辑接口 401、公开留言 GET 405、错误安全码跳回登录、正确安全码进入后台 200、退出 303、跨站表单请求 403、同源无效表单 400。线上安全码设置和实际登录仍待用户在 SSH 输入自选安全码后验证。
+- `npm audit --omit=dev` 报告 14 项依赖告警（2 high，12 moderate），主要位于 Sanity 相关依赖链；需单独评估兼容升级，不能宣称零漏洞。
