@@ -56,7 +56,5 @@ export function sameOrigin(request: Request) {
 }
 
 export function adminUrl(request: Request, path: string) {
-  const url = new URL(path, request.url);
-  if (process.env.NODE_ENV === "production") url.protocol = "https:";
-  return url;
+  return new URL(path, process.env.NODE_ENV === "production" ? "https://boholvending.com" : request.url);
 }

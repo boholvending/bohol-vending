@@ -70,3 +70,4 @@
 - `npm audit --omit=dev` 报告 14 项依赖告警（2 high，12 moderate），主要位于 Sanity 相关依赖链；需单独评估兼容升级，不能宣称零漏洞。
 - 提交 a1f76a2 已推送，GitHub Actions 35173611498 部署成功。线上匿名 `/admin/inbox` 和 `/keystatic` 均 307 跳转 `/login`，匿名 Keystatic API 401，公开留言 GET 405，`/login` 和 `/contact` 均 200；同源但缺少字段的前台 POST 400，表明写入端点可达。尚未设置用户自选安全码，因此线上正确密码登录、真实前台提交和后台已登录读回仍待用户在 SSH 运行设置脚本后验证。
 - 用户要求安全码改为 8–12 位；登录表单、服务器设置脚本和说明已同步调整，待构建与线上验证。
+- 用户反馈登录跳到 `https://localhost:3000/login?error=setup`。线上无效测试登录复现 303 Location 指向 localhost；修复 `adminUrl` 在生产固定使用 `https://boholvending.com`。用户在聊天里发出的旧安全码长度为 15 位且已暴露，不应使用或存储；应由用户在服务器终端另选 8–12 位新安全码。
