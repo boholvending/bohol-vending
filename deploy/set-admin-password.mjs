@@ -42,10 +42,10 @@ function hiddenInput(prompt) {
   });
 }
 
-const first = await hiddenInput('设置后台安全码（至少 16 位，输入不显示）：');
+const first = await hiddenInput('设置后台安全码（8–12 位，输入不显示）：');
 const second = await hiddenInput('再次输入安全码：');
-if (first.length < 16 || first !== second) {
-  console.error('两次输入不一致，或安全码少于 16 位；未修改配置。');
+if (first.length < 8 || first.length > 12 || first !== second) {
+  console.error('两次输入不一致，或安全码不是 8–12 位；未修改配置。');
   process.exit(1);
 }
 
