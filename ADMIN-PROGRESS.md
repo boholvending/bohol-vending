@@ -57,4 +57,5 @@
 - 仍需给 stats.boholvending.com 配置 HTTPS，否则 https 主站会拦截 http 统计脚本。
 - Share URL 已生成：https://stats.boholvending.com/share/TDZJE9DwE8PFyJe4，并准备接入后台 /admin/analytics。
 - 工作台首页访问数据模块已改为直接嵌入完整报表和国家来源报表，不再只给外部链接。
-- 新增 /api/inquiries：前台询盘表单和右下角聊天留言保存到服务器文件（默认 /var/lib/bohol-vending/inquiries.jsonl），/admin/inbox 读取真实留言列表；历史聊天无法补回，管理员登录保护仍待接入。
+- 新增 /api/inquiries：前台询盘表单和右下角聊天留言保存到服务器文件，/admin/inbox 读取真实留言列表；历史聊天无法补回，管理员登录保护仍待接入。
+- 2026-09-17 线上 POST 诊断返回 `EACCES: permission denied, mkdir '/var/lib/bohol-vending'`，证明此前提交没有保存。默认路径改为网站运行账户的 `~/.local/share/bohol-vending/inquiries.jsonl`（可用 `BOHOL_INQUIRIES_FILE` 覆盖），目录和文件分别按 0700、0600 创建。需在部署后实测 POST、读回及后台页面；备份此目录。当前仅“留下联系方式”保存，聊天框即时自动回复不保存。

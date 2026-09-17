@@ -1,5 +1,7 @@
 import { mkdir, readFile, appendFile } from "node:fs/promises";
 import { dirname } from "node:path";
+import { homedir } from "node:os";
+import { join } from "node:path";
 
 export type Inquiry = {
   id: string;
@@ -23,7 +25,7 @@ export type Inquiry = {
   ip: string;
 };
 
-const storageFile = process.env.BOHOL_INQUIRIES_FILE || "/var/lib/bohol-vending/inquiries.jsonl";
+const storageFile = process.env.BOHOL_INQUIRIES_FILE || join(homedir(), ".local", "share", "bohol-vending", "inquiries.jsonl");
 
 function clean(value: unknown, max = 3000) {
   return String(value || "").replace(/\s+/g, " ").trim().slice(0, max);
@@ -53,8 +55,8 @@ export async function saveInquiry(input: Partial<Inquiry>) {
   };
   if (!inquiry.name || !inquiry.email || !inquiry.message) throw new Error("Missing required fields");
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inquiry.email)) throw new Error("Invalid email");
-  await mkdir(dirname(storageFile), { recursive: true });
-  await appendFile(/*turbopackIgnore: true*/ storageFile, `${JSON.stringify(inquiry)}\n`, "utf8");
+  await mkdir(dirname(storageFile), { recursive: true, mode: 0o700 });
+  await appendFile(/*turbopackIgnore: true*/ storageFile, `${JSON.stringify(inquiry)}\n`, { encoding: "utf8", mode: 0o600 });
   return inquiry;
 }
 
