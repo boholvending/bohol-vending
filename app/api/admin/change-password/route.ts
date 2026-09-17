@@ -11,17 +11,17 @@ export async function POST(request: NextRequest) {
   const ip = request.headers.get("x-real-ip") || request.headers.get("x-forwarded-for")?.split(",")[0] || "unknown";
   const now = Date.now();
   const recent = (attempts.get(ip) || []).filter((time) => now - time < 15 * 60 * 1000);
-  if (recent.length >= 5) return NextResponse.redirect(adminUrl(request, "/admin/security?error=limit"), 303);
+  if (recent.length >= 5) return NextResponse.redirect(adminUrl(request, "/bohol-control-7e9c2f/security?error=limit"), 303);
   const form = await request.formData();
   const current = form.get("current");
   const next = form.get("next");
   const confirmation = form.get("confirmation");
   if (typeof current !== "string" || !(await validPassword(current))) {
     attempts.set(ip, [...recent, now]);
-    return NextResponse.redirect(adminUrl(request, "/admin/security?error=current"), 303);
+    return NextResponse.redirect(adminUrl(request, "/bohol-control-7e9c2f/security?error=current"), 303);
   }
   if (typeof next !== "string" || next.length < 8 || next.length > 12 || next !== confirmation) {
-    return NextResponse.redirect(adminUrl(request, "/admin/security?error=new"), 303);
+    return NextResponse.redirect(adminUrl(request, "/bohol-control-7e9c2f/security?error=new"), 303);
   }
   await changeAdminPassword(next);
   attempts.delete(ip);

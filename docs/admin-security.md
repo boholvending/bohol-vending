@@ -15,4 +15,4 @@ node deploy/set-admin-password.mjs
 
 留言保存于运行账户的 `~/.local/share/bohol-vending/inquiries.jsonl`。请定期把该文件备份到只有管理员能读取的位置；恢复时停止网站，将备份放回相同路径并保持目录 0700、文件 0600，然后启动网站。部署代码不会覆盖此文件。旧版未保存成功的留言无法恢复。
 
-上线后验收：无登录访问 `/admin/inbox` 跳转 `/login`；`/api/inquiries` 的 GET 不返回客户资料；错误安全码不能进入；正确安全码能进入后台并查看既有留言；退出后再次访问后台需重新登录；前台询盘 POST 仍能保存。HTTPS、服务器防火墙、CloudPanel 和系统更新仍需按服务器运维要求维护。
+上线后验收：无登录访问 `/bohol-control-7e9c2f/inbox` 跳转 `/login`；`/api/inquiries` 的 GET 不返回客户资料；错误安全码不能进入；正确安全码能进入后台并查看既有留言；退出后再次访问后台需重新登录；前台询盘 POST 仍能保存。HTTPS、服务器防火墙、CloudPanel 和系统更新仍需按服务器运维要求维护。

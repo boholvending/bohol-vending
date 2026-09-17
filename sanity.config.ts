@@ -11,7 +11,7 @@ export default defineConfig({
   title: "BOHOL Content Studio",
   projectId,
   dataset,
-  basePath: "/admin",
+  basePath: "/bohol-control-7e9c2f",
   plugins: [structureTool(), codeInput()],
   schema: { types: schemaTypes },
 });

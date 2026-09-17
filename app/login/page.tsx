@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 export const dynamic = "force-dynamic";
 
 export default async function LoginPage({ searchParams }: { searchParams: Promise<{ error?: string; changed?: string }> }) {
-  if (validSession((await cookies()).get(adminCookie)?.value)) redirect("/admin");
+  if (validSession((await cookies()).get(adminCookie)?.value)) redirect("/bohol-control-7e9c2f");
   const { error, changed } = await searchParams;
   return <main style={{ minHeight: "100vh", display: "grid", placeItems: "center", padding: 24, background: "#f4f7fb", color: "#172c42" }}>
     <form method="post" action="/api/admin/login" style={{ width: "min(100%, 400px)", display: "grid", gap: 18, background: "white", padding: 32, border: "1px solid #d6e0eb", borderRadius: 12, boxShadow: "0 12px 40px #172c4210" }}>

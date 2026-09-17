@@ -19,7 +19,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.redirect(adminUrl(request, `/login?error=${reason}`), 303);
   }
   attempts.delete(ip);
-  const response = NextResponse.redirect(adminUrl(request, "/admin"), 303);
+  const response = NextResponse.redirect(adminUrl(request, "/bohol-control-7e9c2f"), 303);
   response.cookies.set(adminCookie, createSession(), { httpOnly: true, secure: process.env.NODE_ENV === "production", sameSite: "strict", path: "/", maxAge: sessionSeconds });
   response.headers.set("Cache-Control", "no-store");
   return response;

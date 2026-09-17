@@ -20,7 +20,7 @@ export default function config(phase: string): NextConfig {
           ...(development ? [] : [{ key: "Strict-Transport-Security", value: "max-age=31536000" }]),
         ] },
         { source: "/images/:path*", headers: [{ key: "Cache-Control", value: development ? "no-store" : "public, max-age=31536000, immutable" }] },
-        { source: "/admin/:path*", headers: [{ key: "Cache-Control", value: "private, no-store" }] },
+        { source: "/bohol-control-7e9c2f/:path*", headers: [{ key: "Cache-Control", value: "private, no-store" }] },
         { source: "/keystatic/:path*", headers: [{ key: "Cache-Control", value: "private, no-store" }] },
         { source: "/api/admin/:path*", headers: [{ key: "Cache-Control", value: "no-store" }] },
       ];

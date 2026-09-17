@@ -11,7 +11,7 @@ const ContactFloat = dynamic(
 export function LazyContactFloat() {
   const pathname = usePathname();
 
-  if (pathname.startsWith("/keystatic") || pathname.startsWith("/admin")) return null;
+  if (pathname.startsWith("/keystatic") || pathname.startsWith("/bohol-control-7e9c2f")) return null;
 
   return <ContactFloat />;
 }
