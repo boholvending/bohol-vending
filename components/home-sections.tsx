@@ -22,7 +22,6 @@ import { CompanyStats } from "./company-stats";
 import { CredentialsPreview } from "./credentials-preview";
 import { WhyBohol } from "./why-bohol";
 import { ApplicationGallery } from "./application-gallery";
-import { FactoryVrShowcase } from "./factory-vr-showcase";
 const faqs = [
   {
     q: "What can BOHOL customize?",
@@ -94,7 +93,7 @@ export async function HomeSections() {
         </div>
         <CompanyStats />
       </section>
-      <FactoryVrShowcase />
+      {/* Factory photo tour temporarily hidden; component retained for future use. */}
       <CredentialsPreview />
       <section className="home-products">
         <div className="section-head">
