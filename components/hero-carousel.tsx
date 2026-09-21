@@ -8,7 +8,7 @@ const slides = [
   { index: "01", name: "Vape Vending Machine", kicker: "Age-aware retail", accent: "#58d9f9", image: "/images/hero/vape-machine-cutout.webp" },
   { index: "02", name: "Cold Drink Vending Machine", kicker: "Precision cooling", accent: "#a9f470", image: "/images/hero/cold-drink-machine-cutout.webp" },
   { index: "03", name: "Elevator Vending Machine", kicker: "Careful product delivery", accent: "#ffc665", image: "/images/hero/elevator-machine-cutout.webp" },
-  { index: "04", name: "Eyelash Vending Machine", kicker: "Beauty, automated", accent: "#ff91c8", image: "/images/hero/eyelash-machine-cutout-v2.webp" },
+  { index: "04", name: "Eyelash Vending Machine", kicker: "Beauty, automated", accent: "#ff91c8", image: "/images/hero/eyelash-machine-cutout.webp" },
 ];
 
 export function HeroCarousel() {
