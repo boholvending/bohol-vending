@@ -77,3 +77,4 @@
 - 用户担心公开 `/admin` 易被自动扫描。后台页面入口已移至 `/bohol-control-7e9c2f`，同步修改登录跳转、工作台导航、安全设置返回地址及 Keystatic 返回链接；旧页面路径应返回 404。此举仅降低常见路径扫描，认证和服务端权限检查仍是实际防线。待构建、部署及线上匿名访问验证。此前用户设置初始安全码仍未确认完成。
 - 提交 63b75a7 已推送，GitHub Actions 35189978949 部署成功。生产构建通过；线上匿名访问旧 `/admin` 返回 404、新入口返回 307 至 `/login`，响应 `Cache-Control: private, no-store`。已登录使用和初始化安全码仍待用户完成并确认。
 - 首页首屏第 4 张 Eyelash 机器图在内置浏览器里被 studio 样式 `object-fit: cover` 横向铺满，出现黑底大块和产品跑偏。已改为保持比例完整显示、限制最大宽高并保留阴影；`npm run build` 通过，Impeccable 检测返回空列表。Playwright 截图工具因浏览器内核下载长时间无进度，未完成截图验证。
+- 用户反馈等比例后仍有黑色区域，确认黑色来自 `eyelash-machine-dark-complete.webp` 图片本身。首页轮播第 4 张已改用 `eyelash-machine-cutout-v2.webp`，并移除对应黑底 studio 类名；`npm run build` 通过，Impeccable 检测返回空列表。
