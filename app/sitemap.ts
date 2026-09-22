@@ -1,11 +1,35 @@
 import type { MetadataRoute } from "next";
-import { products } from "@/lib/content";
+import { products as translatedProducts } from "@/lib/content";
+import { getNews, getProducts } from "@/lib/keystatic-content";
+import { siteUrl } from "@/lib/seo";
 import { sectionDetails } from "@/lib/section-details";
 import { stories } from "@/lib/stories";
 import { insightArticles } from "@/lib/insight-articles";
-export default function sitemap(): MetadataRoute.Sitemap {
-  const base = (process.env.NEXT_PUBLIC_SITE_URL || "https://www.boholvending.com").replace(/\/$/, "");
-  const routes = ["", "about", "contact", "vending-machines", ...Object.keys(sectionDetails), ...products.map(p=>`vending-machines/${p.slug}`), ...Object.entries(stories).flatMap(([kind,items])=>Object.keys(items).map(slug=>`${kind}/${slug}`))];
-  const additional = insightArticles.filter(a => !stories.insights[a.slug]).map(a => ({ url: `${base}/insights/${a.slug}` }));
-  return [...additional, ...routes.flatMap(route=>{const en=`${base}${route?`/${route}`:""}`; const zh=`${base}/zh${route?`/${route}`:""}`;const languages={en,"zh-CN":zh};return [{url:en,alternates:{languages}},{url:zh,alternates:{languages}}];})];
+// Next.js serializes this metadata route as XML and sets application/xml.
+export const revalidate = 3600;
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const [products, news] = await Promise.all([getProducts(), getNews()]);
+  const sharedRoutes = [
+    "", "about", "contact", "vending-machines",
+    ...Object.keys(sectionDetails),
+    ...Object.keys(stories.projects).map(slug => `projects/${slug}`),
+    ...Object.keys(stories.insights).map(slug => `insights/${slug}`),
+  ];
+  const englishRoutes = new Set([
+    ...sharedRoutes,
+    ...products.map(product => `vending-machines/${product.slug}`),
+    ...insightArticles.map(article => `insights/${article.slug}`),
+    ...news.map(article => `insights/${article.slug}`),
+  ]);
+  // The Chinese catch-all only supports the translated catalog and stories.
+  // Do not manufacture /zh URLs for English-only articles (they return 404).
+  const chineseRoutes = new Set([
+    ...sharedRoutes,
+    ...translatedProducts.map(product => `vending-machines/${product.slug}`),
+  ]);
+  return [
+    ...Array.from(englishRoutes, route => ({ url: `${siteUrl}${route ? `/${route}` : "/"}` })),
+    ...Array.from(chineseRoutes, route => ({ url: `${siteUrl}/zh${route ? `/${route}` : ""}` })),
+  ];
 }

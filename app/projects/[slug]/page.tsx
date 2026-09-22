@@ -4,7 +4,7 @@ import { SiteShell, BreadcrumbJson } from "@/components/site-shell";
 import { StoryContent } from "@/components/story-content";
 import { stories } from "@/lib/stories";
 const kind = "projects";
-const base = process.env.NEXT_PUBLIC_SITE_URL || "https://www.boholvending.com";
+import { siteUrl as base } from "@/lib/seo";
 const projectSeo:Record<string,{image:string;keywords:string[]}>={
   "office-smart-store":{image:"/images/cases/office-smart-store-bohol.webp",keywords:["office vending machine USA","workplace micro market","smart vending machine supplier"]},
   "apartment-lobby-vending":{image:"/images/cases/apartment-lobby-bohol.webp",keywords:["apartment vending machine Canada","condo vending solution","residential smart store"]},

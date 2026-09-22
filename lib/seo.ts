@@ -1,4 +1,5 @@
-export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://boholvending.com";
+// The public SEO origin must not drift with a preview/server environment value.
+export const siteUrl = "https://www.boholvending.com";
 
 export const organizationJsonLd = {
   "@context": "https://schema.org",

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { sections } from "@/lib/content";
 import { sectionDetails } from "@/lib/section-details";
+import { siteUrl } from "@/lib/seo";
 import { BreadcrumbJson, SiteShell } from "@/components/site-shell";
 import { SectionContent } from "@/components/section-content";
 
@@ -43,6 +44,6 @@ export default async function SectionPage({ params }: { params: Promise<{ sectio
   const { section } = await params;
   const p = sections[section];
   if (!p || !sectionDetails[section]) notFound();
-  const base = process.env.NEXT_PUBLIC_SITE_URL || "https://www.boholvending.com";
+  const base = siteUrl;
   return <SiteShell><BreadcrumbJson items={[{ name: "Home", url: base }, { name: p.eyebrow, url: `${base}/${section}` }]}/><main className="inner-page"><p className="section-tag">{p.eyebrow}</p><h1>{p.title}</h1><p className="inner-lead">{p.intro}</p><SectionContent section={section}/></main></SiteShell>;
 }
