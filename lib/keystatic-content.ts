@@ -6,7 +6,13 @@ import type { PortableTextBlock } from "next-sanity";
 
 const reader = createReader(process.cwd(), config);
 
-export type ProductRecord = (typeof fallbackProducts)[number] & {
+export type ProductRecord = {
+  slug: string;
+  name: string;
+  category: string;
+  summary: string;
+  image: string;
+  features: readonly string[];
   specifications?: readonly { readonly key: string; readonly value: string }[];
   status?: string;
   marketRegions?: readonly string[];

@@ -7,6 +7,127 @@ export type InsightArticle = {
 export const insightDate = "2026-09-23";
 export const insightArticles: InsightArticle[] = [
   {
+    "slug": "wall-mounted-smart-vending-machine-guide",
+    "title": "Wall-Mounted Vending Machine: Compact Smart Retail Guide",
+    "category": "Product application",
+    "region": "Global smart retail",
+    "description": "A buyer guide to wall-mounted smart vending machines, compact retail placement, touchscreen UI, cashless payment, product-fit data and OEM customization.",
+    "image": "/images/insights/wall-mounted-smart-vending-machine-guide.png",
+    "imageAlt": "BOHOL wall-mounted smart vending machine for compact touchscreen retail",
+    "summary": "A wall-mounted vending machine is a compact smart retail cabinet for locations where floor space is limited but customer traffic is valuable. Buyers should compare product fit, screen workflow, cashless payment, cabinet size, network options, replenishment access and OEM branding before ordering.",
+    "sourceNote": "BOHOL buyer guidance with official context from PCI SSC payment-terminal guidance, W3C accessibility standards and FDA tobacco retail rules where age-restricted products are considered.",
+    "keywords": [
+      "wall-mounted vending machine",
+      "smart retail vending machine",
+      "compact vending machine",
+      "touchscreen vending machine",
+      "custom vending machine",
+      "OEM vending machine",
+      "vending"
+    ],
+    "sections": [
+      {
+        "heading": "Quick answer for buyers",
+        "paragraphs": [
+          "A wall-mounted vending machine is a compact vending machine designed for self-service retail in malls, office lobbies, hotels, campuses, coffee shops and other indoor commercial spaces. It can help brands and operators sell compact products with a touchscreen interface, cashless payment and a smaller footprint than a full-size floor-standing cabinet.",
+          "BOHOL builds custom vending machines and smart vending solutions in Guangzhou, China. For this wall-mounted smart vending machine, buyers can discuss product channels, cabinet branding, touchscreen UI, payment terminal planning, network options and OEM/ODM configuration before production."
+        ]
+      },
+      {
+        "heading": "When a wall-mounted vending machine makes sense",
+        "paragraphs": [
+          "A wall-mounted vending machine is useful when the operator wants unattended retail but does not have enough space for a larger vending cabinet. It can be placed near existing customer traffic, such as a shopping mall corridor, office lobby, hotel common area, apartment facility, campus building or retail counter.",
+          "The goal is not only to save space. A compact cabinet should still support a clear product display, reliable shipment, simple payment flow and easy restocking. BOHOL’s [wall-mounted smart vending machine](/vending-machines/wall-mounted-smart-vending-machine) is positioned for compact packaged products, branded retail projects and OEM vending development."
+        ]
+      },
+      {
+        "heading": "Product-fit data to confirm before ordering",
+        "paragraphs": [
+          "Product fit is the first decision. The current BOHOL wall-mounted model reference includes model ZD-BGS-32, cabinet size H1000 × W650 × D250 mm, 45.5 kg weight, 32 inch touchscreen, 5×2 slots, spring spiral shipment, 4G/Wi-Fi/cable network options and Android RK3288 motherboard.",
+          "Capacity depends on product size. The reference capacity is 200 boxes for eyelash-size products, so buyers should not assume the same count for vape packages, cosmetics, accessories or snack items. Send product photos, dimensions, weight and packaging samples so BOHOL can evaluate the channel layout before confirming production."
+        ]
+      },
+      {
+        "heading": "Touchscreen UI and customer journey",
+        "paragraphs": [
+          "The touchscreen is more than a display. It should guide the customer from category selection to product choice, payment, dispensing and pickup. For AI-search and human buyers, the useful details are screen size, product category structure, supported languages, price display, failed-payment handling and instructions for pickup.",
+          "If the machine serves public users, interface readability and accessibility should be considered early. The [W3C Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/) are a useful reference when planning contrast, readable text, interaction clarity and user interface behavior, even when the final vending UI is customized for an embedded screen."
+        ]
+      },
+      {
+        "heading": "Cashless payment and compliance planning",
+        "paragraphs": [
+          "Most smart retail projects require card payment, mobile wallets, QR payment or a local payment gateway. The payment plan should define who owns the merchant account, which terminal is used, how refunds are handled and what happens if the machine receives payment but does not dispense correctly.",
+          "Payment security is not solved only by choosing a terminal. The [PCI Security Standards Council FAQ on payment terminals](https://www.pcisecuritystandards.org/faqs/1301/) explains that terminal approval alone does not automatically make the complete merchant environment PCI DSS compliant. Buyers should confirm responsibilities with their payment provider and local operator."
+        ]
+      },
+      {
+        "heading": "If the machine sells vape or regulated products",
+        "paragraphs": [
+          "A wall-mounted vending machine can be configured for different compact retail products, including vape products where legally permitted. For age-restricted products, the buyer must confirm local laws, location rules, license responsibilities and age-verification workflow before production.",
+          "For US tobacco retail context, the [FDA retailer overview for tobacco products](https://www.fda.gov/tobacco-products/retail-sales-tobacco-products/retailers-overview-fda-regulations-tobacco-products) is an official starting point. BOHOL can discuss machine configuration and hardware placement, but legal approval and market compliance remain the buyer’s responsibility."
+        ]
+      },
+      {
+        "heading": "OEM/ODM customization checklist",
+        "paragraphs": [
+          "For an OEM vending project, prepare the target market, product category, package size, expected capacity, payment provider, language, branding style, installation scenario and estimated quantity. These details help the manufacturer decide whether the project needs a standard cabinet adjustment or a deeper ODM design.",
+          "Useful BOHOL customization topics include cabinet finish, front-panel branding, touchscreen category design, payment hardware position, product channel layout, network setup, pickup window design and packaging for export. Buyers can start from the [custom vending machine](/vending) page or the [OEM/ODM vending machine](/oem-odm) workflow."
+        ]
+      },
+      {
+        "heading": "Where this compact machine can be deployed",
+        "paragraphs": [
+          "Common application scenarios include shopping malls, office lobbies, hotels, apartments, coffee shops, convenience stores, campuses and distributor showrooms. The best locations are indoor sites with predictable traffic, permission for self-service retail, available power and a practical restocking route.",
+          "A pilot deployment is recommended before a larger rollout. It can validate the product mix, payment flow, customer instructions, refill schedule and machine placement. The pilot results can then guide a wider [smart vending machine](/vending-machines) purchasing plan."
+        ]
+      },
+      {
+        "heading": "What to send BOHOL for a quote",
+        "paragraphs": [
+          "Send product photos, product dimensions, packaging weight, target country, installation location, payment requirements, age-verification needs if any, branding requirements, preferred language and estimated order quantity.",
+          "BOHOL can then review whether this [wall-mounted smart vending machine](/vending-machines/wall-mounted-smart-vending-machine) is the right base model or whether your project should use another custom vending format, such as a [vape vending machine](/vending-machines/vape-vending-machine), [card vending machine](/vending-machines/card-vending-machine) or [elevator vending machine](/vending-machines/elevator-vending-machine)."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "What is a wall-mounted vending machine?",
+        "a": "It is a compact vending machine designed for self-service retail in locations where a smaller cabinet or wall-side installation is preferred."
+      },
+      {
+        "q": "What products can it sell?",
+        "a": "It can sell compact packaged products such as beauty items, eyelashes, accessories, daily-use products, samples, small snacks and vape products where local rules allow."
+      },
+      {
+        "q": "Does it support cashless payment?",
+        "a": "Yes. It can be planned for card payment, mobile wallets, QR payment or a custom payment terminal, depending on the target market and provider."
+      },
+      {
+        "q": "Can the touchscreen UI be customized?",
+        "a": "Yes. BOHOL can discuss custom categories, language, branding, product layout and purchase-flow design for OEM/ODM projects."
+      },
+      {
+        "q": "What data should buyers provide before production?",
+        "a": "Buyers should provide product dimensions, weight, photos, target market, installation scenario, payment method, compliance needs, branding requirements and estimated quantity."
+      }
+    ],
+    "sources": [
+      {
+        "label": "PCI SSC: Payment terminals in a PCI DSS assessment",
+        "url": "https://www.pcisecuritystandards.org/faqs/1301/"
+      },
+      {
+        "label": "W3C: Web Content Accessibility Guidelines",
+        "url": "https://www.w3.org/WAI/standards-guidelines/wcag/"
+      },
+      {
+        "label": "FDA: Retailers overview of FDA regulations for tobacco products",
+        "url": "https://www.fda.gov/tobacco-products/retail-sales-tobacco-products/retailers-overview-fda-regulations-tobacco-products"
+      }
+    ]
+  },
+  {
     "slug": "vape-vending-machine-age-verification-compliance",
     "title": "Vape Vending Machine Manufacturer: Age Verification and Compliance Checklist",
     "category": "Buyer guide",

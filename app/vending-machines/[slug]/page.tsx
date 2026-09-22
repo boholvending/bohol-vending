@@ -6,7 +6,7 @@ import { DocumentRenderer } from "@keystatic/core/renderer";
 import { PortableText } from "next-sanity";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight, Check, Download, FileText, Globe2, ImageIcon, Settings2, ShieldCheck } from "lucide-react";
-import { getProduct, getProductDocument, getProducts } from "@/lib/keystatic-content";
+import { getProduct, getProductDocument, getProducts, type ProductRecord } from "@/lib/keystatic-content";
 import { BreadcrumbJson, SiteShell } from "@/components/site-shell";
 import { siteUrl } from "@/lib/seo";
 
@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
-function formatPrice(product: Awaited<ReturnType<typeof getProduct>>) {
+function formatPrice(product: ProductRecord | null) {
   if (!product || product.priceMode === "quote" || !product.price) return "Request quote";
   const amount = new Intl.NumberFormat("en", { style: "currency", currency: product.currency || "USD", maximumFractionDigits: 0 }).format(product.price);
   return product.priceMode === "starting" ? `From ${amount}` : amount;
