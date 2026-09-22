@@ -45,10 +45,11 @@ restore_config() {
 
 patch_config() {
   perl -0pi -e '
-    s/server_name\s+www\.boholvending\.com\s*;/server_name boholvending.com;/g;
-    s/server_name\s+boholvending\.com\s+www1\.boholvending\.com\s*;/server_name www.boholvending.com;/g;
-    s/server_name\s+boholvending\.com\s+www\.boholvending\.com\s*;/server_name www.boholvending.com;/g;
-    s@return\s+301\s+https://boholvending\.com\$request_uri\s*;@return 301 https://www.boholvending.com$request_uri;@g;
+    my $seen = 0;
+    s{server_name\s+(?:boholvending\.com|www\.boholvending\.com|www1\.boholvending\.com)(?:\s+(?:boholvending\.com|www\.boholvending\.com|www1\.boholvending\.com))*\s*;}{
+      ++$seen == 1 ? "server_name boholvending.com;" : "server_name www.boholvending.com;"
+    }gex;
+    s@return\s+301\s+https://(?:www\.)?boholvending\.com\$request_uri\s*;@return 301 https://www.boholvending.com$request_uri;@g;
   ' "$REAL_CONF"
 }
 
@@ -81,9 +82,9 @@ verify_sitemap() {
 
 verify_redirect() {
   local location
-  location="$(curl -fsSI "https://${DOMAIN}/sitemap.xml" | awk 'tolower($1) == "location:" {print $2}' | tr -d '\r')"
+  location="$(curl -fsSI "https://${DOMAIN}/" | awk 'tolower($1) == "location:" {print $2}' | tr -d '\r')"
 
-  if [ "$location" != "$SITEMAP_URL" ]; then
+  if [ "$location" != "https://${WWW_DOMAIN}/" ] && [ "$location" != "https://${WWW_DOMAIN}" ]; then
     echo "Root domain redirect is wrong: ${location:-none}"
     exit 1
   fi
