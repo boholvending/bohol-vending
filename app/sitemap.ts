@@ -17,6 +17,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...Object.keys(stories.insights).map(slug => `insights/${slug}`),
   ];
   const englishRoutes = new Set([
+    "vending",
     ...sharedRoutes,
     ...products.map(product => `vending-machines/${product.slug}`),
     ...insightArticles.map(article => `insights/${article.slug}`),

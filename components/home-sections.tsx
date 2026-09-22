@@ -24,16 +24,16 @@ import { WhyBohol } from "./why-bohol";
 import { ApplicationGallery } from "./application-gallery";
 const faqs = [
   {
-    q: "What can BOHOL customize?",
-    a: "Cabinet dimensions, product channels, cooling, elevator delivery, touchscreen UI, branding, payments, connectivity and software integrations can all be configured around the project.",
+    q: "What vending machines can BOHOL customize?",
+    a: "BOHOL customizes vending machines for drinks, snacks, vape, beauty, cards, fragile goods and specialty retail, including cabinet dimensions, product channels, cooling, elevator delivery, touchscreen UI, branding, payments, connectivity and software integrations.",
   },
   {
     q: "What information is needed for a quotation?",
     a: "Tell us the product type and dimensions, target country, preferred payment methods, estimated quantity and any special functions. Drawings or reference photos are helpful but not required.",
   },
   {
-    q: "Can the machines work in our country?",
-    a: "We configure voltage, plug, language, payment and connectivity options for the destination market. Compliance requirements are reviewed during project definition.",
+    q: "Can BOHOL vending machines work in our country?",
+    a: "We configure vending machine voltage, plug, language, payment and connectivity options for the destination market. Compliance requirements are reviewed during project definition.",
   },
   {
     q: "How are machines tested before shipment?",
@@ -63,8 +63,8 @@ export async function HomeSections() {
           <article>
             <BadgeCheck />
             <div>
-              <h3>Project Configuration Support</h3>
-              <p>Get guidance on machine format, product fit and payment options before confirming your order.</p>
+              <h3>Vending Project Support</h3>
+              <p>Get guidance on vending machine format, product fit and payment options before confirming your order.</p>
             </div>
           </article>
         </div>
@@ -82,9 +82,9 @@ export async function HomeSections() {
           </div>
           <div className={styles.companyProfileCopy}>
             <p className="section-tag">COMPANY PROFILE</p>
-            <h2>Source-direct manufacturing from Guangzhou.</h2>
+            <h2>Source-direct vending manufacturing from Guangzhou.</h2>
             <p>Based in <strong>Panyu, Guangzhou, Guangdong, China</strong>, BOHOL builds intelligent vending machines for brand owners, distributors and retail operators.</p>
-            <p>Work directly with our factory to match your products to the right machine. Explore our company profile for production capabilities, quality standards and international cooperation.</p>
+            <p>Work directly with our vending machine factory to match your products to the right machine. Explore our company profile for production capabilities, quality standards and international cooperation.</p>
             <div className={styles.companyProfileActions}>
               <Link href="/about">Discover BOHOL <ArrowUpRight size={17} /></Link>
               <Link href="/contact">Contact our team <ArrowRight size={17} /></Link>

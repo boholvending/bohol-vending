@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { ArrowUpRight, ChevronRight } from "lucide-react";
 import { HeroCarousel } from "@/components/hero-carousel";
 import { HomeSections } from "@/components/home-sections";
@@ -6,6 +7,33 @@ import { HomeFooter } from "@/components/home-footer";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { MainNavigation } from "@/components/main-navigation";
 import { BrandLogo } from "@/components/brand-logo";
+
+export const metadata: Metadata = {
+  title: "Vending Machine Manufacturer | Custom Vending Solutions",
+  description:
+    "BOHOL is a vending machine manufacturer for custom vending, smart vending machines, OEM vending projects and global automated retail deployments.",
+  keywords: [
+    "vending",
+    "vending machine",
+    "vending machine manufacturer",
+    "custom vending machine",
+    "smart vending",
+    "OEM vending machine",
+    "China vending machine factory",
+  ],
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "Vending Machine Manufacturer | BOHOL",
+    description:
+      "Custom vending machines and smart vending solutions engineered by BOHOL for brands, distributors and operators worldwide.",
+    images: ["/og.webp"],
+  },
+  twitter: {
+    title: "Vending Machine Manufacturer | BOHOL",
+    description: "Custom vending machines and smart vending solutions for global retail.",
+    images: ["/og.webp"],
+  },
+};
 function Header() {
   return (
     <header
@@ -37,20 +65,23 @@ export default function Home() {
         <div className="hero-grid" />
         <div className="hero-copy">
           <p className="eyebrow">
-            <span /> Intelligent vending. Built around your business.
+            <span /> Vending machine manufacturer for global retail.
           </p>
           <h1>
-            Retail
+            Vending
             <br />
             without <em>limits.</em>
           </h1>
           <p className="lead">
-            From concept to global deployment, BOHOL engineers specialized
-            vending machines that move your business forward.
+            BOHOL engineers custom vending machines, smart vending systems and
+            OEM vending solutions for brands, distributors and operators.
           </p>
           <div className="hero-cta">
             <Link className="primary-button" href="/vending-machines">
               Explore machines <ArrowUpRight size={18} />
+            </Link>
+            <Link className="text-link" href="/vending">
+              Why BOHOL vending <ChevronRight size={17} />
             </Link>
             <Link className="text-link" href="/oem-odm">
               Build a custom machine <ChevronRight size={17} />

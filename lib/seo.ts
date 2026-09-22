@@ -18,6 +18,22 @@ export const organizationJsonLd = {
   knowsAbout: ["Intelligent vending machines", "OEM manufacturing", "ODM manufacturing", "Automated retail"],
 };
 
+export const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${siteUrl}/#website`,
+  name: "BOHOL Vending",
+  url: siteUrl,
+  publisher: { "@id": `${siteUrl}/#organization` },
+  about: [
+    "vending",
+    "vending machines",
+    "custom vending machines",
+    "smart vending",
+    "OEM vending machine manufacturing",
+  ],
+};
+
 export function productJsonLd(product: { slug: string; name: string; summary: string; image: string; category: string }) {
   const image = product.image.startsWith("http") ? product.image : `${siteUrl}${product.image}`;
   return {
