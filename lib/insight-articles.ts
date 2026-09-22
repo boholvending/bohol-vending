@@ -7,6 +7,116 @@ export type InsightArticle = {
 export const insightDate = "2026-09-23";
 export const insightArticles: InsightArticle[] = [
   {
+    "slug": "vape-vending-machine-age-verification-compliance",
+    "title": "Vape Vending Machine Manufacturer: Age Verification and Compliance Checklist",
+    "category": "Buyer guide",
+    "region": "Regulated retail",
+    "description": "A practical guide for buyers comparing vape vending machine manufacturers, age verification, payment, compliance planning and custom cabinet development.",
+    "image": "/images/insights/vape-vending-machine-age-verification.png",
+    "imageAlt": "Vape vending machine with touchscreen and age verification hardware",
+    "summary": "A vape vending machine project needs more than a cabinet. Buyers should verify age-control requirements, product restrictions, payment setup, remote monitoring, signage, service access and local retail rules before ordering.",
+    "sourceNote": "BOHOL buyer guidance with official context from FDA tobacco retail rules and PCI SSC payment-terminal guidance. This is not legal advice.",
+    "keywords": [
+      "vape vending machine",
+      "vape vending machine manufacturer",
+      "age verification vending machine",
+      "custom vape vending machine",
+      "OEM vape vending machine",
+      "regulated retail vending",
+      "vending"
+    ],
+    "sections": [
+      {
+        "heading": "Quick answer for vape vending buyers",
+        "paragraphs": [
+          "A vape vending machine manufacturer should be evaluated by more than cabinet design. Buyers need to review age verification, product access control, payment integration, touchscreen workflow, destination-market regulations, machine monitoring and service procedures before placing an order.",
+          "BOHOL builds custom vending machines and smart vending systems for global retail projects. For vape vending, BOHOL can discuss cabinet layout, touchscreen UI, payment hardware planning and OEM/ODM machine configuration, but the buyer must confirm local laws and sales permissions in the target market."
+        ]
+      },
+      {
+        "heading": "Why vape vending is different from ordinary vending",
+        "paragraphs": [
+          "A standard snack or drink vending machine mainly needs product-fit, payment and replenishment planning. A vape vending machine also involves age-restricted retail. That changes the buying brief: the project needs access control, product visibility, customer instructions, payment flow, exception handling and compliance review.",
+          "For US retail context, the [FDA tobacco retailer guidance](https://www.fda.gov/tobacco-products/retail-sales-tobacco-products/retailers-overview-fda-regulations-tobacco-products) explains federal requirements for tobacco-product retail sales, including age-related rules. Buyers should treat this as official background and still confirm state, city and site-specific requirements before deployment."
+        ]
+      },
+      {
+        "heading": "Start with the destination market",
+        "paragraphs": [
+          "Do not order a vape vending machine only from a product rendering. Start by defining the target country, state or city, installation location, customer flow and product type. The same machine concept may need different controls depending on whether it is placed in a licensed retail store, private venue or other controlled location.",
+          "A buyer should ask: who is allowed to access the machine, how age is verified, who holds the retail license, whether self-service sales are permitted, and what signage or staff supervision is required. These questions should be answered before confirming an [OEM vape vending machine](/oem-odm) specification."
+        ]
+      },
+      {
+        "heading": "Plan the age-verification workflow",
+        "paragraphs": [
+          "Age verification should be part of the machine journey, not an afterthought. Buyers may need ID scanning, account-based access, staff approval, location controls or integration with a compliant local process. The selected approach depends on the legal market, site operation and technology provider.",
+          "The vending machine manufacturer should leave physical and software room for the chosen process. That may affect screen size, camera or scanner placement, cabinet cutouts, user prompts, failed-verification handling and service access. For BOHOL, this belongs in the project brief for a [custom vape vending machine](/vending-machines/vape-vending-machine)."
+        ]
+      },
+      {
+        "heading": "Review payment and failed-vend handling",
+        "paragraphs": [
+          "Vape vending buyers often need card payment, QR payment or a local cashless provider. Payment planning should include provider availability, terminal activation, merchant account ownership, refund flow and what happens if the product does not dispense after payment.",
+          "Payment security should be reviewed as a deployment, not only as a terminal choice. The [PCI Security Standards Council FAQ on payment terminals](https://www.pcisecuritystandards.org/faqs/1301/) notes that terminal approval alone does not automatically make the full merchant environment PCI DSS compliant. Buyers should confirm responsibilities with their payment provider."
+        ]
+      },
+      {
+        "heading": "Match cabinet design to product control",
+        "paragraphs": [
+          "The cabinet should match both the product and the compliance model. Product channels need to hold the intended vape packages securely. Display areas should make the retail offer clear without creating uncontrolled access. Locking, refill paths and service panels should support the operator’s daily process.",
+          "A custom cabinet may include touchscreen ordering, product preview, secure delivery, camera or ID hardware positions, branding panels and remote monitoring. These choices should be documented before production so the factory, buyer, payment provider and local operator work from the same machine configuration."
+        ]
+      },
+      {
+        "heading": "Ask the manufacturer for a written test plan",
+        "paragraphs": [
+          "A vape vending project should be tested with real product samples. The test should cover product loading, age-verification sequence, successful purchase, failed verification, declined payment, failed delivery, refund or reversal process, remote alert and service recovery.",
+          "A written acceptance plan is better than a verbal promise. It gives the buyer a way to approve the prototype and helps the manufacturer repeat the same configuration during production. This also supports broader [vending machine quality inspection](/manufacturing) and export preparation."
+        ]
+      },
+      {
+        "heading": "What to send BOHOL before requesting a quote",
+        "paragraphs": [
+          "To quote a vape vending machine project, prepare product photos, package dimensions, target market, installation scenario, expected age-verification method, payment provider, language, branding requirements, estimated quantity and any known local compliance requirements.",
+          "BOHOL can then recommend whether to start from an existing [vape vending machine](/vending-machines/vape-vending-machine) format or develop a more customized cabinet through [OEM/ODM vending machine development](/oem-odm)."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Can vape vending machines be customized?",
+        "a": "Yes. Vape vending machines can be customized for cabinet design, touchscreen flow, product channels, branding, payment hardware and age-verification hardware positions."
+      },
+      {
+        "q": "Does BOHOL provide legal approval for vape vending?",
+        "a": "No. BOHOL can support machine configuration, but the buyer must confirm local laws, licenses and sales permissions in the destination market."
+      },
+      {
+        "q": "What should buyers confirm before ordering a vape vending machine?",
+        "a": "Confirm target-market rules, age-verification process, payment provider, product package size, installation location, service plan and branding requirements."
+      },
+      {
+        "q": "Can a vape vending machine use cashless payment?",
+        "a": "Yes, depending on the destination-market payment provider and terminal arrangement. Payment responsibilities and failed-vend handling should be confirmed before production."
+      }
+    ],
+    "sources": [
+      {
+        "label": "FDA: Retailers overview of FDA regulations for tobacco products",
+        "url": "https://www.fda.gov/tobacco-products/retail-sales-tobacco-products/retailers-overview-fda-regulations-tobacco-products"
+      },
+      {
+        "label": "FDA: Selling tobacco products in retail stores",
+        "url": "https://www.fda.gov/tobacco-products/retail-sales-tobacco-products/selling-tobacco-products-retail-stores"
+      },
+      {
+        "label": "PCI SSC: Payment terminals in a PCI DSS assessment",
+        "url": "https://www.pcisecuritystandards.org/faqs/1301/"
+      }
+    ]
+  },
+  {
     "slug": "how-to-choose-vending-machine-manufacturer",
     "title": "Vending Machine Manufacturer: How to Choose the Right Factory",
     "category": "Buyer guide",
