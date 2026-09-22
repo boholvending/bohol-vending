@@ -8,8 +8,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight, Check, Download, FileText, Globe2, ImageIcon, Settings2, ShieldCheck } from "lucide-react";
 import { getProduct, getProductDocument, getProducts } from "@/lib/keystatic-content";
 import { BreadcrumbJson, SiteShell } from "@/components/site-shell";
-import { JsonLd } from "@/components/json-ld";
-import { productJsonLd, siteUrl } from "@/lib/seo";
+import { siteUrl } from "@/lib/seo";
 
 export async function generateStaticParams() {
   return (await getProducts()).map((product) => ({ slug: product.slug }));
@@ -73,7 +72,6 @@ export default async function Product({ params }: { params: Promise<{ slug: stri
     ["Payment", labelList(product.paymentOptions) || "Custom options"],
   ];
   return <SiteShell>
-    <JsonLd data={productJsonLd(product)} />
     <BreadcrumbJson items={[{ name: "Home", url: siteUrl }, { name: "Vending Machines", url: `${siteUrl}/vending-machines` }, { name: product.name, url: `${siteUrl}/vending-machines/${slug}` }]} />
     <main className="product-detail product-detail-redesign">
       <div className="product-media-panel">
