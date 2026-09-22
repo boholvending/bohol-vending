@@ -86,6 +86,23 @@ export default config({
             itemLabel: () => "Gallery image",
           },
         ),
+        companyStrengthTitle: fields.text({
+          label: "公司实力标题（英文）",
+          description: "显示在产品详情页的工厂与生产实力模块。留空使用网站默认标题。",
+        }),
+        companyStrengthDescription: fields.text({
+          label: "公司实力说明（英文）",
+          multiline: true,
+          description: "可填写工厂背景、生产能力、质检流程和 OEM/ODM 支持。",
+        }),
+        factoryGallery: fields.array(
+          fields.image({
+            label: "工厂或生产图片",
+            directory: "public/uploads/products/factory",
+            publicPath: "/uploads/products/factory/",
+          }),
+          { label: "公司实力与生产图库", itemLabel: () => "Factory / production image" },
+        ),
         existingImage: fields.text({ label: "现有图片路径", description: "保留网站已有图片，例如 /images/hero/vape-machine.webp；上传新封面后优先使用新封面。" }),
         summary: fields.text({ label: "简短描述（网站显示英文）", multiline: true, validation: { isRequired: true } }),
         priceMode: fields.select({

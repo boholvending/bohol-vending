@@ -80,3 +80,4 @@
 - 用户反馈等比例后仍有黑色区域，确认黑色来自 `eyelash-machine-dark-complete.webp` 图片本身。首页轮播第 4 张已改用 `eyelash-machine-cutout-v2.webp`，并移除对应黑底 studio 类名；`npm run build` 通过，Impeccable 检测返回空列表。
 - 用户指出 `cutout-v2` 显示棋盘格，确认该文件为 RGB、棋盘格已烘焙进图片；项目内 `eyelash-machine-cutout.webp` 为 RGBA 真透明图。首页轮播第 4 张已改用 `eyelash-machine-cutout.webp`，目标为像冷饮机器图一样直接浮在深色背景上；`npm run build` 通过，Impeccable 检测返回空列表。
 - 首页公司数据卡片下方新增 `FactoryVrShowcase`：三个场景（工厂外景、展厅、生产车间），带场景切换、缩略图和鼠标 3D 视差效果，使用现有真实/已发布图片资源。`npm run build` 通过，Impeccable 检测返回空列表；本地 Chrome 截图确认模块出现在公司数据下方。
+- 2026-09-23 产品详情页重构：新增可点击切换的产品图库、主图全屏查看、真实产品图卖点区，以及工厂外景/生产/设计装配公司实力模块；壁挂款产品已迁入 `content/products`，后台新增公司实力标题、说明和生产图库字段。生产构建通过；本地页面验证 6 张产品图可切换、全屏图加载成功、全页无损坏图片。Impeccable 仅报告 `globals.css` 中任务范围外的既有全局样式告警。

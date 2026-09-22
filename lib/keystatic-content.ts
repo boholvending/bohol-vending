@@ -29,6 +29,9 @@ export type ProductRecord = {
   applications?: readonly { readonly title: string; readonly description: string }[];
   faq?: readonly { readonly question: string; readonly answer: string }[];
   downloads?: readonly { readonly label: string; readonly url: string | null }[];
+  companyStrengthTitle?: string | null;
+  companyStrengthDescription?: string | null;
+  factoryGallery?: readonly string[];
   portableText?: readonly PortableTextBlock[];
   seoTitle?: string | null;
   seoDescription?: string | null;
@@ -65,6 +68,9 @@ type SanityProduct = {
   canonicalUrl?: string;
   ogImage?: unknown;
   portableText?: PortableTextBlock[];
+  companyStrengthTitle?: string;
+  companyStrengthDescription?: string;
+  factoryGallery?: unknown[];
 };
 
 const sanityProductProjection = `{
@@ -94,6 +100,9 @@ const sanityProductProjection = `{
   seoKeywords,
   canonicalUrl,
   ogImage,
+  companyStrengthTitle,
+  companyStrengthDescription,
+  factoryGallery,
   "portableText": body
 }`;
 
@@ -137,6 +146,9 @@ function productFromEntry(slug: string, entry: Awaited<ReturnType<typeof reader.
     applications: entry.applications,
     faq: entry.faq,
     downloads: entry.downloads,
+    companyStrengthTitle: entry.companyStrengthTitle,
+    companyStrengthDescription: entry.companyStrengthDescription,
+    factoryGallery: (entry.factoryGallery || []).filter((image): image is string => Boolean(image)),
     seoTitle: entry.seoTitle,
     seoDescription: entry.seoDescription,
     seoKeywords: entry.seoKeywords,
@@ -178,6 +190,9 @@ function productFromSanity(entry: SanityProduct): ProductRecord {
     canonicalUrl: entry.canonicalUrl,
     ogImage: sanityImage(entry.ogImage, 1200),
     portableText: entry.portableText,
+    companyStrengthTitle: entry.companyStrengthTitle,
+    companyStrengthDescription: entry.companyStrengthDescription,
+    factoryGallery: (entry.factoryGallery || []).map((item) => sanityImage(item, 1400)).filter((item): item is string => Boolean(item)),
   };
 }
 

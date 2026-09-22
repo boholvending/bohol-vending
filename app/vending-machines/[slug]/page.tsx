@@ -5,10 +5,11 @@ import Link from "next/link";
 import { DocumentRenderer } from "@keystatic/core/renderer";
 import { PortableText } from "next-sanity";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowUpRight, Check, Download, FileText, Globe2, ImageIcon, Settings2, ShieldCheck } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Check, Download, FileText, Globe2, Settings2, ShieldCheck } from "lucide-react";
 import { getProduct, getProductDocument, getProducts, type ProductRecord } from "@/lib/keystatic-content";
 import { BreadcrumbJson, SiteShell } from "@/components/site-shell";
 import { siteUrl } from "@/lib/seo";
+import { ProductGallery } from "@/components/product-gallery";
 
 export async function generateStaticParams() {
   return (await getProducts()).map((product) => ({ slug: product.slug }));
@@ -62,7 +63,8 @@ export default async function Product({ params }: { params: Promise<{ slug: stri
   if (!product) notFound();
   const document = await getProductDocument(slug);
   const richContent = product.portableText?.length ? <PortableText value={[...product.portableText]} /> : document ? <DocumentRenderer document={document} /> : null;
-  const gallery = [product.image, ...(product.gallery || [])].filter(Boolean).slice(0, 4);
+  const gallery = [...new Set([product.image, ...(product.gallery || [])].filter(Boolean))].map((src, index) => ({ src, alt: index === 0 ? product.name : `${product.name} product detail ${index + 1}` }));
+  const factoryGallery = product.factoryGallery?.length ? product.factoryGallery : ["/images/bohol-guangzhou-factory.webp", "/images/partnerships/bohol-production.webp", "/images/partnerships/bohol-design-production.webp"];
   const highlights = product.highlights?.length ? product.highlights : product.features.slice(0, 3).map((feature) => ({ title: feature.split(":")[0], description: feature.includes(":") ? feature.split(":").slice(1).join(":").trim() : "Configured by BOHOL engineering for production-ready vending projects." }));
   const keyDetails = [
     ["Price", formatPrice(product)],
@@ -76,8 +78,7 @@ export default async function Product({ params }: { params: Promise<{ slug: stri
     <main className="product-detail product-detail-redesign">
       <div className="product-media-panel">
         <Link className="back-link" href="/vending-machines"><ArrowLeft size={14} /> All vending machines</Link>
-        <div className="detail-image"><span className="image-index">BOHOL / PRODUCT</span><div className="image-orbit" /><Image src={product.image} alt={product.name} width={900} height={1100} priority sizes="(max-width:800px) 100vw, 48vw" /><span className="image-caption">ENGINEERED FOR GLOBAL RETAIL</span></div>
-        {gallery.length > 1 && <div className="product-gallery-strip">{gallery.map((image, index) => <a href={image} target="_blank" rel="noopener noreferrer" key={image}><Image src={image} alt={`${product.name} gallery ${index + 1}`} width={180} height={140} sizes="180px" /><span>{String(index + 1).padStart(2, "0")}</span></a>)}</div>}
+        <ProductGallery images={gallery} productName={product.name} />
       </div>
       <div className="product-copy product-buy-panel">
         <p className="section-tag">{product.category}</p>
@@ -91,10 +92,14 @@ export default async function Product({ params }: { params: Promise<{ slug: stri
     </main>
     <section className="product-story-section">
       <div>
-        <h2>Built for product-fit vending, not a generic cabinet.</h2>
-        <p>Use the CMS to add images, rich text, code-style technical notes, application details and FAQ content for each product page.</p>
+        <h2>See how the machine works for your retail format.</h2>
+        <p>Each configuration combines the cabinet, interface, payment layout and delivery system around the products you plan to sell.</p>
       </div>
-      <div className="product-highlight-grid">{highlights.map((item) => <article key={item.title}><ImageIcon size={18} /><h3>{item.title}</h3><p>{item.description}</p></article>)}</div>
+      <div className="product-highlight-grid">{highlights.map((item, index) => <article key={item.title}>{gallery[index + 1]?.src && <Image src={gallery[index + 1].src} alt={`${product.name}: ${item.title}`} width={720} height={520} sizes="(max-width:980px) 100vw, 30vw" />}<div><h3>{item.title}</h3><p>{item.description}</p></div></article>)}</div>
+    </section>
+    <section className="product-factory-section">
+      <div className="product-factory-copy"><h2>{product.companyStrengthTitle || "Built by a source-direct vending machine factory."}</h2><p>{product.companyStrengthDescription || "BOHOL brings product planning, cabinet engineering, assembly, testing and OEM/ODM customization together in Guangzhou. Buyers can review the machine configuration with the team before sampling and production."}</p><dl><div><dt>20,000 m²</dt><dd>Manufacturing facility</dd></div><div><dt>8 years</dt><dd>Manufacturing and R&amp;D</dd></div><div><dt>30+ markets</dt><dd>International project experience</dd></div></dl><Link href="/about">Explore BOHOL company strength <ArrowUpRight size={17} /></Link></div>
+      <div className="product-factory-gallery">{factoryGallery.slice(0,3).map((image, index) => <a href={image} target="_blank" rel="noreferrer" key={image} aria-label={`View BOHOL factory image ${index + 1}`}><Image src={image} alt={["BOHOL factory exterior in Guangzhou", "BOHOL vending machine production workshop", "BOHOL engineering and assembly process"][index] || "BOHOL manufacturing facility"} width={1000} height={700} sizes="(max-width:900px) 100vw, 36vw" /><span>View full image <ArrowUpRight size={15} /></span></a>)}</div>
     </section>
     {!!product.applications?.length && <section className="product-applications"><h2>Application scenarios</h2><div>{product.applications.map((item) => <article key={item.title}><h3>{item.title}</h3><p>{item.description}</p></article>)}</div></section>}
     {!!product.productAttributes?.length && <section className="product-data-section"><h2>Product attributes</h2><div>{product.productAttributes.map((item) => <article key={item.name}><span>{item.name}</span><b>{item.value}</b></article>)}</div></section>}
