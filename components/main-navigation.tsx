@@ -11,10 +11,9 @@ export function MainNavigation({locale="en"}:{locale?:"en"|"zh"}){
     {id:"restricted",label:zh?"合规零售":"Age-restricted retail",note:zh?"电子烟等特殊品类":"Vape and specialty retail"},
     {id:"gentle",label:zh?"轻拿轻放":"Gentle delivery",note:zh?"升降机保护易碎产品":"Elevator delivery for fragile goods"},
   ];
-  const mobileLinks=[["",zh?"首页":"Home"],...(zh?[]:[["vending","Vending"]]),["vending-machines",zh?"自动售货机":"Vending Machines"],["solutions",zh?"解决方案":"Solutions"],["oem-odm","OEM & ODM"],["projects",zh?"项目案例":"Projects & Cases"],["contact",zh?"联系方式":"Contact"],["insights",zh?"行业洞察":"Insights"],["about",zh?"关于 BOHOL":"About BOHOL"]];
+  const mobileLinks=[["",zh?"首页":"Home"],["vending-machines",zh?"自动售货机":"Vending Machines"],["solutions",zh?"解决方案":"Solutions"],["oem-odm","OEM & ODM"],["projects",zh?"项目案例":"Projects & Cases"],["contact",zh?"联系方式":"Contact"],["insights",zh?"行业洞察":"Insights"],["about",zh?"关于 BOHOL":"About BOHOL"]];
   return <><details className={s.mobile}><summary aria-label={zh?"打开导航":"Open navigation"}>{zh?"菜单":"Menu"} <ChevronDown size={16}/></summary><nav aria-label={zh?"手机导航":"Mobile navigation"}>{mobileLinks.map(([path,label])=><Link key={path} href={`${root}/${path}`}>{label}</Link>)}</nav></details><nav className={s.nav} aria-label={zh?"主导航":"Primary navigation"}>
     <Link href={root||"/"}>{zh?"首页":"Home"}</Link>
-    {!zh && <Link href="/vending">Vending</Link>}
     <div className={s.dropdown}>
       <Link href={`${root}/vending-machines`}>{zh?"自动售货机":"Vending Machines"}<ChevronDown size={13}/></Link>
       <div className={`${s.menu} ${s.productMenu}`}>
