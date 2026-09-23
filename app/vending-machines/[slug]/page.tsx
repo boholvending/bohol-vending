@@ -78,27 +78,28 @@ export default async function Product({ params }: { params: Promise<{ slug: stri
         <ProductGallery images={gallery} productName={product.name} />
       </div>
       <div className="product-copy product-buy-panel">
-        <p className="section-tag">{product.category}</p>
+        <div className="product-supplier-line"><span>BOHOL Vending Machine Factory</span><b>Guangzhou, China</b><Link href="/about">View company <ArrowUpRight size={14} /></Link></div>
         <h1>{product.name}</h1>
         <p className="inner-lead">{product.summary}</p>
         <dl className="product-meta-grid">{keyDetails.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl>
-        <ul>{product.features.slice(0, 6).map((feature) => <li key={feature}><Check size={17} />{feature}</li>)}</ul>
+        <div className="product-key-attributes"><h2>Key attributes</h2><div>{product.features.slice(0, 6).map((feature) => <span key={feature}><Check size={15} />{feature}</span>)}</div></div>
         <div className="product-assurance"><span><Settings2 size={18} /><b>Configurable</b><small>Built around your product</small></span><span><ShieldCheck size={18} /><b>Factory tested</b><small>Quality controlled</small></span><span><Globe2 size={18} /><b>Export ready</b><small>{labelList(product.marketRegions) || "Global markets"}</small></span></div>
         <div className="product-actions"><Link className="primary-button" href="#enquiry">Request specifications <ArrowUpRight size={18} /></Link><Link className="outline-button" href="/oem-odm">Explore customization</Link></div>
       </div>
     </main>
-    <section className="product-story-section">
+    <nav className="product-detail-tabs" aria-label="Product detail sections"><a href="#product-details">Product details</a><a href="#company-proof">Company profile</a><a href="#quick-details">Specifications &amp; FAQ</a><a href="#enquiry">Request a quote</a></nav>
+    <section className="product-story-section" id="product-details">
       <div>
         <h2>See how the machine works for your retail format.</h2>
         <p>Each configuration combines the cabinet, interface, payment layout and delivery system around the products you plan to sell.</p>
       </div>
       <ProductFeatureShowcase features={featuredHighlights} productName={product.name} />
     </section>
-    <section className="product-factory-section">
+    <section className="product-factory-section" id="company-proof">
       <div className="product-factory-heading"><h2>{product.companyStrengthTitle || "Factory proof, production and quotation in one view."}</h2><p>{product.companyStrengthDescription || "Review BOHOL’s manufacturing base, workshop, company documents and the information needed for a project quotation."}</p><Link href="/about">Company profile <ArrowUpRight size={17} /></Link></div>
       <CompanyProofShowcase productImage={product.image} />
     </section>
-    <section className="product-quick-details">
+    <section className="product-quick-details" id="quick-details">
       <div><h2>Where it fits</h2><p>{product.applications?.slice(0,6).map((item) => item.title).join(" · ") || "Retail stores · offices · hotels · campuses"}</p></div>
       <div><h2>Key specifications</h2><dl>{[...(product.productAttributes || []).slice(0,3).map((item) => ({ key:item.name, value:item.value })), ...(product.specifications || []).slice(0,3)].map((item) => <div key={item.key}><dt>{item.key}</dt><dd>{item.value}</dd></div>)}</dl></div>
       <div><h2>Buyer questions</h2>{product.faq?.slice(0,3).map((item) => <details key={item.question}><summary>{item.question}</summary><p>{item.answer}</p></details>)}</div>
