@@ -2,14 +2,13 @@ import { EnquirySection } from "@/components/enquiry-section";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { DocumentRenderer } from "@keystatic/core/renderer";
-import { PortableText } from "next-sanity";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowUpRight, Check, Download, FileText, Globe2, Settings2, ShieldCheck } from "lucide-react";
-import { getProduct, getProductDocument, getProducts, type ProductRecord } from "@/lib/keystatic-content";
+import { ArrowLeft, ArrowUpRight, Check, Globe2, Settings2, ShieldCheck } from "lucide-react";
+import { getProduct, getProducts, type ProductRecord } from "@/lib/keystatic-content";
 import { BreadcrumbJson, SiteShell } from "@/components/site-shell";
 import { siteUrl } from "@/lib/seo";
 import { ProductGallery } from "@/components/product-gallery";
+import { CompanyProofShowcase, ProductFeatureShowcase } from "@/components/product-feature-showcase";
 
 export async function generateStaticParams() {
   return (await getProducts()).map((product) => ({ slug: product.slug }));
@@ -61,11 +60,9 @@ export default async function Product({ params }: { params: Promise<{ slug: stri
   const { slug } = await params;
   const product = await getProduct(slug);
   if (!product) notFound();
-  const document = await getProductDocument(slug);
-  const richContent = product.portableText?.length ? <PortableText value={[...product.portableText]} /> : document ? <DocumentRenderer document={document} /> : null;
   const gallery = [...new Set([product.image, ...(product.gallery || [])].filter(Boolean))].map((src, index) => ({ src, alt: index === 0 ? product.name : `${product.name} product detail ${index + 1}` }));
-  const factoryGallery = product.factoryGallery?.length ? product.factoryGallery : ["/images/bohol-guangzhou-factory.webp", "/images/partnerships/bohol-production.webp", "/images/partnerships/bohol-design-production.webp"];
   const highlights = product.highlights?.length ? product.highlights : product.features.slice(0, 3).map((feature) => ({ title: feature.split(":")[0], description: feature.includes(":") ? feature.split(":").slice(1).join(":").trim() : "Configured by BOHOL engineering for production-ready vending projects." }));
+  const featuredHighlights = highlights.slice(0, 4).map((item, index) => ({ ...item, image: gallery[(index + 1) % gallery.length].src }));
   const keyDetails = [
     ["Price", formatPrice(product)],
     ["MOQ", product.minimumOrderQuantity ? `${product.minimumOrderQuantity} unit${product.minimumOrderQuantity > 1 ? "s" : ""}` : "Project based"],
@@ -95,21 +92,17 @@ export default async function Product({ params }: { params: Promise<{ slug: stri
         <h2>See how the machine works for your retail format.</h2>
         <p>Each configuration combines the cabinet, interface, payment layout and delivery system around the products you plan to sell.</p>
       </div>
-      <div className="product-highlight-grid">{highlights.map((item, index) => { const visual = gallery[(index + 1) % gallery.length]; return <article key={item.title}><Image src={visual.src} alt={`${product.name}: ${item.title}`} width={720} height={520} sizes="(max-width:980px) 100vw, 30vw" /><div><h3>{item.title}</h3><p>{item.description}</p></div></article>; })}</div>
+      <ProductFeatureShowcase features={featuredHighlights} productName={product.name} />
     </section>
     <section className="product-factory-section">
-      <div className="product-factory-copy"><h2>{product.companyStrengthTitle || "Built by a source-direct vending machine factory."}</h2><p>{product.companyStrengthDescription || "BOHOL brings product planning, cabinet engineering, assembly, testing and OEM/ODM customization together in Guangzhou. Buyers can review the machine configuration with the team before sampling and production."}</p><dl><div><dt>20,000 m²</dt><dd>Manufacturing facility</dd></div><div><dt>8 years</dt><dd>Manufacturing and R&amp;D</dd></div><div><dt>30+ markets</dt><dd>International project experience</dd></div></dl><Link href="/about">Explore BOHOL company strength <ArrowUpRight size={17} /></Link></div>
-      <div className="product-factory-gallery">{factoryGallery.slice(0,3).map((image, index) => <a href={image} target="_blank" rel="noreferrer" key={image} aria-label={`View BOHOL factory image ${index + 1}`}><Image src={image} alt={["BOHOL factory exterior in Guangzhou", "BOHOL vending machine production workshop", "BOHOL engineering and assembly process"][index] || "BOHOL manufacturing facility"} width={1000} height={700} sizes="(max-width:900px) 100vw, 36vw" /><span>View full image <ArrowUpRight size={15} /></span></a>)}</div>
+      <div className="product-factory-heading"><h2>{product.companyStrengthTitle || "Factory proof, production and quotation in one view."}</h2><p>{product.companyStrengthDescription || "Review BOHOL’s manufacturing base, workshop, company documents and the information needed for a project quotation."}</p><Link href="/about">Company profile <ArrowUpRight size={17} /></Link></div>
+      <CompanyProofShowcase productImage={product.image} />
     </section>
-    {!!product.applications?.length && <section className="product-applications"><h2>Application scenarios</h2><div>{product.applications.map((item) => <article key={item.title}><h3>{item.title}</h3><p>{item.description}</p></article>)}</div></section>}
-    {!!product.productAttributes?.length && <section className="product-data-section"><h2>Product attributes</h2><div>{product.productAttributes.map((item) => <article key={item.name}><span>{item.name}</span><b>{item.value}</b></article>)}</div></section>}
-    {!!product.specifications?.length && <section className="product-data-section"><h2>Specifications</h2><div>{product.specifications.map((item) => <article key={item.key}><span>{item.key}</span><b>{item.value}</b></article>)}</div></section>}
-    <section className="product-rich-shell">
-      <div><FileText size={20} /><h2>Detail page content</h2><p>Add long-form sales copy, installation notes, images, tables and code-style snippets from the backend editor.</p></div>
-      {richContent ? <article className="editorial product-rich-content">{richContent}</article> : <article className="product-empty-content"><h3>No extended content yet.</h3><p>Add content in the CMS field “Product detail page content”.</p></article>}
+    <section className="product-quick-details">
+      <div><h2>Where it fits</h2><p>{product.applications?.slice(0,6).map((item) => item.title).join(" · ") || "Retail stores · offices · hotels · campuses"}</p></div>
+      <div><h2>Key specifications</h2><dl>{[...(product.productAttributes || []).slice(0,3).map((item) => ({ key:item.name, value:item.value })), ...(product.specifications || []).slice(0,3)].map((item) => <div key={item.key}><dt>{item.key}</dt><dd>{item.value}</dd></div>)}</dl></div>
+      <div><h2>Buyer questions</h2>{product.faq?.slice(0,3).map((item) => <details key={item.question}><summary>{item.question}</summary><p>{item.answer}</p></details>)}</div>
     </section>
-    {!!product.faq?.length && <section className="product-faq-section"><h2>Product FAQ</h2><div>{product.faq.map((item) => <details key={item.question}><summary>{item.question}</summary><p>{item.answer}</p></details>)}</div></section>}
-    {!!product.downloads?.length && <section className="product-downloads"><h2>Downloads and links</h2><div>{product.downloads.map((item) => item.url && <a key={item.label} href={item.url} target="_blank" rel="noopener noreferrer"><Download size={18} /><span>{item.label}</span><ArrowUpRight size={16} /></a>)}</div></section>}
     <EnquirySection productName={product.name} />
   </SiteShell>;
 }
