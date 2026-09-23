@@ -21,7 +21,7 @@ export function ProductGallery({ images, productName }: { images: GalleryImage[]
   if (!current) return null;
 
   return <>
-    <div className="product-commerce-gallery">
+    <div className={`product-commerce-gallery${images.length === 1 ? " is-single" : ""}`}>
     {images.length > 1 && <div className="product-gallery-strip" role="list" aria-label={`${productName} image gallery`}>
       {images.map((image, index) => <button className={index === active ? "is-active" : ""} type="button" onClick={() => setActive(index)} key={`${image.src}-${index}`} aria-label={`Show image ${index + 1}: ${image.alt}`} aria-pressed={index === active}>
         <Image src={image.src} alt="" width={240} height={180} sizes="(max-width:560px) 22vw, 84px" />
