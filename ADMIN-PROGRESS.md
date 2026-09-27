@@ -83,3 +83,4 @@
 - 2026-09-23 产品详情页重构：新增可点击切换的产品图库、主图全屏查看、真实产品图卖点区，以及工厂外景/生产/设计装配公司实力模块；壁挂款产品已迁入 `content/products`，后台新增公司实力标题、说明和生产图库字段。生产构建通过；本地页面验证 6 张产品图可切换、全屏图加载成功、全页无损坏图片。Impeccable 仅报告 `globals.css` 中任务范围外的既有全局样式告警。
 - 2026-09-28 后台新增“Google 收录”页面，集中显示已启用的 Sitemap、robots、Canonical、SEO/GEO 与结构化数据，并提供真实 Sitemap、robots 和 Search Console 入口；产品页新增 Product 与 FAQ Schema.org 数据。后台不伪造收录状态，真实状态仍需 Search Console 授权查看。
 - 2026-09-28 “Google 收录”页面新增用户提供的 Search Console 效果截图，通过管理员会话保护的 `/api/admin/search-console-snapshot` 读取；面板明确标记统计区间与静态截图属性，并保留实时 Search Console 入口。自动实时数据仍需 Search Console API 授权。
+- 2026-09-28 静态 Search Console 截图改为真实 OAuth/API 数据面板：后台可上传 Web OAuth JSON 到服务器私有目录、连接 Google 只读授权，并查询 7/28/90 天的点击、曝光、CTR、排名及查询词/网页/国家/设备/日期。OAuth 凭据和 refresh token 不进入 Git；真实授权仍需用户在部署后的后台完成。
