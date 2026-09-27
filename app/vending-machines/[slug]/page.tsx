@@ -6,7 +6,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight, Check, Globe2, Settings2, ShieldCheck } from "lucide-react";
 import { getProduct, getProducts, type ProductRecord } from "@/lib/keystatic-content";
 import { BreadcrumbJson, SiteShell } from "@/components/site-shell";
-import { siteUrl } from "@/lib/seo";
+import { faqJsonLd, productJsonLd, siteUrl } from "@/lib/seo";
 import { ProductGallery } from "@/components/product-gallery";
 import { CompanyProofShowcase, ProductFeatureShowcase } from "@/components/product-feature-showcase";
 
@@ -71,6 +71,8 @@ export default async function Product({ params }: { params: Promise<{ slug: stri
     ["Payment", labelList(product.paymentOptions) || "Custom options"],
   ];
   return <SiteShell>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(productJsonLd(product)).replace(/</g,"\\u003c")}} />
+    {!!product.faq?.length && <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(faqJsonLd(product.faq.map(item=>({q:item.question,a:item.answer})))).replace(/</g,"\\u003c")}} />}
     <BreadcrumbJson items={[{ name: "Home", url: siteUrl }, { name: "Vending Machines", url: `${siteUrl}/vending-machines` }, { name: product.name, url: `${siteUrl}/vending-machines/${slug}` }]} />
     <main className="product-detail product-detail-redesign">
       <div className="product-media-panel">

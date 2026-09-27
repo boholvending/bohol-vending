@@ -198,20 +198,20 @@ export default config({
           },
         ),
         seoTitle: fields.text({
-          label: "SEO 标题（英文）",
+          label: "Google 收录 · SEO 标题（英文）",
           description: "Recommended under 60 characters. If empty, product name is used.",
         }),
         seoDescription: fields.text({
-          label: "SEO 描述（英文）",
+          label: "Google 收录 · SEO 描述（英文）",
           multiline: true,
           description: "Recommended 140–160 characters. If empty, short description is used.",
         }),
         seoKeywords: fields.array(fields.text({ label: "Keyword" }), {
-          label: "SEO 关键词（英文）",
+          label: "Google 收录 · SEO 关键词（英文）",
           itemLabel: (props) => props.value || "Keyword",
         }),
         canonicalUrl: fields.url({
-          label: "规范链接 Canonical",
+          label: "Google 收录 · 规范链接 Canonical",
           description: "Optional. Leave empty to use the normal product page URL.",
         }),
         ogImage: fields.image({
@@ -236,8 +236,8 @@ export default config({
       schema: {
         title: fields.slug({ name: { label: "文章标题（英文）", validation: { isRequired: true } } }),
         status: fields.select({ label: "发布状态", defaultValue: "draft", options: [{ label: "草稿", value: "draft" }, { label: "已发布", value: "published" }] }),
-        seoTitle: fields.text({ label: "SEO 标题（英文）", description: "留空使用文章标题。" }),
-        seoDescription: fields.text({ label: "SEO 描述（英文）", multiline: true, description: "留空使用文章摘要。" }),
+        seoTitle: fields.text({ label: "Google 收录 · SEO 标题（英文）", description: "留空使用文章标题。" }),
+        seoDescription: fields.text({ label: "Google 收录 · SEO 描述（英文）", multiline: true, description: "留空使用文章摘要。" }),
         publishedAt: fields.date({ label: "发布日期", validation: { isRequired: true } }),
         coverImage: fields.image({
           label: "Cover image",
