@@ -74,6 +74,16 @@ async function query(token: string, body: object) {
   return response.json();
 }
 
+async function googleJson(url: string, token: string, init?: RequestInit) {
+  const response = await fetch(url, {
+    ...init,
+    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", ...init?.headers },
+    cache: "no-store",
+  });
+  if (!response.ok) throw new Error(`gsc_${response.status}`);
+  return response.json();
+}
+
 export async function getGscPerformance(days: number, dimension: string) {
   const token = await accessToken();
   const end = new Date(); end.setUTCDate(end.getUTCDate() - 2);
@@ -81,4 +91,18 @@ export async function getGscPerformance(days: number, dimension: string) {
   const base = { startDate: isoDate(start), endDate: isoDate(end), type: "web", dataState: "final" };
   const [summary, detail] = await Promise.all([query(token, { ...base, rowLimit: 1 }), query(token, { ...base, dimensions: [dimension], rowLimit: 250 })]);
   return { range: base, totals: summary.rows?.[0] || { clicks: 0, impressions: 0, ctr: 0, position: 0 }, rows: detail.rows || [] };
+}
+
+export async function getGscSitemaps() {
+  const token = await accessToken();
+  const data = await googleJson(`https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(gscProperty)}/sitemaps`, token) as { sitemap?: unknown[] };
+  return { property: gscProperty, sitemaps: data.sitemap || [] };
+}
+
+export async function inspectGscUrl(inspectionUrl: string) {
+  const token = await accessToken();
+  return googleJson("https://searchconsole.googleapis.com/v1/urlInspection/index:inspect", token, {
+    method: "POST",
+    body: JSON.stringify({ inspectionUrl, siteUrl: gscProperty, languageCode: "zh-CN" }),
+  });
 }

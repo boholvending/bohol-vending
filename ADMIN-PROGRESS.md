@@ -86,3 +86,4 @@
 - 2026-09-28 静态 Search Console 截图改为真实 OAuth/API 数据面板：后台可上传 Web OAuth JSON 到服务器私有目录、连接 Google 只读授权，并查询 7/28/90 天的点击、曝光、CTR、排名及查询词/网页/国家/设备/日期。OAuth 凭据和 refresh token 不进入 Git；真实授权仍需用户在部署后的后台完成。
 - 2026-09-28 SEO/GEO 自动化新增 2 篇英文文章：vending machine payment system integration 与 vending machine quality inspection checklist；均使用 BOHOL 本地产品图、官方 PCI/EMVCo/ISO/IEC 来源、内部链接、FAQ，并扩展 CMS 的 GEO 摘要、权威来源和 Article/FAQ Schema 字段。待生产部署与 Search Console 授权后请求收录。
 - 2026-09-29 Search Console OAuth 授权完成后错误跳转到 `localhost:3000`：生产反向代理传入的内部 `request.url` 被回调路由直接用作跳转基址。回调成功、状态校验失败和换取令牌失败三个分支均改用生产安全的 `adminUrl`，避免暴露内部上游地址；本地生产构建通过，提交 `0f40005` 已部署，线上无参数回调的错误分支已验证跳转正式域名、不再指向 localhost。真实 Search Console 数据读回仍需管理员会话内打开页面确认。
+- 2026-09-29 Google 收录后台扩展为同页真实数据工作台：直接显示概览、数据洞察、搜索效果、网址检查、网页表现和站点地图；新增只读 Sitemap API 与受管理员会话/同源校验保护的网址检查 API，只允许检查 BOHOL HTTPS 页面。生产构建通过，Impeccable 检测无告警；待部署后在已登录会话内验证 Google 实际返回值和手机排版。
