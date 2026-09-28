@@ -238,13 +238,30 @@ export default config({
         status: fields.select({ label: "发布状态", defaultValue: "draft", options: [{ label: "草稿", value: "draft" }, { label: "已发布", value: "published" }] }),
         seoTitle: fields.text({ label: "Google 收录 · SEO 标题（英文）", description: "留空使用文章标题。" }),
         seoDescription: fields.text({ label: "Google 收录 · SEO 描述（英文）", multiline: true, description: "留空使用文章摘要。" }),
+        primaryKeyword: fields.text({ label: "主要关键词（英文）" }),
+        geoSummary: fields.text({ label: "GEO / AI 摘要（英文）", multiline: true }),
         publishedAt: fields.date({ label: "发布日期", validation: { isRequired: true } }),
+        modifiedAt: fields.date({ label: "更新日期" }),
         coverImage: fields.image({
           label: "Cover image",
           directory: "public/uploads/news",
           publicPath: "/uploads/news/",
         }),
         excerpt: fields.text({ label: "文章摘要（英文）", multiline: true, validation: { isRequired: true } }),
+        faq: fields.array(
+          fields.object({
+            question: fields.text({ label: "FAQ 问题", validation: { isRequired: true } }),
+            answer: fields.text({ label: "FAQ 回答", multiline: true, validation: { isRequired: true } }),
+          }),
+          { label: "FAQ（用于页面与 FAQ Schema）", itemLabel: (props) => props.fields.question.value || "FAQ" },
+        ),
+        authoritySources: fields.array(
+          fields.object({
+            label: fields.text({ label: "来源名称", validation: { isRequired: true } }),
+            url: fields.url({ label: "权威来源网址", validation: { isRequired: true } }),
+          }),
+          { label: "权威来源", itemLabel: (props) => props.fields.label.value || "Source" },
+        ),
         content: fields.document({
           label: "文章正文（英文，支持图片）",
           images: { directory: "public/uploads/news/content", publicPath: "/uploads/news/content/" },

@@ -84,3 +84,4 @@
 - 2026-09-28 后台新增“Google 收录”页面，集中显示已启用的 Sitemap、robots、Canonical、SEO/GEO 与结构化数据，并提供真实 Sitemap、robots 和 Search Console 入口；产品页新增 Product 与 FAQ Schema.org 数据。后台不伪造收录状态，真实状态仍需 Search Console 授权查看。
 - 2026-09-28 “Google 收录”页面新增用户提供的 Search Console 效果截图，通过管理员会话保护的 `/api/admin/search-console-snapshot` 读取；面板明确标记统计区间与静态截图属性，并保留实时 Search Console 入口。自动实时数据仍需 Search Console API 授权。
 - 2026-09-28 静态 Search Console 截图改为真实 OAuth/API 数据面板：后台可上传 Web OAuth JSON 到服务器私有目录、连接 Google 只读授权，并查询 7/28/90 天的点击、曝光、CTR、排名及查询词/网页/国家/设备/日期。OAuth 凭据和 refresh token 不进入 Git；真实授权仍需用户在部署后的后台完成。
+- 2026-09-28 SEO/GEO 自动化新增 2 篇英文文章：vending machine payment system integration 与 vending machine quality inspection checklist；均使用 BOHOL 本地产品图、官方 PCI/EMVCo/ISO/IEC 来源、内部链接、FAQ，并扩展 CMS 的 GEO 摘要、权威来源和 Article/FAQ Schema 字段。待生产部署与 Search Console 授权后请求收录。
