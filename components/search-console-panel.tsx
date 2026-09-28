@@ -2,7 +2,7 @@
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { CheckCircle2, ExternalLink, FileSearch, Globe2, LoaderCircle, RefreshCw, Search, Upload } from "lucide-react";
+import { CheckCircle2, ChevronLeft, ChevronRight, ExternalLink, FileSearch, Globe2, LoaderCircle, RefreshCw, Search, Upload } from "lucide-react";
 import s from "./admin-workspace.module.css";
 
 type Status = { configured: boolean; connected: boolean };
@@ -107,13 +107,34 @@ export function SearchConsolePanel() {
 
     <section className={s.panel} id="gsc-inspection"><div className={s.gscHeading}><FileSearch size={21} /><div><h2>网址检查</h2><p>直接查询某个 BOHOL 页面当前在 Google 索引中的状态。</p></div></div><form className={s.gscInspectForm} onSubmit={inspect}><label htmlFor="inspection-url">完整网页地址</label><div><input id="inspection-url" type="url" value={inspectionUrl} onChange={event => setInspectionUrl(event.target.value)} required /><button type="submit" disabled={inspecting}>{inspecting ? <LoaderCircle className={s.spin} size={17} /> : <Search size={17} />}{inspecting ? "检查中" : "检查网址"}</button></div></form>{indexResult && <div className={s.gscInspectionResult}><div><span>Google 结论</span><b>{verdictLabel[indexResult.verdict || ""] || indexResult.verdict || "暂无结论"}</b></div><div><span>覆盖状态</span><b>{indexResult.coverageState || "—"}</b></div><div><span>上次抓取</span><b>{formatDate(indexResult.lastCrawlTime)}</b></div><div><span>网页抓取</span><b>{indexResult.pageFetchState || "—"}</b></div><div><span>Google 规范网址</span><b>{indexResult.googleCanonical || "—"}</b></div><div><span>用户规范网址</span><b>{indexResult.userCanonical || "—"}</b></div>{inspection?.inspectionResult?.inspectionResultLink && <a href={inspection.inspectionResult.inspectionResultLink} target="_blank" rel="noreferrer">查看 Google 详细报告 <ExternalLink size={14} /></a>}</div>}</section>
 
-    <section className={s.panel} id="gsc-pages"><div className={s.snapshotHead}><div><h2>网页</h2><p>Google 搜索中已经产生展示的网页；收录结论请使用上方网址检查。</p></div><span className={s.gscCount}>{performance.page?.rows.length || 0} 个有表现的网页</span></div><PerformanceTable data={performance.page} dimension="page" compactTable /></section>
+    <section className={s.panel} id="gsc-pages"><div className={s.snapshotHead}><div><h2>网页</h2><p>Google 搜索中已经产生展示的网页；收录结论请使用上方网址检查。</p></div><span className={s.gscCount}>{performance.page?.rows.length || 0} 个有表现的网页</span></div><PaginatedPages data={performance.page} /></section>
 
     <section className={s.panel} id="gsc-sitemaps"><div className={s.snapshotHead}><div><h2>站点地图</h2><p>Google Search Console 已接收的 Sitemap 及发现网页数量。</p></div><div className={s.gscSitemapTotals}><span>{compact(String(sitemapTotals.submitted))} 已发现</span><span>{compact(String(sitemapTotals.indexed))} 已编入索引</span></div></div><div className={s.tableWrap}><table><thead><tr><th>站点地图</th><th>状态</th><th>提交时间</th><th>上次读取</th><th>已发现</th></tr></thead><tbody>{sitemaps.length ? sitemaps.map(item => <tr key={item.path}><td><a href={item.path} target="_blank" rel="noreferrer">{item.path.replace("https://www.boholvending.com", "")} <ExternalLink size={12} /></a></td><td><span className={item.isPending ? s.gscPending : s.gscSuccess}><CheckCircle2 size={14} />{item.isPending ? "处理中" : Number(item.errors || 0) ? `${item.errors} 个错误` : "成功"}</span></td><td>{formatDate(item.lastSubmitted)}</td><td>{formatDate(item.lastDownloaded)}</td><td>{compact(String((item.contents || []).reduce((sum, content) => sum + Number(content.submitted || 0), 0)))}</td></tr>) : <tr><td colSpan={5}>Google 尚未返回站点地图记录。</td></tr>}</tbody></table></div></section>
   </div>;
 }
 
-function PerformanceTable({ data, dimension, compactTable = false }: { data?: Performance; dimension: string; compactTable?: boolean }) {
-  const rows = compactTable ? data?.rows.slice(0, 25) : data?.rows;
+function PerformanceTable({ data, dimension, rows = data?.rows }: { data?: Performance; dimension: string; rows?: Row[] }) {
   return <div className={s.tableWrap}><table><thead><tr><th>{dimensionLabels[dimension]}</th><th>点击</th><th>曝光</th><th>CTR</th><th>排名</th></tr></thead><tbody>{rows?.length ? rows.map((row, index) => <tr key={`${row.keys[0]}-${index}`}><td title={row.keys[0]}>{dimension === "page" ? row.keys[0].replace("https://www.boholvending.com", "") : row.keys[0]}</td><td>{compact(String(row.clicks))}</td><td>{compact(String(row.impressions))}</td><td>{(row.ctr * 100).toFixed(1)}%</td><td>{row.position.toFixed(1)}</td></tr>) : <tr><td colSpan={5}>所选时间段暂无数据。</td></tr>}</tbody></table></div>;
+}
+
+function PaginatedPages({ data }: { data?: Performance }) {
+  const pageSize = 10;
+  const [page, setPage] = useState(1);
+  const totalRows = data?.rows.length || 0;
+  const totalPages = Math.max(1, Math.ceil(totalRows / pageSize));
+  useEffect(() => { setPage(1); }, [data]);
+  const currentPage = Math.min(page, totalPages);
+  const rows = data?.rows.slice((currentPage - 1) * pageSize, currentPage * pageSize);
+  return <>
+    <PerformanceTable data={data} dimension="page" rows={rows} />
+    {totalRows > pageSize && <nav className={s.gscPagination} aria-label="网页列表分页">
+      <span>每页 10 条</span>
+      <div>
+        <button type="button" onClick={() => setPage(value => Math.max(1, value - 1))} disabled={currentPage === 1} aria-label="上一页"><ChevronLeft size={16} /></button>
+        {Array.from({ length: totalPages }, (_, index) => index + 1).map(value => <button type="button" key={value} onClick={() => setPage(value)} aria-current={currentPage === value ? "page" : undefined}>{value}</button>)}
+        <button type="button" onClick={() => setPage(value => Math.min(totalPages, value + 1))} disabled={currentPage === totalPages} aria-label="下一页"><ChevronRight size={16} /></button>
+      </div>
+      <span>第 {currentPage} / {totalPages} 页，共 {totalRows} 条</span>
+    </nav>}
+  </>;
 }
