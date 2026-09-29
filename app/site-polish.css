@@ -280,7 +280,34 @@ html { scroll-padding-top: 88px; }
   object-fit: cover;
 }
 
+.article-body {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.article-body table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
 @media (max-width: 700px) {
+  .editorial {
+    width: 100%;
+    padding: 72px 24px;
+    overflow: hidden;
+  }
+
+  .editorial h1 {
+    max-width: 100%;
+    font-size: clamp(42px, 12vw, 56px);
+    overflow-wrap: anywhere;
+  }
+
+  .editorial aside {
+    padding: 24px;
+  }
+
   .story-hero-image {
     margin: 32px 0 52px;
   }

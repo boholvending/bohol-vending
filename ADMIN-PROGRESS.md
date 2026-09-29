@@ -88,3 +88,4 @@
 - 2026-09-29 Search Console OAuth 授权完成后错误跳转到 `localhost:3000`：生产反向代理传入的内部 `request.url` 被回调路由直接用作跳转基址。回调成功、状态校验失败和换取令牌失败三个分支均改用生产安全的 `adminUrl`，避免暴露内部上游地址；本地生产构建通过，提交 `0f40005` 已部署，线上无参数回调的错误分支已验证跳转正式域名、不再指向 localhost。真实 Search Console 数据读回仍需管理员会话内打开页面确认。
 - 2026-09-29 Google 收录后台扩展为同页真实数据工作台：直接显示概览、数据洞察、搜索效果、网址检查、网页表现和站点地图；新增只读 Sitemap API 与受管理员会话/同源校验保护的网址检查 API，只允许检查 BOHOL HTTPS 页面。生产构建通过，Impeccable 检测无告警；待部署后在已登录会话内验证 Google 实际返回值和手机排版。
 - 2026-09-29 Google 收录后台“网页”列表改为每页固定 10 条，显示数字页码、上一页/下一页、当前页/总页数和总条数；切换统计时间后自动回到第 1 页。生产构建通过，Impeccable 检测无告警；待部署验证。
+- 2026-09-29 SEO/GEO 自动化新增 2 篇英文文章：custom vending machine manufacturer RFQ guide 与 vending machine for Europe compliance guide。两篇均为 published CMS 内容，包含 GEO 摘要、FAQ、权威官方来源、自然内部链接、真实现有 BOHOL 产品/工厂图及 Article/FAQ Schema 所需字段；未修改机器图片。生产构建、保存后读回、页面 200、图片、内部链接、metadata、Schema、sitemap、robots 和桌面/手机首屏均已在本地验证。前两篇 2026-09-28 文章经 Google 搜索仍无法可靠确认收录，继续保留待收录；今日两篇待生产部署和 Search Console 请求。
