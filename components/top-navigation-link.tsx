@@ -24,7 +24,11 @@ export function TopNavigationLink({
       return;
     }
 
-    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    const root = document.documentElement;
+    const previousBehavior = root.style.scrollBehavior;
+    root.style.scrollBehavior = "auto";
+    window.scrollTo(0, 0);
+    root.style.scrollBehavior = previousBehavior;
   }
 
   return <Link {...props} onClick={handleClick} scroll />;

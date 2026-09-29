@@ -90,3 +90,4 @@
 - 2026-09-29 Google 收录后台“网页”列表改为每页固定 10 条，显示数字页码、上一页/下一页、当前页/总页数和总条数；切换统计时间后自动回到第 1 页。生产构建通过，Impeccable 检测无告警；待部署验证。
 - 2026-09-29 SEO/GEO 自动化新增 2 篇英文文章：custom vending machine manufacturer RFQ guide 与 vending machine for Europe compliance guide。两篇均为 published CMS 内容，包含 GEO 摘要、FAQ、权威官方来源、自然内部链接、真实现有 BOHOL 产品/工厂图及 Article/FAQ Schema 所需字段；未修改机器图片。生产构建、保存后读回、页面 200、图片、内部链接、metadata、Schema、sitemap、robots 和桌面/手机首屏均已在本地验证。前两篇 2026-09-28 文章经 Google 搜索仍无法可靠确认收录，继续保留待收录；今日两篇待生产部署和 Search Console 请求。
 - 2026-09-29 修复顶部导航从长文章底部跳转后仍停留在新页面底部的问题：新增统一 `TopNavigationLink`，在正常左键导航前显式回到页面顶部，并覆盖英文/中文桌面导航、移动菜单、下拉菜单、Logo、顶部询价按钮；语言切换也同步回到顶部。生产构建通过，Impeccable 检测无告警；项目未安装 Playwright/Puppeteer，因此本轮未做自动浏览器点击回归，待部署后人工点击确认。
+- 2026-09-29 根据线上反馈补充页面渲染后的全局滚动校正：新增 `NavigationScrollReset` 监听 pathname/query，在 Next.js 完成客户端路由切换后以禁用平滑动画的方式将 document 滚动归零，避免框架再次恢复底部位置。内置浏览器逐项从页面底部实测 Home、Vending Machines、Solutions、Contact、Insights、About BOHOL，六项跳转后的 `window.scrollY` 均为 0；生产构建通过。

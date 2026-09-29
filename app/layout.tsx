@@ -8,7 +8,9 @@ import { JsonLd } from "@/components/json-ld";
 import { organizationJsonLd, siteUrl, websiteJsonLd } from "@/lib/seo";
 import { LazyContactFloat } from "@/components/lazy-contact-float";
 import { UmamiAnalytics } from "@/components/umami-analytics";
+import { NavigationScrollReset } from "@/components/navigation-scroll-reset";
+import { Suspense } from "react";
 const manrope=Manrope({subsets:["latin"],variable:"--font-body",display:"swap"});
 const space=Space_Grotesk({subsets:["latin"],variable:"--font-display",display:"swap"});
 export const metadata:Metadata={metadataBase:new URL(siteUrl),title:{default:"BOHOL | Vending Machine Manufacturer",template:"%s | BOHOL"},description:"BOHOL manufactures custom vending machines, smart vending systems and OEM vending solutions for global operators, brands and distributors.",icons:{icon:"/icon.png",apple:"/apple-icon.png"},alternates:{canonical:"/",languages:{"en":"/","zh-CN":"/zh","x-default":"/"}},openGraph:{type:"website",locale:"en_US",alternateLocale:["zh_CN"],siteName:"BOHOL",title:"BOHOL Vending Machine Manufacturer",description:"Custom vending machines and smart vending solutions engineered for global retail.",images:[{url:"/og.webp",width:1200,height:630,alt:"BOHOL vending machine manufacturer"}]},twitter:{card:"summary_large_image",title:"BOHOL Vending Machine Manufacturer",description:"Custom vending machines and smart vending solutions for global retail.",images:["/og.webp"]}};
-export default function RootLayout({children}:Readonly<{children:React.ReactNode}>){return <html lang="en" className={`${manrope.variable} ${space.variable}`}><body><EnquirySource/><LazyContactFloat/><JsonLd data={organizationJsonLd}/><JsonLd data={websiteJsonLd}/><UmamiAnalytics/>{children}</body></html>}
+export default function RootLayout({children}:Readonly<{children:React.ReactNode}>){return <html lang="en" className={`${manrope.variable} ${space.variable}`}><body><Suspense fallback={null}><NavigationScrollReset/></Suspense><EnquirySource/><LazyContactFloat/><JsonLd data={organizationJsonLd}/><JsonLd data={websiteJsonLd}/><UmamiAnalytics/>{children}</body></html>}
