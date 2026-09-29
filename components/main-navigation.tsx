@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 import s from "./main-navigation.module.css";
+import { TopNavigationLink as Link } from "./top-navigation-link";
 
 export function MainNavigation({locale="en"}:{locale?:"en"|"zh"}){
   const zh=locale==="zh";const root=zh?"/zh":"";

@@ -17,6 +17,7 @@ import {
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { SiteFooter } from "@/components/site-footer";
 import { MainNavigation } from "@/components/main-navigation";
+import { TopNavigationLink } from "@/components/top-navigation-link";
 import { products } from "@/lib/content";
 const pages: Record<
   string,
@@ -98,17 +99,17 @@ function Header() {
         borderBottom: "1px solid #d9dede",
       }}
     >
-      <Link className="brand" href="/zh">
+      <TopNavigationLink className="brand" href="/zh">
         <span className="brand-mark">B</span>
         <span>
           BOHOL<small>智能售货技术</small>
         </span>
-      </Link>
+      </TopNavigationLink>
       <MainNavigation locale="zh" />
       <LanguageSwitcher />
-      <Link className="quote" href="/zh/contact">
+      <TopNavigationLink className="quote" href="/zh/contact">
         获取报价 <ArrowUpRight size={15} />
-      </Link>
+      </TopNavigationLink>
     </header>
     <div className="header-spacer" aria-hidden="true" />
     </>

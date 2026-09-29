@@ -7,6 +7,7 @@ import { HomeFooter } from "@/components/home-footer";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { MainNavigation } from "@/components/main-navigation";
 import { BrandLogo } from "@/components/brand-logo";
+import { TopNavigationLink } from "@/components/top-navigation-link";
 
 export const metadata: Metadata = {
   title: "Vending Machine Manufacturer | Custom Vending Solutions",
@@ -44,15 +45,15 @@ function Header() {
         borderBottom: "1px solid #d9dede",
       }}
     >
-      <Link className="brand" href="/" aria-label="BOHOL home">
+      <TopNavigationLink className="brand" href="/" aria-label="BOHOL home">
         <BrandLogo />
-      </Link>
+      </TopNavigationLink>
       <MainNavigation />
       <div className="header-actions">
         <LanguageSwitcher />
-        <Link className="quote" href="/contact">
+        <TopNavigationLink className="quote" href="/contact">
           Get a Quote <ArrowUpRight size={15} />
-        </Link>
+        </TopNavigationLink>
       </div>
     </header>
   );
