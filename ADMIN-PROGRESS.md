@@ -92,3 +92,4 @@
 - 2026-09-29 修复顶部导航从长文章底部跳转后仍停留在新页面底部的问题：新增统一 `TopNavigationLink`，在正常左键导航前显式回到页面顶部，并覆盖英文/中文桌面导航、移动菜单、下拉菜单、Logo、顶部询价按钮；语言切换也同步回到顶部。生产构建通过，Impeccable 检测无告警；项目未安装 Playwright/Puppeteer，因此本轮未做自动浏览器点击回归，待部署后人工点击确认。
 - 2026-09-29 根据线上反馈补充页面渲染后的全局滚动校正：新增 `NavigationScrollReset` 监听 pathname/query，在 Next.js 完成客户端路由切换后以禁用平滑动画的方式将 document 滚动归零，避免框架再次恢复底部位置。内置浏览器逐项从页面底部实测 Home、Vending Machines、Solutions、Contact、Insights、About BOHOL，六项跳转后的 `window.scrollY` 均为 0；生产构建通过。
 - 2026-09-29 统一压缩导航栏目页首屏顶部留白：`inner-page`、Contact、文章详情和案例详情的桌面顶部间距改为 48–64px，文章手机端改为 48px；About 新版页面原有 64px 顶距保持。内置浏览器确认 Insights、Vending Machines、Solutions、Contact 的实际顶部 padding 均约 51px，首屏标题和主图前移；生产构建通过。
+- 2026-09-29 定位“后台需要打开两次”：生产 Nginx 将 `https://boholvending.com/任意路径` 301 到 `https://www.boholvending.com`，错误丢失 `$request_uri`，因此第一次打开后台会落到首页。已扩展 `scripts/server/fix-nginx.sh`，同时修复带/不带 `$request_uri` 的旧规则，并新增后台路径保留验证；需在生产服务器用 sudo 执行脚本后复测，未执行前不能宣称线上已修复。

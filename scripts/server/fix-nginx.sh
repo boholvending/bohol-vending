@@ -49,7 +49,7 @@ patch_config() {
     s{server_name\s+(?:boholvending\.com|www\.boholvending\.com|www1\.boholvending\.com)(?:\s+(?:boholvending\.com|www\.boholvending\.com|www1\.boholvending\.com))*\s*;}{
       ++$seen == 1 ? "server_name boholvending.com;" : "server_name www.boholvending.com;"
     }gex;
-    s@return\s+301\s+https://(?:www\.)?boholvending\.com\$request_uri\s*;@return 301 https://www.boholvending.com$request_uri;@g;
+    s@return\s+301\s+https://(?:www\.)?boholvending\.com(?:\$request_uri)?\s*;@return 301 https://www.boholvending.com$request_uri;@g;
   ' "$REAL_CONF"
 }
 
@@ -81,11 +81,17 @@ verify_sitemap() {
 }
 
 verify_redirect() {
-  local location
-  location="$(curl -fsSI "https://${DOMAIN}/" | awk 'tolower($1) == "location:" {print $2}' | tr -d '\r')"
+  local root_location path_location
+  root_location="$(curl -fsSI "https://${DOMAIN}/" | awk 'tolower($1) == "location:" {print $2}' | tr -d '\r')"
+  path_location="$(curl -fsSI "https://${DOMAIN}/bohol-control-7e9c2f" | awk 'tolower($1) == "location:" {print $2}' | tr -d '\r')"
 
-  if [ "$location" != "https://${WWW_DOMAIN}/" ] && [ "$location" != "https://${WWW_DOMAIN}" ]; then
-    echo "Root domain redirect is wrong: ${location:-none}"
+  if [ "$root_location" != "https://${WWW_DOMAIN}/" ] && [ "$root_location" != "https://${WWW_DOMAIN}" ]; then
+    echo "Root domain redirect is wrong: ${root_location:-none}"
+    exit 1
+  fi
+
+  if [ "$path_location" != "https://${WWW_DOMAIN}/bohol-control-7e9c2f" ]; then
+    echo "Path-preserving redirect is wrong: ${path_location:-none}"
     exit 1
   fi
 }
@@ -110,6 +116,7 @@ main() {
   trap - ERR
 
   echo "OK: Nginx domain rules are fixed."
+  echo "OK: Root-domain redirects preserve the requested path."
   echo "OK: ${SITEMAP_URL} returns 200 XML."
   echo "Backup kept at: $BACKUP_DIR"
 }
