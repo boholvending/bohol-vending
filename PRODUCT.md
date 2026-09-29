@@ -46,3 +46,17 @@ BOHOL is positioned as a source-direct manufacturer based in Panyu, Guangzhou, G
 - Do not invent customer results, addresses, phone numbers or certification details
 - Keep performance, responsive behavior, accessibility and SEO metadata production-ready
 - Exact contact details and approved customer case evidence remain open facts for launch
+
+## Administration and social management
+
+The authenticated BOHOL administration area also serves internal content operators and customer-service staff. Social management brings platform configuration visibility and WhatsApp Business conversations into the existing workspace.
+
+- Facebook, Instagram, LinkedIn, YouTube, TikTok, X and WhatsApp Business show configuration readiness derived from required server environment values. “已配置” means the required values are present; it does not prove token validity, approved permissions or a working live connection. The other platforms currently provide status and developer-console links, not an implemented publishing workflow.
+- Platform account passwords are not collected by this interface. Authorization tokens stay in private server configuration.
+- WhatsApp Cloud API receives signed webhook events and stores incoming messages, outgoing text replies and delivery-status updates on the server. Sending requires an authenticated administrator and a same-origin request.
+- The workspace groups messages by customer and supports reading a conversation and replying with up to 4000 characters. Configured workspaces refresh every 15 seconds and provide a manual refresh control. “消息已交给 WhatsApp 发送” confirms API acceptance, not delivery or reading by the customer.
+- Only messages captured by this integration are available; phone chat history from before connection is not automatically imported. The interface displays the most recent 5000 messages and explicitly indicates when older records remain in storage.
+- Unconfigured, configured-but-empty, send failure, storage read failure and skipped damaged-record states must remain explicit. Staff should be able to distinguish missing setup from missing history or an actual error.
+- Free-text replies are subject to WhatsApp's customer-service window. The interface explains that approved Meta templates are required outside that window; template sending and media previews are not implemented here. Non-text messages display their caption or message-type placeholder.
+
+The administration area preserves its existing restrained light interface and Chinese operational labels. Detailed surface behavior is recorded in `.impeccable/surfaces/components-social-management-tsx.md`.

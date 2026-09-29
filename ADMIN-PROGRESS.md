@@ -93,3 +93,4 @@
 - 2026-09-29 根据线上反馈补充页面渲染后的全局滚动校正：新增 `NavigationScrollReset` 监听 pathname/query，在 Next.js 完成客户端路由切换后以禁用平滑动画的方式将 document 滚动归零，避免框架再次恢复底部位置。内置浏览器逐项从页面底部实测 Home、Vending Machines、Solutions、Contact、Insights、About BOHOL，六项跳转后的 `window.scrollY` 均为 0；生产构建通过。
 - 2026-09-29 统一压缩导航栏目页首屏顶部留白：`inner-page`、Contact、文章详情和案例详情的桌面顶部间距改为 48–64px，文章手机端改为 48px；About 新版页面原有 64px 顶距保持。内置浏览器确认 Insights、Vending Machines、Solutions、Contact 的实际顶部 padding 均约 51px，首屏标题和主图前移；生产构建通过。
 - 2026-09-29 定位“后台需要打开两次”：生产 Nginx 将 `https://boholvending.com/任意路径` 301 到 `https://www.boholvending.com`，错误丢失 `$request_uri`，因此第一次打开后台会落到首页。已扩展 `scripts/server/fix-nginx.sh`，同时修复带/不带 `$request_uri` 的旧规则，并新增后台路径保留验证；需在生产服务器用 sudo 执行脚本后复测，未执行前不能宣称线上已修复。
+- 2026-09-29 后台新增“社媒管理”模块：显示 Facebook、Instagram、LinkedIn、YouTube、TikTok、X、WhatsApp Business 的真实服务器配置状态；未配置时明确显示待配置。新增 WhatsApp Cloud API Webhook（GET 验证、POST App Secret 签名校验）、服务器私有 JSONL 聊天记录、会话列表和后台文字回复端点。历史手机聊天不会伪造导入；其他平台自动发布仍需各平台开发者应用、OAuth 与审核，当前不显示为已连接。
