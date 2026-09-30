@@ -1,6 +1,6 @@
 # Google indexing queue
 
-Last checked: 2026-09-29 (Google search results; the two 2026-09-28 URLs were not reliably returned and remain pending)
+Last checked: 2026-09-30 (Google search results; none of the 2026-09-28 or 2026-09-29 URLs was reliably returned, so all remain pending)
 
 ## Verified indexed
 
@@ -13,7 +13,9 @@ Last checked: 2026-09-29 (Google search results; the two 2026-09-28 URLs were no
 
 - `https://www.boholvending.com/insights/vending-machine-payment-system-integration-guide` — published 2026-09-28; request after Search Console authorization.
 - `https://www.boholvending.com/insights/vending-machine-quality-inspection-checklist` — published 2026-09-28; request after Search Console authorization.
-- `https://www.boholvending.com/insights/custom-vending-machine-manufacturer-rfq-guide` — prepared 2026-09-29; request after production deployment.
-- `https://www.boholvending.com/insights/vending-machine-for-europe-compliance-guide` — prepared 2026-09-29; request after production deployment.
+- `https://www.boholvending.com/insights/custom-vending-machine-manufacturer-rfq-guide` — published 2026-09-29; request after Search Console authorization.
+- `https://www.boholvending.com/insights/vending-machine-for-europe-compliance-guide` — published 2026-09-29; request after Search Console authorization.
+- `https://www.boholvending.com/insights/vending-machine-for-usa-market-buying-guide` — prepared 2026-09-30; request after production deployment.
+- `https://www.boholvending.com/insights/vending-machine-manufacturing-process-guide` — prepared 2026-09-30; request after production deployment.
 
 Only move a URL to “Verified indexed” after it is confirmed in Google Search Console or a reliable Google search result. Publication, sitemap inclusion and a successful crawl do not by themselves prove indexing.
