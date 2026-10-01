@@ -17,7 +17,7 @@ Last checked: 2026-10-01 (Google search results; none of the 2026-09-28 through 
 - `https://www.boholvending.com/insights/vending-machine-for-europe-compliance-guide` — published 2026-09-29; request after Search Console authorization.
 - `https://www.boholvending.com/insights/vending-machine-for-usa-market-buying-guide` — published 2026-09-30; waiting for Search Console authorization/manual request.
 - `https://www.boholvending.com/insights/vending-machine-manufacturing-process-guide` — published 2026-09-30; waiting for Search Console authorization/manual request.
-- `https://www.boholvending.com/insights/custom-vending-machine-cost-factors` — prepared 2026-10-01; request after production deployment.
-- `https://www.boholvending.com/insights/smart-vending-machine-system-guide` — prepared 2026-10-01; request after production deployment.
+- `https://www.boholvending.com/insights/custom-vending-machine-cost-factors` — published 2026-10-01; waiting for Search Console authorization/manual request.
+- `https://www.boholvending.com/insights/smart-vending-machine-system-guide` — published 2026-10-01; waiting for Search Console authorization/manual request.
 
 Only move a URL to “Verified indexed” after it is confirmed in Google Search Console or a reliable Google search result. Publication, sitemap inclusion and a successful crawl do not by themselves prove indexing.
