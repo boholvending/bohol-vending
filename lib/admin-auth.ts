@@ -89,5 +89,5 @@ export function sameOrigin(request: Request) {
 }
 
 export function adminUrl(request: Request, path: string) {
-  return new URL(path, process.env.NODE_ENV === "production" ? "https://boholvending.com" : request.url);
+  return new URL(path, process.env.NODE_ENV === "production" ? "https://www.boholvending.com" : request.url);
 }
