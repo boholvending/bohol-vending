@@ -6,12 +6,28 @@ export function UmamiAnalytics() {
 
   if (!src || !websiteId || src.startsWith("replace") || websiteId.startsWith("replace")) return null;
 
-  return (
+  return <>
+    <Script id="bohol-umami-filter" strategy="beforeInteractive">{`
+      window.boholUmamiBeforeSend = function (type, payload) {
+        var path = window.location.pathname || "";
+        var privatePath = path === "/login" || path === "/admin" ||
+          path.indexOf("/admin/") === 0 ||
+          path.indexOf("/bohol-control-7e9c2f") === 0 ||
+          path.indexOf("/keystatic") === 0 ||
+          path.indexOf("/api/admin/") === 0 ||
+          path.indexOf("/api/keystatic/") === 0;
+        return privatePath ? false : payload;
+      };
+    `}</Script>
     <Script
       src={src}
       data-website-id={websiteId}
       data-domains="boholvending.com,www.boholvending.com"
+      data-before-send="boholUmamiBeforeSend"
+      data-exclude-search="true"
+      data-exclude-hash="true"
+      data-performance="true"
       strategy="lazyOnload"
     />
-  );
+  </>;
 }

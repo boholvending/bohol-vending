@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const description = product.seoDescription || `${product.summary} Built and configured by BOHOL for brands, distributors and operators worldwide.`;
   const image = product.ogImage || product.image;
   return {
-    title,
+    title: { absolute: title },
     description,
     keywords: [product.name, `${product.name} manufacturer`, "custom vending machine", "global vending solution", product.category, ...(product.seoKeywords || [])],
     alternates: { canonical: product.canonicalUrl || `/vending-machines/${slug}` },
