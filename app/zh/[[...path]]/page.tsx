@@ -19,6 +19,14 @@ import { SiteFooter } from "@/components/site-footer";
 import { MainNavigation } from "@/components/main-navigation";
 import { TopNavigationLink } from "@/components/top-navigation-link";
 import { products } from "@/lib/content";
+const zhProductNames: Record<string, string> = {
+  "wall-mounted-smart-vending-machine": "壁挂式智能自动售货机",
+  "vape-vending-machine": "电子烟自动售货机",
+  "cold-drink-vending-machine": "冷饮自动售货机",
+  "elevator-vending-machine": "履带升降自动售货机",
+  "eyelash-vending-machine": "睫毛自动售货机",
+  "card-vending-machine": "卡牌自动售货机",
+};
 const pages: Record<
   string,
   { tag: string; title: string; lead: string; items: string[] }
@@ -74,18 +82,31 @@ export async function generateMetadata({
   const key = path[0] || "home";
   const p = pages[key];
   const story = path[1] ? stories[key]?.[path[1]] : undefined;
-  const title = story?.title.zh || p?.tag || "智能自动售货机制造商";
+  const productName = key === "vending-machines" && path[1] ? zhProductNames[path[1]] : undefined;
+  const baseTitle = story?.title.zh || productName || ({
+    home: "智能自动售货机制造商",
+    contact: "联系 BOHOL 自动售货机工厂",
+    "vending-machines": "定制自动售货机产品",
+  } as Record<string, string>)[key] || p?.tag || "智能自动售货机制造商";
+  const title = `${baseTitle} | BOHOL`;
+  const description = story?.intro.zh || (productName
+    ? `了解 BOHOL ${productName}的功能、支付、品牌和结构定制方案，并向广州自动售货机工厂索取项目报价。`
+    : p?.lead || ({
+      home: "BOHOL 为全球品牌、经销商和运营商设计制造智能自动售货机，提供 OEM/ODM 定制与出口项目支持。",
+      contact: "向 BOHOL 广州自动售货机工厂提交商品、目标市场、支付方式和数量要求，获取配置建议与项目报价。",
+      "vending-machines": "查看 BOHOL 冷饮、卡牌、美妆、电子烟、壁挂式及升降自动售货机，并按商品和市场需求定制。",
+    } as Record<string, string>)[key] || "BOHOL 为全球客户设计和制造智能自动售货机。");
   const canonical = `/zh${path.length ? `/${path.join("/")}` : ""}`;
   const english = path.length ? `/${path.join("/")}` : "/";
   return {
-    title: `${title} | BOHOL`,
-    description: story?.intro.zh || p?.lead || "BOHOL 为全球客户设计和制造智能自动售货机。",
+    title: { absolute: title },
+    description,
     alternates: {
       canonical,
       languages: { en: english, "zh-CN": canonical, "x-default": english },
     },
-    openGraph: { title, description: story?.intro.zh || p?.lead, locale: "zh_CN", alternateLocale: ["en_US"], images: [] },
-    twitter: { title, description: story?.intro.zh || p?.lead, images: [] },
+    openGraph: { title, description, locale: "zh_CN", alternateLocale: ["en_US"], images: [] },
+    twitter: { title, description, images: [] },
   };
 }
 function Header() {
