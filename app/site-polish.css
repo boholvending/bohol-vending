@@ -299,7 +299,10 @@ html { scroll-padding-top: 88px; }
 
 @media (max-width: 700px) {
   .editorial {
+    box-sizing: border-box;
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
     padding: 48px 24px 72px;
     overflow: hidden;
   }
