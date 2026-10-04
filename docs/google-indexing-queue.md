@@ -1,6 +1,6 @@
 # Google indexing queue
 
-Last checked: 2026-10-02 (Google search results; none of the 2026-09-28 through 2026-10-01 URLs was reliably returned, so all remain pending)
+Last checked: 2026-10-04 (Google search results; URLs published 2026-09-28 through 2026-10-04 were not reliably returned, so they remain pending)
 
 ## Verified indexed
 
@@ -21,5 +21,9 @@ Last checked: 2026-10-02 (Google search results; none of the 2026-09-28 through 
 - `https://www.boholvending.com/insights/smart-vending-machine-system-guide` — published 2026-10-01; waiting for Search Console authorization/manual request.
 - `https://www.boholvending.com/insights/oem-vending-machine-guide` — published 2026-10-02; waiting for Search Console authorization/manual request.
 - `https://www.boholvending.com/insights/odm-vending-machine-development-guide` — published 2026-10-02; waiting for Search Console authorization/manual request.
+- `https://www.boholvending.com/insights/cold-drink-vending-machine-buying-guide` — published 2026-10-03; waiting for Search Console authorization/manual request.
+- `https://www.boholvending.com/insights/vending-machine-maintenance-design-guide` — published 2026-10-03; waiting for Search Console authorization/manual request.
+- `https://www.boholvending.com/insights/hotel-vending-machine-buyer-guide` — published 2026-10-04; pending production deployment and Search Console authorization/manual request.
+- `https://www.boholvending.com/insights/gym-vending-machine-buyer-guide` — published 2026-10-04; pending production deployment and Search Console authorization/manual request.
 
 Only move a URL to “Verified indexed” after it is confirmed in Google Search Console or a reliable Google search result. Publication, sitemap inclusion and a successful crawl do not by themselves prove indexing.

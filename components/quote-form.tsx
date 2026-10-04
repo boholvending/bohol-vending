@@ -31,6 +31,7 @@ export function QuoteForm({ locale = "en", productName = "" }: { locale?: "en" |
       form.reset();
       setStatus({ type: "success", message: zh ? "感谢您的询盘。BOHOL 团队会尽快与您联系。" : "Thank you. Your enquiry has been sent and the BOHOL team will contact you shortly." });
     } catch {
+      window.umami?.track("Quote form submit failed", { product: productName || "General enquiry" });
       setStatus({ type: "error", message: zh ? "暂时无法发送，请检查网络后重试。您填写的内容仍保留在页面中。" : "We could not send your enquiry. Check your connection and try again; your entries are still here." });
     } finally { setIsSubmitting(false); }
   }
@@ -47,7 +48,7 @@ export function QuoteForm({ locale = "en", productName = "" }: { locale?: "en" |
     )}
     <div><label htmlFor="quote-quantity">{zh ? "预计数量" : "Estimated quantity"}</label><select id="quote-quantity" name="Quantity">{["1-10", "11-50", "51-200", "200+"].map(x=><option key={x}>{x}</option>)}</select></div>
     <div><label htmlFor="quote-timeline">{zh ? "项目时间" : "Project timeline"}</label><select id="quote-timeline" name="Timeline">{["Exploring options", "Within 3 months", "3-6 months", "6+ months"].map((x,i)=><option key={x} value={x}>{zh ? ["方案调研", "3 个月内", "3-6 个月", "6 个月以上"][i] : x}</option>)}</select></div>
-    <div className="full"><label htmlFor="quote-message">{zh ? "项目需求 *" : "Project requirements *"}</label><textarea id="quote-message" required name="Requirements" rows={6} maxLength={3000} placeholder={zh ? "商品尺寸、支付方式和定制要求……" : "Product dimensions, payments and customization requirements…"}/></div>
+    <div className="full"><label htmlFor="quote-message">{zh ? "项目需求（选填）" : "Project details (optional)"}</label><textarea id="quote-message" name="Requirements" rows={4} maxLength={3000} placeholder={zh ? "商品尺寸、支付方式和定制要求（如方便可填写）……" : "Product dimensions, payment needs or customization, if available…"}/></div>
     <button className="submit-button" type="submit" disabled={isSubmitting} data-umami-event="Quote form submit click">{isSubmitting ? (zh ? "发送中..." : "Sending...") : (zh ? "发送询盘" : "Send enquiry")}</button>
     {status.message && <p className="full" role="status" aria-live="polite" data-status={status.type}>{status.message}</p>}
   </form>;
