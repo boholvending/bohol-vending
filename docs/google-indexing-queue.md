@@ -23,7 +23,7 @@ Last checked: 2026-10-04 (Google search results; URLs published 2026-09-28 throu
 - `https://www.boholvending.com/insights/odm-vending-machine-development-guide` — published 2026-10-02; waiting for Search Console authorization/manual request.
 - `https://www.boholvending.com/insights/cold-drink-vending-machine-buying-guide` — published 2026-10-03; waiting for Search Console authorization/manual request.
 - `https://www.boholvending.com/insights/vending-machine-maintenance-design-guide` — published 2026-10-03; waiting for Search Console authorization/manual request.
-- `https://www.boholvending.com/insights/hotel-vending-machine-buyer-guide` — published 2026-10-04; pending production deployment and Search Console authorization/manual request.
-- `https://www.boholvending.com/insights/gym-vending-machine-buyer-guide` — published 2026-10-04; pending production deployment and Search Console authorization/manual request.
+- `https://www.boholvending.com/insights/hotel-vending-machine-buyer-guide` — published and production verified 2026-10-04; not reliably found in Google results; awaiting Search Console authorization/manual request.
+- `https://www.boholvending.com/insights/gym-vending-machine-buyer-guide` — published and production verified 2026-10-04; not reliably found in Google results; awaiting Search Console authorization/manual request.
 
 Only move a URL to “Verified indexed” after it is confirmed in Google Search Console or a reliable Google search result. Publication, sitemap inclusion and a successful crawl do not by themselves prove indexing.
