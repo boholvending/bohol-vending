@@ -1,6 +1,6 @@
 # Google indexing queue
 
-Last checked: 2026-10-05 (Google Search Console browser session timed out; exact site queries for prior pending pages did not reliably return their URLs. No new URL is marked indexed.)
+Last checked: 2026-10-05 (Google Search Console browser session timed out; exact site queries did not reliably return pending URLs, including today's two new pages after production deployment. No new URL is marked indexed.)
 
 ## Verified indexed
 
@@ -25,7 +25,7 @@ Last checked: 2026-10-05 (Google Search Console browser session timed out; exact
 - `https://www.boholvending.com/insights/vending-machine-maintenance-design-guide` — published 2026-10-03; waiting for Search Console authorization/manual request.
 - `https://www.boholvending.com/insights/hotel-vending-machine-buyer-guide` — published and production verified 2026-10-04; not reliably found in Google results; awaiting Search Console authorization/manual request.
 - `https://www.boholvending.com/insights/gym-vending-machine-buyer-guide` — published and production verified 2026-10-04; not reliably found in Google results; awaiting Search Console authorization/manual request.
-- `https://www.boholvending.com/insights/apartment-building-vending-machine-buyer-guide` — published locally 2026-10-05; deployment and sitemap recheck pending; indexing not verified.
-- `https://www.boholvending.com/insights/beauty-vending-machine-for-salons-guide` — published locally 2026-10-05; deployment and sitemap recheck pending; indexing not verified.
+- `https://www.boholvending.com/insights/apartment-building-vending-machine-buyer-guide` — published and production-verified 2026-10-05; present in production sitemap; not reliably found in Google results; awaiting Search Console authorization/manual URL inspection.
+- `https://www.boholvending.com/insights/beauty-vending-machine-for-salons-guide` — published and production-verified 2026-10-05; present in production sitemap; not reliably found in Google results; awaiting Search Console authorization/manual URL inspection.
 
 Only move a URL to “Verified indexed” after it is confirmed in Google Search Console or a reliable Google search result. Publication, sitemap inclusion and a successful crawl do not by themselves prove indexing.
