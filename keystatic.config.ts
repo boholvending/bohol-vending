@@ -247,6 +247,7 @@ export default config({
           directory: "public/uploads/news",
           publicPath: "/uploads/news/",
         }),
+        coverImageAlt: fields.text({ label: "Cover image alt text", description: "Describe the actual image accurately for accessibility and search." }),
         excerpt: fields.text({ label: "文章摘要（英文）", multiline: true, validation: { isRequired: true } }),
         faq: fields.array(
           fields.object({
