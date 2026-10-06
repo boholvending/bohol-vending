@@ -1,6 +1,6 @@
 # Google indexing queue
 
-Last checked: 2026-10-05 (Google Search Console browser session timed out; exact site queries did not reliably return pending URLs, including today's two new pages after production deployment. No new URL is marked indexed.)
+Last checked: 2026-10-06 (Google Search Console browser session timed out; exact site queries across the 16 pending URLs did not reliably confirm any target URL. No new URL is marked indexed.)
 
 ## Verified indexed
 

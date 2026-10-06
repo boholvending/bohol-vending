@@ -19,6 +19,14 @@ export async function SectionContent({ section, locale = "en" }: { section: stri
     <h2>{zh ? data.zh : data.title}</h2>
     {section === "projects" && <p className={s.notice}>{zh ? "以下为应用方案示例，并非已核实的客户交付案例。真实客户名称、现场照片和项目结果将在获得授权后发布。" : "These are application concepts, not verified customer deployments. Approved client stories, site photos and project results will be published separately."}</p>}
     <div className={`${s.grid} ${showImages ? s.imageGrid : ""}`}>{cards.map((card, i) => <Link className={s.card} href={href(card.href)} key={card.href + i}>{"image" in card && card.image ? <div className={s.cardImage}><Image src={card.image} alt={zh ? card.zh : card.title} width={1672} height={941} sizes="(max-width:1050px) 100vw, 50vw"/></div> : null}<span>{card.label || `0${i + 1}`}</span><h3>{zh ? card.zh : card.title}</h3><p>{zh ? card.bodyZh : card.body}</p>{"geo" in card && card.geo ? <small className={s.geo}>{card.geo}</small> : null}<b>{zh ? "了解更多" : "Explore"}<ArrowUpRight size={18}/></b></Link>)}</div>
+    {section === "solutions" && !zh && <section className={s.guideLinks} aria-labelledby="venue-guides-heading">
+      <div className={s.guideIntro}><h3 id="venue-guides-heading">Compare buyer guides by location.</h3><p>Use these checklists to shape a machine brief around the venue, products and service routine.</p></div>
+      <ul>{[
+        { title: "Apartment building vending", description: "Plan resident access, placement and product mix.", href: "/insights/apartment-building-vending-machine-buyer-guide" },
+        { title: "Hotel vending", description: "Assess guest convenience, cabinet fit and restocking.", href: "/insights/hotel-vending-machine-buyer-guide" },
+        { title: "Gym vending", description: "Match drinks, snacks and replenishment to members.", href: "/insights/gym-vending-machine-buyer-guide" },
+      ].map((guide) => <li key={guide.href}><Link href={guide.href}><strong>{guide.title}</strong><small>{guide.description}</small><ArrowUpRight size={18} aria-hidden="true"/></Link></li>)}</ul>
+    </section>}
     {section === "solutions" && <div className={s.hubs}><Link href={href("/oem-odm")}><span>{zh ? "定制服务" : "CUSTOM ENGINEERING"}</span><h3>OEM &amp; ODM</h3><p>{zh ? "从外观、结构到软件界面，为您的品牌打造设备。" : "Cabinet, channels and interface development for your brand."}</p><ArrowUpRight/></Link><Link href={href("/projects")}><span>{zh ? "应用与案例" : "APPLICATIONS & CASES"}</span><h3>{zh ? "项目案例" : "Projects & Cases"}</h3><p>{zh ? "了解商品与运营需求如何形成完整解决方案。" : "See how product and operational needs shape a vending solution."}</p><ArrowUpRight/></Link></div>}
     <div className={s.cta}><div><h3>{zh ? "让我们了解您的项目。" : "Let’s talk about your project."}</h3><p>{zh ? "提供商品、目标市场与预计数量，我们一起确定下一步。" : "Share your product, target market and planned quantity to define the next step."}</p></div><Link href={href("/contact")}>{zh ? "联系 BOHOL" : "Contact BOHOL"}<ArrowUpRight size={18}/></Link></div>
   </div>;
