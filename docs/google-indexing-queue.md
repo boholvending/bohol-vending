@@ -11,6 +11,9 @@ Last checked: 2026-10-07 (No signed-in Google Search Console session was availab
 
 ## Pending indexing
 
+- `https://www.boholvending.com/insights/office-vending-machine-buyer-guide` — published 2026-10-07; production verified; waiting for Search Console authorization/manual URL inspection.
+- `https://www.boholvending.com/insights/school-vending-machine-buyer-guide` — published 2026-10-07; production verified; waiting for Search Console authorization/manual URL inspection.
+
 - `https://www.boholvending.com/insights/vending-machine-payment-system-integration-guide` — published 2026-09-28; request after Search Console authorization.
 - `https://www.boholvending.com/insights/vending-machine-quality-inspection-checklist` — published 2026-09-28; request after Search Console authorization.
 - `https://www.boholvending.com/insights/custom-vending-machine-manufacturer-rfq-guide` — published 2026-09-29; request after Search Console authorization.
