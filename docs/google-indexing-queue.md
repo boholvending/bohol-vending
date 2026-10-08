@@ -1,6 +1,6 @@
 # Google indexing queue
 
-Last checked: 2026-10-07 (No signed-in Google Search Console session was available; exact Google queries across the 16 pending URLs did not reliably confirm any target URL. No new URL is marked indexed.)
+Last checked: 2026-10-08 (Search Console admin read timed out; no reliable query/ranking/indexing data was available. No new URL is marked indexed.)
 
 ## Verified indexed
 
