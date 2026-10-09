@@ -28,7 +28,8 @@ export function CompanyProofShowcase({ productImage, factoryGallery = [] }: { pr
     image,
     fit: "cover",
   }));
-  const orderedItems: Proof[] = [...standardProductFactoryImages, ...configuredFactory, ...items];
+  const [paymentReference, ...remainingStandardImages] = standardProductFactoryImages;
+  const orderedItems: Proof[] = [paymentReference, ...items, ...configuredFactory, ...remainingStandardImages];
   return <div className="company-proof-showcase">
     {orderedItems.map((item) => <article className="company-proof-item" key={item.title}>
       <div className="company-proof-copy"><h3>{item.title}</h3><p>{item.description}</p>{item.action && <Link href="#enquiry">Request project review <ArrowUpRight size={17} /></Link>}</div>
