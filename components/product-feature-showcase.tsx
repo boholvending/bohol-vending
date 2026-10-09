@@ -21,7 +21,6 @@ export function CompanyProofShowcase({ productImage, factoryGallery = [] }: { pr
   const items: Proof[] = [
     { title: "Factory", description: "20,000 m² manufacturing base in Guangzhou.", image: "/images/bohol-guangzhou-factory.webp", fit: "cover" },
     { title: "Certificates", description: "Review BOHOL company qualifications and available product documents.", image: "/images/bohol-certification-banner.webp", fit: "contain" },
-    { title: "Request a quote", description: "Send product size, market, payment and quantity for a project review.", image: productImage, fit: "contain", action: true },
   ];
   const configuredFactory: Proof[] = factoryGallery.map((image, index) => ({
     title: `Project factory image ${index + 1}`,
