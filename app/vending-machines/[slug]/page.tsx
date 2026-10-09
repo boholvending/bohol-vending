@@ -104,7 +104,7 @@ export default async function Product({ params }: { params: Promise<{ slug: stri
       <CompanyProofShowcase productImage={product.image} factoryGallery={product.factoryGallery} />
     </section>
     <section className="product-quick-details" id="quick-details">
-      <div><h2>Buyer questions</h2>{faq.map((item) => <details key={item.question}><summary>{item.question}</summary><p>{item.answer}</p></details>)}</div>
+      <div className="product-faq-panel"><h2>Buyer questions</h2>{faq.map((item) => <details key={item.question}><summary>{item.question}</summary><p>{item.answer}</p></details>)}</div>
     </section>
     <EnquirySection productName={product.name} />
   </SiteShell>;

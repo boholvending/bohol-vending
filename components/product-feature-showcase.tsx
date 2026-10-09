@@ -28,9 +28,9 @@ export function CompanyProofShowcase({ productImage, factoryGallery = [] }: { pr
     image,
     fit: "cover",
   }));
-  items.splice(3, 0, ...configuredFactory, ...standardProductFactoryImages);
+  const orderedItems: Proof[] = [...standardProductFactoryImages, ...configuredFactory, ...items];
   return <div className="company-proof-showcase">
-    {items.map((item) => <article className="company-proof-item" key={item.title}>
+    {orderedItems.map((item) => <article className="company-proof-item" key={item.title}>
       <div className="company-proof-copy"><h3>{item.title}</h3><p>{item.description}</p>{item.action && <Link href="#enquiry">Request project review <ArrowUpRight size={17} /></Link>}</div>
       <div className={`company-proof-visual fit-${item.fit || "cover"}`}><Image src={item.image} alt={`BOHOL ${item.title}`} width={1800} height={1000} sizes="(max-width:900px) 100vw, 86vw" /></div>
     </article>)}
