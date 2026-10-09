@@ -20,7 +20,6 @@ export function ProductFeatureShowcase({ features, productName }: { features: Fe
 export function CompanyProofShowcase({ productImage, factoryGallery = [] }: { productImage: string; factoryGallery?: readonly string[] }) {
   const items: Proof[] = [
     { title: "Factory", description: "20,000 m² manufacturing base in Guangzhou.", image: "/images/bohol-guangzhou-factory.webp", fit: "cover" },
-    { title: "Workshop", description: "Assembly, configuration and quality checks under one roof.", image: "/images/partnerships/bohol-production.webp", fit: "cover" },
     { title: "Certificates", description: "Review BOHOL company qualifications and available product documents.", image: "/images/bohol-certification-banner.webp", fit: "contain" },
     { title: "Request a quote", description: "Send product size, market, payment and quantity for a project review.", image: productImage, fit: "contain", action: true },
   ];

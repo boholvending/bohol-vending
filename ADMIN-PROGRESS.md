@@ -119,3 +119,4 @@
 - 生产复核：Office 与 School 两篇文章均 HTTP 200，线上可见 “Authoritative sources” 区块；两张图片、`sitemap.xml` 与 `robots.txt` 均 HTTP 200。未新增文章，避免在低样本和近期场景集群已覆盖的情况下继续制造重复意图。下一轮优先取得 Search Console 数据，并继续观察来源与询盘事件是否稳定。
 - 2026-10-10 产品详情固定模板：将用户提供的 3 张工厂/支付参考图加入 `public/uploads/products/factory/`，并在全部 6 个产品详情页的工厂展示区统一追加；新增 10 条通用买家 FAQ，与各产品已有 FAQ 合并去重，同时进入页面 FAQ 与 FAQ JSON-LD。生产构建通过，本地 6 个产品 URL 均 HTTP 200，均读回固定图组与 10 条 FAQ；支付图文案明确为项目参考，最终可用方式以目标市场支付服务商确认。待提交部署。
 - 2026-10-10 发布复核：提交 `b3a3cc6` 已推送，GitHub Actions `37963554992` 成功。线上 6 个产品详情页均 HTTP 200，固定工厂/支付图组 3 张图片均 HTTP 200；6 页均读回固定 FAQ，既有墙挂智能机保留其 4 条专属 FAQ 并合并为 14 条。线上 `sitemap.xml` 与 `robots.txt` 均 HTTP 200。
+- 2026-10-10 按用户要求移除产品详情固定模板中的 Workshop 图片卡片（`/images/partnerships/bohol-production.webp`），保留 Factory、Certificates、用户提供的工厂生产图、支付参考图和询价卡片；生产构建通过，待部署复核。
