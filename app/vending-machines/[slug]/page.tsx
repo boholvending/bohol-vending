@@ -104,8 +104,6 @@ export default async function Product({ params }: { params: Promise<{ slug: stri
       <CompanyProofShowcase productImage={product.image} factoryGallery={product.factoryGallery} />
     </section>
     <section className="product-quick-details" id="quick-details">
-      <div><h2>Where it fits</h2><p>{product.applications?.slice(0,6).map((item) => item.title).join(" · ") || "Retail stores · offices · hotels · campuses"}</p></div>
-      <div><h2>Key specifications</h2><dl>{[...(product.productAttributes || []).slice(0,3).map((item) => ({ key:item.name, value:item.value })), ...(product.specifications || []).slice(0,3)].map((item) => <div key={item.key}><dt>{item.key}</dt><dd>{item.value}</dd></div>)}</dl></div>
       <div><h2>Buyer questions</h2>{faq.map((item) => <details key={item.question}><summary>{item.question}</summary><p>{item.answer}</p></details>)}</div>
     </section>
     <EnquirySection productName={product.name} />

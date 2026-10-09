@@ -1,9 +1,9 @@
 export type ProductFaq = { question: string; answer: string };
 
 export const standardProductFactoryImages = [
+  { title: "Payment integration reference", description: "Payment-method examples for project discussion; final availability depends on market and provider approval.", image: "/uploads/products/factory/payment-methods-reference.png", fit: "contain" as const },
   { title: "Production process", description: "Reference overview of BOHOL production and quality-control stages.", image: "/uploads/products/factory/production-process-overview.png", fit: "contain" as const },
   { title: "Factory production", description: "Assembly, wiring, testing and finished-machine preparation in the factory.", image: "/uploads/products/factory/factory-production-process.png", fit: "cover" as const },
-  { title: "Payment integration reference", description: "Payment-method examples for project discussion; final availability depends on market and provider approval.", image: "/uploads/products/factory/payment-methods-reference.png", fit: "contain" as const },
 ] as const;
 
 export const standardProductFaq: readonly ProductFaq[] = [
