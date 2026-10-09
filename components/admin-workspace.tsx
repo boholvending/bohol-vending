@@ -11,7 +11,7 @@ import type {WhatsappMessage} from "@/lib/whatsapp-messages";
 type Entry = {slug:string;title:string;status:string;category:string};
 type Inquiry = {id:string;createdAt:string;source:"quote-form"|"chat-contact";name:string;email:string;company:string;market:string;machine:string;quantity:string;timeline:string;message:string;pageUrl:string;pageTitle:string;product:string;previousPage:string;entryPage:string;referrer:string};
 const navigation = [
-  ["overview","工作台",LayoutDashboard],["products","产品管理",Package],["news","文章与新闻",FileText],
+  ["overview","工作台",LayoutDashboard],["products","产品管理 · 模板1",Package],["news","文章与新闻",FileText],
   ["inbox","留言与聊天",MessageSquare],["social","社媒管理",Share2],["indexing","Google 收录",Globe2],["analytics","访问分析",BarChart3],["settings","连接设置",Settings],["security","安全设置",ShieldCheck]
 ] as const;
 export function AdminWorkspace({content,section,inquiries=[],securityError,socialPlatforms=[],whatsappMessages=[],whatsappNotice,whatsappStorageError,whatsappHistoryLimited,whatsappSkippedRecords=0}:{content:{products:Entry[];news:Entry[]};section:string;inquiries?:Inquiry[];securityError?:string;socialPlatforms?:SocialPlatformStatus[];whatsappMessages?:WhatsappMessage[];whatsappNotice?:string;whatsappStorageError?:string;whatsappHistoryLimited?:boolean;whatsappSkippedRecords?:number}){
