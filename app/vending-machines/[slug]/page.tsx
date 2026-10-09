@@ -9,6 +9,7 @@ import { BreadcrumbJson, SiteShell } from "@/components/site-shell";
 import { faqJsonLd, productJsonLd, siteUrl } from "@/lib/seo";
 import { ProductGallery } from "@/components/product-gallery";
 import { CompanyProofShowcase, ProductFeatureShowcase } from "@/components/product-feature-showcase";
+import { getProductFaq } from "@/lib/product-template";
 
 export async function generateStaticParams() {
   return (await getProducts()).map((product) => ({ slug: product.slug }));
@@ -60,6 +61,7 @@ export default async function Product({ params }: { params: Promise<{ slug: stri
   const { slug } = await params;
   const product = await getProduct(slug);
   if (!product) notFound();
+  const faq = getProductFaq(product.faq);
   const gallery = [...new Set([product.image, ...(product.gallery || [])].filter(Boolean))].map((src, index) => ({ src, alt: index === 0 ? product.name : `${product.name} product detail ${index + 1}` }));
   const highlights = product.highlights?.length ? product.highlights : product.features.slice(0, 3).map((feature) => ({ title: feature.split(":")[0], description: feature.includes(":") ? feature.split(":").slice(1).join(":").trim() : "Configured by BOHOL engineering for production-ready vending projects." }));
   const featuredHighlights = highlights.slice(0, 4).map((item, index) => ({ ...item, image: gallery[(index + 1) % gallery.length].src }));
@@ -72,7 +74,7 @@ export default async function Product({ params }: { params: Promise<{ slug: stri
   ];
   return <SiteShell>
     <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(productJsonLd(product)).replace(/</g,"\\u003c")}} />
-    {!!product.faq?.length && <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(faqJsonLd(product.faq.map(item=>({q:item.question,a:item.answer})))).replace(/</g,"\\u003c")}} />}
+    {!!faq.length && <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(faqJsonLd(faq.map(item=>({q:item.question,a:item.answer})))).replace(/</g,"\\u003c")}} />}
     <BreadcrumbJson items={[{ name: "Home", url: siteUrl }, { name: "Vending Machines", url: `${siteUrl}/vending-machines` }, { name: product.name, url: `${siteUrl}/vending-machines/${slug}` }]} />
     <main className="product-detail product-detail-redesign">
       <div className="product-media-panel">
@@ -99,12 +101,12 @@ export default async function Product({ params }: { params: Promise<{ slug: stri
     </section>
     <section className="product-factory-section" id="company-proof">
       <div className="product-factory-heading"><h2>{product.companyStrengthTitle || "Factory proof, production and quotation in one view."}</h2><p>{product.companyStrengthDescription || "Review BOHOL’s manufacturing base, workshop, company documents and the information needed for a project quotation."}</p><Link href="/about">Company profile <ArrowUpRight size={17} /></Link></div>
-      <CompanyProofShowcase productImage={product.image} />
+      <CompanyProofShowcase productImage={product.image} factoryGallery={product.factoryGallery} />
     </section>
     <section className="product-quick-details" id="quick-details">
       <div><h2>Where it fits</h2><p>{product.applications?.slice(0,6).map((item) => item.title).join(" · ") || "Retail stores · offices · hotels · campuses"}</p></div>
       <div><h2>Key specifications</h2><dl>{[...(product.productAttributes || []).slice(0,3).map((item) => ({ key:item.name, value:item.value })), ...(product.specifications || []).slice(0,3)].map((item) => <div key={item.key}><dt>{item.key}</dt><dd>{item.value}</dd></div>)}</dl></div>
-      <div><h2>Buyer questions</h2>{product.faq?.slice(0,3).map((item) => <details key={item.question}><summary>{item.question}</summary><p>{item.answer}</p></details>)}</div>
+      <div><h2>Buyer questions</h2>{faq.map((item) => <details key={item.question}><summary>{item.question}</summary><p>{item.answer}</p></details>)}</div>
     </section>
     <EnquirySection productName={product.name} />
   </SiteShell>;
