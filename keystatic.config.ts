@@ -86,6 +86,10 @@ export default config({
             itemLabel: () => "Gallery image",
           },
         ),
+        detailGallery: fields.array(
+          fields.image({ label: "详情图片", directory: "public/uploads/products/gallery", publicPath: "/uploads/products/gallery/" }),
+          { label: "产品详情图库", itemLabel: () => "Detail image" },
+        ),
         companyStrengthTitle: fields.text({
           label: "公司实力标题（英文）",
           description: "显示在产品详情页的工厂与生产实力模块。留空使用网站默认标题。",

@@ -97,8 +97,9 @@ export default async function Product({ params }: { params: Promise<{ slug: stri
         <h2>See how the machine works for your retail format.</h2>
         <p>Each configuration combines the cabinet, interface, payment layout and delivery system around the products you plan to sell.</p>
       </div>
-      <ProductFeatureShowcase features={featuredHighlights} productName={product.name} />
+    <ProductFeatureShowcase features={featuredHighlights} productName={product.name} />
     </section>
+    {!!product.detailGallery?.length && <section className="product-detail-gallery" aria-label="Product detail images"><h2>Product details</h2><div>{product.detailGallery.map((src, index) => <Image key={src} src={src} alt={`${product.name} detail ${index + 1}`} width={1800} height={1200} />)}</div></section>}
     <section className="product-factory-section" id="company-proof">
       <div className="product-factory-heading"><h2>{product.companyStrengthTitle || "Factory proof, production and quotation in one view."}</h2><p>{product.companyStrengthDescription || "Review BOHOL’s manufacturing base, workshop, company documents and the information needed for a project quotation."}</p><Link href="/about">Company profile <ArrowUpRight size={17} /></Link></div>
       <CompanyProofShowcase productImage={product.image} factoryGallery={product.factoryGallery} />

@@ -18,6 +18,7 @@ export type ProductRecord = {
   marketRegions?: readonly string[];
   buyerTypes?: readonly string[];
   gallery?: readonly string[];
+  detailGallery?: readonly string[];
   priceMode?: string;
   currency?: string;
   price?: number | null;
@@ -134,6 +135,7 @@ function productFromEntry(slug: string, entry: Awaited<ReturnType<typeof reader.
     marketRegions: entry.marketRegions,
     buyerTypes: entry.buyerTypes,
     gallery: (entry.gallery || []).filter((image): image is string => Boolean(image)),
+    detailGallery: (entry.detailGallery || []).filter((image): image is string => Boolean(image)),
     specifications,
     priceMode: entry.priceMode,
     currency: entry.currency,
