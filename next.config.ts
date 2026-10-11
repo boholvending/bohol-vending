@@ -9,6 +9,15 @@ export default function config(phase: string): NextConfig {
     compress: true,
     poweredByHeader: false,
     images: { formats: ["image/avif", "image/webp"], minimumCacheTTL: 31536000 },
+    async redirects() {
+      return [
+        {
+          source: "/zh/insights/vending-machine-quality-inspection-checklist",
+          destination: "/insights/custom-machine-checklist",
+          permanent: true,
+        },
+      ];
+    },
     async headers() {
       // Next.js manages hashed asset caching. Never make development chunks immutable.
       return [
