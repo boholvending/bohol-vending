@@ -1,4 +1,5 @@
 .browser{margin-top:46px}
+.library{display:grid;grid-template-columns:240px minmax(0,1fr);gap:34px;align-items:start}.sidebar{position:sticky;top:108px;border-top:2px solid #071014}.sidebarBlock{padding:20px 0;border-bottom:1px solid #cbd4d4}.sidebarBlock h2{margin:0 0 14px;font:600 18px/1.2 var(--font-display)}.sidebarBlock label{display:block;margin-bottom:7px;color:#607075;font-size:12px}.sidebarBlock input{width:100%;padding:11px 10px;border:1px solid #b9c6c5;background:#fff;color:#071014;font:inherit}.latestList{margin:0;padding:0;list-style:none}.latestList li{margin-bottom:14px}.latestList li:last-child{margin-bottom:0}.latestList a{display:block;color:#071014;font-size:13px;line-height:1.35}.latestList a:hover{text-decoration:underline;text-underline-offset:4px}.latestList small{display:block;margin-top:4px;color:#1599b6;font-size:10px}.categoryList{display:flex;flex-wrap:wrap;gap:7px}.categoryList button{padding:7px 8px;border:1px solid #c5cecd;background:#f4f6f5;color:#35464b;font-size:11px;cursor:pointer}.categoryList button:hover{border-color:#1599b6;color:#08748a}.results{min-width:0}.resultSummary{margin:0 0 18px;color:#607075;font-size:13px}.empty{padding:34px 0;color:#607075}
 .dropdownRow{display:flex;align-items:center;margin:0 0 24px}
 .selectBox{position:relative;display:grid;width:min(470px,100%);background:#fbfcfb;border:1px solid #c5cecd;color:#071014}
 .selectBox>span{position:absolute;left:18px;top:12px;z-index:1;color:#1599b6;font-size:9px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;pointer-events:none}
@@ -31,4 +32,5 @@
 .cardFooter>span{max-width:180px;color:#6c7a7f;font-size:10px;line-height:1.4}
 .cardFooter b{display:flex;align-items:center;gap:6px;font-size:10px;font-weight:900;text-transform:uppercase;white-space:nowrap}
 @media(max-width:1100px){.grid{grid-template-columns:1fr 1fr}.card{grid-template-rows:330px 1fr}}
+@media(max-width:850px){.library{grid-template-columns:1fr}.sidebar{position:static;display:grid;grid-template-columns:1fr 1fr;gap:0 22px}.sidebarBlock:first-child{grid-column:1/-1}}
 @media(max-width:650px){.browser{margin-top:34px}.grid{grid-template-columns:1fr}.card{min-height:0}.preferenceBar{align-items:flex-start}.preferenceBar>span{width:100%;margin:0 0 4px}.selectBox select{font-size:12px}}
