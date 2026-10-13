@@ -5,6 +5,7 @@ import { insightArticles, insightDate, insightReadingMinutes, type InsightArticl
 import { JsonLd } from "@/components/json-ld";
 import { siteUrl } from "@/lib/seo";
 import s from "./insight-editorial.module.css";
+import { InsightPagination, type InsightListItem } from "./insight-pagination";
 
 function RichText({ text }: { text: string }) {
   return <>{text.split(/(\[[^\]]+\]\([^)]+\))/g).map((part, i) => {
@@ -16,11 +17,11 @@ function RichText({ text }: { text: string }) {
 export function InsightIndex({ cms = [] }: { cms?: { slug: string; title: string; excerpt: string; coverImage?: string | null; publishedAt: string }[] }) {
   const featured = insightArticles[0];
   const customSlugs = new Set(cms.map(a => a.slug));
-  const items = [...cms.map(a => ({ ...a, description: a.excerpt, image: a.coverImage, category: "Industry news", region: "BOHOL", minutes: undefined as number | undefined })), ...insightArticles.filter(a => !customSlugs.has(a.slug) && a.slug !== featured.slug).map(a => ({ ...a, publishedAt: insightDate, minutes: insightReadingMinutes(a) }))];
+  const items = [...cms.map(a => ({ slug: a.slug, title: a.title, description: a.excerpt, image: a.coverImage, category: "Industry news", region: "BOHOL", publishedAt: a.publishedAt, minutes: undefined as number | undefined })), ...insightArticles.filter(a => !customSlugs.has(a.slug) && a.slug !== featured.slug).map(a => ({ slug: a.slug, title: a.title, description: a.description, image: a.image, category: a.category, region: a.region, publishedAt: insightDate, minutes: insightReadingMinutes(a) }))];
   return <div className={s.index}>
     {!customSlugs.has(featured.slug) && <Link className={s.feature} href={`/insights/${featured.slug}`}><div className={s.featurePhoto}><Image src={featured.image} alt={featured.imageAlt} fill sizes="(max-width:800px) 100vw, 60vw" priority /></div><div className={s.featureText}><span>{featured.category} · {featured.region}</span><h2>{featured.title}</h2><p>{featured.description}</p><small>12 September 2026 · {insightReadingMinutes(featured)} min read</small><strong>European vending market analysis →</strong></div></Link>}
     <h2 className={s.latest}>Industry updates & buying intelligence</h2>
-    <div className={s.grid}>{items.map(a => <article className={s.card} key={a.slug}><Link href={`/insights/${a.slug}`}>{a.image && <div className={s.cover}><Image src={a.image} alt={a.title} fill sizes="(max-width:700px) 100vw, (max-width:1050px) 50vw, 33vw" /></div>}<span>{a.category} · {a.region}</span><h3>{a.title}</h3></Link><p>{a.description}</p><small><time dateTime={a.publishedAt}>{a.publishedAt}</time>{a.minutes ? ` · ${a.minutes} min read` : ""}</small></article>)}</div>
+    <InsightPagination items={items as InsightListItem[]} />
     <p className={s.policy}>Published by BOHOL. Industry reporting links to original sources; buying guides reflect BOHOL’s analysis. Brand scenario images are AI-edited illustrations, not photographs of the reported events.</p>
   </div>;
 }
