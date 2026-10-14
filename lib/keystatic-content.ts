@@ -15,6 +15,7 @@ export type ProductRecord = {
   features: readonly string[];
   specifications?: readonly { readonly key: string; readonly value: string }[];
   status?: string;
+  sortOrder?: number | null;
   marketRegions?: readonly string[];
   buyerTypes?: readonly string[];
   gallery?: readonly string[];
@@ -132,6 +133,7 @@ function productFromEntry(slug: string, entry: Awaited<ReturnType<typeof reader.
     image: entry.coverImage || entry.existingImage || "/images/hero/vape-machine.webp",
     features: [...attributes.map((item) => `${item.name}: ${item.value}`), ...specifications.map((item) => `${item.key}: ${item.value}`), ...(entry.highlights || []).map(item => item.title)],
     status: entry.status,
+    sortOrder: entry.sortOrder,
     marketRegions: entry.marketRegions,
     buyerTypes: entry.buyerTypes,
     gallery: (entry.gallery || []).filter((image): image is string => Boolean(image)),
@@ -208,7 +210,8 @@ export async function getProducts(): Promise<ProductRecord[]> {
   return records
     .map(({ slug, entry }) => productFromEntry(slug, entry))
     .filter((product): product is ProductRecord => Boolean(product))
-    .filter((product) => product.status !== "draft");
+    .filter((product) => product.status !== "draft")
+    .sort((a, b) => (a.sortOrder ?? 100) - (b.sortOrder ?? 100) || a.name.localeCompare(b.name));
 }
 
 export async function getProduct(slug: string): Promise<ProductRecord | null> {
