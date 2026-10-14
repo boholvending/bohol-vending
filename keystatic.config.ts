@@ -48,6 +48,7 @@ export default config({
           ],
         }),
         sortOrder: fields.integer({ label: "列表排序（数字越小越靠前）", defaultValue: 100, description: "新品可填 1；未设置的产品排在已排序产品之后。" }),
+        publishedAt: fields.date({ label: "发布时间", description: "产品上线日期；产品列表按最新发布时间优先。" }),
         category: fields.select({
           label: "产品分类",
           defaultValue: "food-beverage",

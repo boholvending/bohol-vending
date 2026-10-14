@@ -16,6 +16,7 @@ export type ProductRecord = {
   specifications?: readonly { readonly key: string; readonly value: string }[];
   status?: string;
   sortOrder?: number | null;
+  publishedAt?: string | null;
   marketRegions?: readonly string[];
   buyerTypes?: readonly string[];
   gallery?: readonly string[];
@@ -134,6 +135,7 @@ function productFromEntry(slug: string, entry: Awaited<ReturnType<typeof reader.
     features: [...attributes.map((item) => `${item.name}: ${item.value}`), ...specifications.map((item) => `${item.key}: ${item.value}`), ...(entry.highlights || []).map(item => item.title)],
     status: entry.status,
     sortOrder: entry.sortOrder,
+    publishedAt: entry.publishedAt,
     marketRegions: entry.marketRegions,
     buyerTypes: entry.buyerTypes,
     gallery: (entry.gallery || []).filter((image): image is string => Boolean(image)),
@@ -211,7 +213,7 @@ export async function getProducts(): Promise<ProductRecord[]> {
     .map(({ slug, entry }) => productFromEntry(slug, entry))
     .filter((product): product is ProductRecord => Boolean(product))
     .filter((product) => product.status !== "draft")
-    .sort((a, b) => (a.sortOrder ?? 100) - (b.sortOrder ?? 100) || a.name.localeCompare(b.name));
+    .sort((a, b) => (b.publishedAt || "").localeCompare(a.publishedAt || "") || (a.sortOrder ?? 100) - (b.sortOrder ?? 100) || a.name.localeCompare(b.name));
 }
 
 export async function getProduct(slug: string): Promise<ProductRecord | null> {
