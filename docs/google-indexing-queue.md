@@ -11,6 +11,9 @@ Last checked: 2026-10-08 (Search Console admin read timed out; no reliable query
 
 ## Pending indexing
 
+- `https://www.boholvending.com/vending-machines/orange-juice-vending-machine` — published 2026-10-14; production deployment and Search Console URL inspection/request still pending.
+- `https://www.boholvending.com/insights/orange-juice-vending-machine-buyer-guide` — published 2026-10-14; production deployment and Search Console URL inspection/request still pending.
+
 - `https://www.boholvending.com/insights/office-vending-machine-buyer-guide` — published 2026-10-07; production verified; waiting for Search Console authorization/manual URL inspection.
 - `https://www.boholvending.com/insights/school-vending-machine-buyer-guide` — published 2026-10-07; production verified; waiting for Search Console authorization/manual URL inspection.
 
