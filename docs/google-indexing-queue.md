@@ -43,5 +43,5 @@ Only move a URL to “Verified indexed” after it is confirmed in Google Search
 
 - `https://www.boholvending.com/insights/coworking-space-vending-machine-guide` — published 2026-10-15; production deployment and Search Console URL inspection/request pending.
 - `https://www.boholvending.com/insights/railway-station-vending-machine-guide` — published 2026-10-15; production deployment and Search Console URL inspection/request pending.
-- `https://www.boholvending.com/insights/museum-vending-machine-guide` — published 2026-10-15; production deployment and Search Console URL inspection/request pending.
-- `https://www.boholvending.com/insights/beach-resort-vending-machine-guide` — published 2026-10-15; production deployment and Search Console URL inspection/request pending.
+- `https://www.boholvending.com/insights/vending-machine-refrigeration-system-buying-guide` — published 2026-10-15; production deployment and Search Console URL inspection/request pending.
+- `https://www.boholvending.com/insights/vending-machine-spiral-channel-selection-guide` — published 2026-10-15; production deployment and Search Console URL inspection/request pending.
