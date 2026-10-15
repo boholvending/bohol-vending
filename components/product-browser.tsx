@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, CheckCircle2, ChevronDown, Star } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, ChevronDown, ChevronLeft, ChevronRight, Star } from "lucide-react";
 import type { ProductRecord } from "@/lib/keystatic-content";
 import s from "./product-browser.module.css";
 
@@ -40,6 +40,7 @@ export function ProductBrowser({products}:{products:ProductRecord[]}){
   const [filter,setFilter]=useState<Filter>("all");
   const [preference,setPreference]=useState<Preference>("all");
   const [query,setQuery]=useState("");
+  const [page,setPage]=useState(1);
   useEffect(()=>{
     const category=new URLSearchParams(window.location.search).get("category");
     if(category&&filters.some((item)=>item.id===category))setFilter(category as Filter);
@@ -51,6 +52,10 @@ export function ProductBrowser({products}:{products:ProductRecord[]}){
     const preferenceMatch=preference==="all"||meta.preferences.includes(preference);
     return categoryMatch&&preferenceMatch&&`${product.name} ${product.summary} ${product.category}`.toLowerCase().includes(query.toLowerCase());
   });
+  const pageSize=6;
+  const pageCount=Math.max(1,Math.ceil(filtered.length/pageSize));
+  const visible=filtered.slice((page-1)*pageSize,page*pageSize);
+  useEffect(()=>{setPage(1)},[filter,preference,query]);
   const categories=Array.from(new Set(products.map(product=>product.category)));
 
   return <section className={s.browser} aria-label="Product selector">
@@ -70,7 +75,7 @@ export function ProductBrowser({products}:{products:ProductRecord[]}){
     </div>
 
     <div className={s.library}><aside className={s.sidebar}><div className={s.sidebarBlock}><h2>Find a machine</h2><label htmlFor="product-search">Search products</label><input id="product-search" type="search" placeholder="Search vending machines" value={query} onChange={event=>setQuery(event.target.value)}/></div><div className={s.sidebarBlock}><h2>Latest products</h2><ol className={s.latestList}>{products.slice(0,5).map(product=><li key={product.slug}><Link href={`/vending-machines/${product.slug}`}>{product.name}</Link><small>{product.category}</small></li>)}</ol></div><div className={s.sidebarBlock}><h2>Product categories</h2><div className={s.categoryList}>{categories.map(category=><button key={category} type="button" onClick={()=>setQuery(category)}>{category}</button>)}</div></div></aside><div className={s.results}><p className={s.resultSummary}>{filtered.length} machines matching your selection</p><div className={s.grid}>
-      {filtered.map((product)=>{
+      {visible.map((product)=>{
         const meta=productMeta[product.slug];
         return <Link className={s.card} href={`/vending-machines/${product.slug}`} key={product.slug}>
           <div className={s.imageWrap}>
@@ -94,6 +99,6 @@ export function ProductBrowser({products}:{products:ProductRecord[]}){
           </div>
         </Link>;
       })}
-    </div>{!filtered.length&&<p className={s.empty}>No machines match this search. Try another product or category.</p>}</div></div>
+    </div>{!filtered.length&&<p className={s.empty}>No machines match this search. Try another product or category.</p>}{filtered.length>pageSize&&<nav className={s.pagination} aria-label="Product pages"><span>Page {page} of {pageCount}</span><button type="button" disabled={page===1} onClick={()=>setPage(value=>Math.max(1,value-1))} aria-label="Previous page"><ChevronLeft size={17}/> Previous</button><button type="button" disabled={page===pageCount} onClick={()=>setPage(value=>Math.min(pageCount,value+1))} aria-label="Next page">Next <ChevronRight size={17}/></button></nav>}</div></div>
   </section>;
 }
