@@ -40,3 +40,6 @@ Last checked: 2026-10-08 (Search Console admin read timed out; no reliable query
 - `https://www.boholvending.com/insights/beauty-vending-machine-for-salons-guide` — published and production-verified 2026-10-05; present in production sitemap; not reliably found in Google results; awaiting Search Console authorization/manual URL inspection.
 
 Only move a URL to “Verified indexed” after it is confirmed in Google Search Console or a reliable Google search result. Publication, sitemap inclusion and a successful crawl do not by themselves prove indexing.
+
+- `https://www.boholvending.com/insights/coworking-space-vending-machine-guide` — published 2026-10-15; production deployment and Search Console URL inspection/request pending.
+- `https://www.boholvending.com/insights/railway-station-vending-machine-guide` — published 2026-10-15; production deployment and Search Console URL inspection/request pending.
