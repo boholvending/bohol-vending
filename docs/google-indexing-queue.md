@@ -13,8 +13,8 @@ Last checked: 2026-10-17 (local Search Console OAuth configuration/token and an 
 
 - `https://www.boholvending.com/vending-machines/custom-branded-refrigerated-vending-machine` — published and production-verified 2026-10-17; waiting for Search Console authorization/manual URL inspection.
 - `https://www.boholvending.com/insights/vending-machine-branding-wrap-specification-guide` — published and production-verified 2026-10-17; waiting for Search Console authorization/manual URL inspection.
-- `https://www.boholvending.com/insights/vending-machine-inventory-management-requirements` — published 2026-10-17; production deployment and Search Console URL inspection pending.
-- `https://www.boholvending.com/insights/vending-machine-product-line-guide-for-distributors` — published 2026-10-17; production deployment and Search Console URL inspection pending.
+- `https://www.boholvending.com/insights/vending-machine-inventory-management-requirements` — published and production-verified 2026-10-17; waiting for Search Console authorization/manual URL inspection.
+- `https://www.boholvending.com/insights/vending-machine-product-line-guide-for-distributors` — published and production-verified 2026-10-17; waiting for Search Console authorization/manual URL inspection.
 
 - `https://www.boholvending.com/insights/airport-vending-machine-buyer-guide` — backfilled 2026-10-14; production deployment and Search Console URL inspection/request pending.
 - `https://www.boholvending.com/insights/hospital-vending-machine-buyer-guide` — backfilled 2026-10-14; production deployment and Search Console URL inspection/request pending.

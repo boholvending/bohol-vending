@@ -236,7 +236,7 @@ export async function getNews() {
   return records
     .filter(({ entry }) => entry.status !== "draft")
     .map(({ slug, entry }) => ({ slug, ...entry }))
-    .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
+    .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt) || (b.publishOrder ?? 0) - (a.publishOrder ?? 0) || a.title.localeCompare(b.title));
 }
 
 export async function getNewsArticle(slug: string) {
