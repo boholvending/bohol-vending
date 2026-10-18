@@ -11,8 +11,8 @@ Last checked: 2026-10-18 (local Search Console OAuth configuration/token and an 
 
 ## Pending indexing
 
-- `https://www.boholvending.com/insights/vending-machine-remote-monitoring-requirements` — published 2026-10-18; production deployment and Search Console URL inspection pending.
-- `https://www.boholvending.com/insights/vending-machine-warranty-after-sales-checklist` — published 2026-10-18; production deployment and Search Console URL inspection pending.
+- `https://www.boholvending.com/insights/vending-machine-remote-monitoring-requirements` — published and production-verified 2026-10-18; waiting for Search Console authorization/manual URL inspection.
+- `https://www.boholvending.com/insights/vending-machine-warranty-after-sales-checklist` — published and production-verified 2026-10-18; waiting for Search Console authorization/manual URL inspection.
 
 - `https://www.boholvending.com/vending-machines/custom-branded-refrigerated-vending-machine` — published and production-verified 2026-10-17; waiting for Search Console authorization/manual URL inspection.
 - `https://www.boholvending.com/insights/vending-machine-branding-wrap-specification-guide` — published and production-verified 2026-10-17; waiting for Search Console authorization/manual URL inspection.
