@@ -11,3 +11,5 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 ## BOHOL image publishing
 
 Use WebP for raster content images. CMS saves convert uploaded raster images automatically; run `npm run images:webp` after file-based imports (also enforced by `prebuild`). Keep original files for existing URLs. Do not alter product structure, logos or features. SVG and browser icon assets are exempt. Verify image references and decoding before publishing.
+
+Every newly imported website raster must also use a descriptive English lowercase-hyphenated filename based on the page's primary product/entity keyword and the image's truthful role. Never publish working names such as `ChatGPT image`, `untitled`, dates, UUIDs or Chinese source filenames. Preserve files in the user's source archive and rename only the website copy. Keep names concise, avoid keyword stuffing and unsupported geographic/feature claims, synchronize natural alt text and CMS references, and retain old published files when changing an existing URL would otherwise create a 404. Follow the local `bohol-image-seo` skill.
