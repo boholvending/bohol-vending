@@ -1,5 +1,11 @@
 # BOHOL 后台实施记录
 
+## 2026-10-19 两篇采购文章与图片 SEO
+- 新增 `Vending Machine Capacity Planning Guide`（主词 `vending machine capacity planning`），聚焦包装测量、SKU 货道验证、产品组合、补货频率、冷藏边界和验收标准；与既有螺旋货道选择文章保持不同意图。官方来源为 GS1 Package and Product Measurement Standard、FDA Vending Machine Labeling Requirements 与 FDA Food Code。
+- 新增 `Vending Machine Refund and Failed-Dispense Guide`（主词 `vending machine refund system`），聚焦支付授权、出货证据、撤销/退款、离线与断电恢复、对账、当地货币/结算/汇率、卡/钱包/QR/NFC、税务/票据和 PCI 责任边界；与既有支付集成文章保持不同意图。官方来源为 PCI SSC 与 EMVCo。
+- 使用用户授权的 `E:\自动售货机\冷饮机\5` 图片，原文件保持不动；网站副本按 `bohol-image-seo` 规则转换为 `vending-machine-capacity-planning.webp` 与 `vending-machine-refund-failed-dispense.webp`（1440×810 WebP），同步自然英文 alt。含 Zhongda 标识/水印的源图未使用。
+- 两篇 CMS 保存读回、104 路由生产构建、本地页面、两张图片、全部站内链接、SEO metadata、canonical、Article/FAQ Schema、来源区块、sitemap 与 robots 均通过；两条 meta description 为 154/153 字符。GS1 对自动 HEAD 检查返回 403，但官方页面由浏览器检索确认存在，其余官方来源自动检查为 200。待提交、部署及正式 URL/Search Console 验证，不声称已收录。
+
 ## 2026-10-19 图片 SEO/GEO 命名规则
 - 用户要求以后所有新发布图片都自动修改为关键词相关的 SEO/GEO 文件名。已创建并校验本机 `C:\Users\admin\.codex\skills\bohol-image-seo\SKILL.md`，同时写入 `bohol-seo-geo-writer` 与项目 `AGENTS.md`。
 - 规则要求只重命名网站副本，不改动 `E:\自动售货机` 原始素材；使用真实产品/实体主词加图片用途的英文小写连字符 `.webp` 文件名，同步自然 alt text、CMS 引用和 200/解码验证。禁止发布 `ChatGPT 图像`、`untitled`、日期、UUID 或中文工作文件名，也禁止为 GEO 虚构国家、客户、部署、认证、工厂或功能。

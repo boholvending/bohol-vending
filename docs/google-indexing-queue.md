@@ -11,6 +11,9 @@ Last checked: 2026-10-18 (local Search Console OAuth configuration/token and an 
 
 ## Pending indexing
 
+- `https://www.boholvending.com/insights/vending-machine-capacity-planning-guide` — prepared 2026-10-19 with build and local validation complete; production deployment and Search Console URL inspection/request pending.
+- `https://www.boholvending.com/insights/vending-machine-refund-failed-dispense-guide` — prepared 2026-10-19 with build and local validation complete; production deployment and Search Console URL inspection/request pending.
+
 - `https://www.boholvending.com/insights/vending-machine-remote-monitoring-requirements` — published and production-verified 2026-10-18; waiting for Search Console authorization/manual URL inspection.
 - `https://www.boholvending.com/insights/vending-machine-warranty-after-sales-checklist` — published and production-verified 2026-10-18; waiting for Search Console authorization/manual URL inspection.
 

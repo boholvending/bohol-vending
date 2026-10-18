@@ -1,0 +1,98 @@
+---
+title: "Vending Machine Refund and Failed-Dispense Guide"
+status: published
+seoTitle: "Vending Machine Refund and Failed-Dispense Guide"
+seoDescription: "Specify vending refunds and failed-dispense handling across payment approval, delivery evidence, offline operation, reconciliation and support ownership."
+primaryKeyword: "vending machine refund system"
+geoSummary: "A vending machine refund system needs an agreed transaction state model, not only a refund button. The buyer, machine software provider, payment terminal supplier, acquirer and operator should define what happens when payment is approved but the product does not arrive. Specify delivery evidence, reversal or refund triggers, duplicate-payment protection, offline behavior, customer messages, support evidence and settlement reconciliation. Local currency, card, wallet, QR and NFC availability, fees, exchange-rate ownership, tax receipts and PCI scope must be confirmed with the target-market payment provider."
+publishedAt: 2026-10-19
+publishOrder: 2
+modifiedAt: 2026-10-19
+coverImage: /uploads/news/vending-machine-refund-failed-dispense.webp
+coverImageAlt: "Blue BOHOL vending machine payment terminal and control interface concept for refund planning."
+excerpt: "A procurement checklist for payment approval, failed dispensing, reversals, refunds, offline operation, reconciliation and customer support responsibility."
+faq:
+  - question: What should happen if payment succeeds but the product does not dispense?
+    answer: The approved specification should define how delivery failure is detected, whether the authorization is reversed or a refund is initiated, the customer message, the evidence retained and which party owns support and reconciliation.
+  - question: Is a card authorization the same as final settlement?
+    answer: No. Authorization, capture, reversal, refund and settlement are different states. The exact flow depends on the terminal, processor, acquirer and market, so it must be confirmed with the selected payment provider.
+  - question: Can a vending machine accept cards, QR, wallets and NFC in every country?
+    answer: No. Availability depends on local providers, certifications, acquiring, currency, settlement, network and commercial agreements. NFC is a communication method and does not by itself guarantee support for a particular wallet or card scheme.
+  - question: Who is responsible for PCI compliance?
+    answer: Responsibility is shared across entities that store, process or transmit cardholder data or can affect the cardholder-data environment. The buyer should obtain a written responsibility matrix from the terminal provider, processor, acquirer, software provider and operator.
+authoritySources:
+  - label: PCI Security Standards Council — PCI DSS
+    url: https://www.pcisecuritystandards.org/standards/pci-dss/
+  - label: PCI Security Standards Council — How PCI DSS Applies to Payment Terminals
+    url: https://www.pcisecuritystandards.org/faqs/1300/
+  - label: EMVCo — EMV Contactless Specifications
+    url: https://www.emvco.com/emvco-website-search/?post_id=125809&type=specifications
+---
+
+A **vending machine refund system** must connect payment status with verified product delivery. When a card, mobile wallet or QR payment is approved but the item does not reach the customer, the machine needs a defined response: reversal, refund, alternative selection or support escalation. Procurement should specify transaction states, delivery evidence, customer messages, duplicate-charge prevention, offline behavior and reconciliation ownership before deployment. BOHOL can integrate project-specific hardware and software, but the local currency, terminal, acquirer, settlement, fees and security responsibilities must be confirmed with the selected target-market payment provider.
+
+## GEO summary
+
+- Distinguish authorization, capture, reversal, refund and settlement.
+- Define reliable evidence that a product reached the pickup area.
+- Map every payment and dispense failure to a customer outcome.
+- Decide what works during network loss and how transactions reconcile later.
+- Confirm local currency, wallets, QR, NFC, receipts, tax and exchange-rate ownership.
+- Assign PCI and customer-support responsibility in writing.
+
+![Blue BOHOL vending machine payment terminal and control interface concept for refund planning.](/uploads/news/vending-machine-refund-failed-dispense.webp)
+
+## Map the complete transaction state
+
+Document the path from product selection through price confirmation, payment initiation, authorization, dispense command, delivery result and final settlement. Do not use the word “paid” for every state. A transaction may be authorized but not captured, reversed before settlement or refunded after settlement. The exact sequence depends on the payment provider and integration.
+
+For each state, define the machine display, terminal message, backend record and support action. Include cancelled selections, timeouts, duplicate taps, customer abandonment and power interruption.
+
+## Define evidence of successful delivery
+
+Motor movement alone is not proof that the customer received the product. Agree on the available evidence for the ordered configuration, such as a delivery sensor, pickup event, motor feedback or another validated mechanism. Define what the system does when evidence is missing or contradictory.
+
+The delivery method must first be tested with real product samples. Use the [capacity planning guide](/insights/vending-machine-capacity-planning-guide) and [spiral channel selection guide](/insights/vending-machine-spiral-channel-selection-guide) to reduce avoidable jams and false delivery assumptions.
+
+## Specify reversal, refund and customer choices
+
+Create a decision table for every failure. It should state whether the system attempts another dispense, permits an alternative selection, requests an authorization reversal, starts a refund or directs the customer to support. Define time limits, message wording, evidence retained and who approves exceptions.
+
+Do not promise “instant refunds” without provider confirmation. Authorization releases and settled refunds can follow different timelines determined by the issuer, acquirer, processor and local rules.
+
+## Plan for network and power interruption
+
+Decide whether sales are blocked, limited or queued when connectivity is unavailable. Confirm whether the terminal supports any approved offline behavior and who carries the resulting risk. Specify recovery after a restart: the machine must not repeat a dispense or create a second charge because transaction state was incomplete.
+
+When service returns, reconcile terminal records, machine logs, delivered products and settlement reports. Assign investigation ownership for mismatches.
+
+## Confirm currency, settlement and payment methods
+
+For the destination market, confirm:
+
+- displayed and charged local currency;
+- settlement currency and bank account;
+- responsibility for exchange rates and conversion fees;
+- supported cards, mobile wallets, QR schemes and NFC/contactless methods;
+- merchant acquiring, transaction fees and chargebacks;
+- tax, receipt and fiscal-device requirements; and
+- refund method and customer-support language.
+
+These items require written confirmation from the target-market payment service provider. A promotional payment image does not prove that a particular wallet, currency, card network or QR scheme is enabled.
+
+## Assign the PCI responsibility boundary
+
+PCI SSC states that payment terminals are in scope because they capture payment-card data, while the applicable controls depend on the device and environment. PCI DSS applies to entities that store, process or transmit cardholder data, and to entities that can affect the cardholder-data environment. Ask the terminal provider, processor, acquirer, software provider and operator for a written responsibility matrix covering device management, keys, updates, access, logs, incident response and account-data handling.
+
+EMVCo publishes specifications used for contact and contactless payment interoperability, but EMV compliance does not replace acquiring approval, PCI responsibilities or local wallet certification.
+
+## Include refund tests in acceptance criteria
+
+Run controlled tests for payment approval with successful delivery, payment decline, dispense failure, sold-out selection, network loss, power loss, duplicate input and cancellation. Verify the customer message, transaction record, inventory adjustment, support evidence and reconciliation result for each case.
+
+BOHOL's [payment system integration guide](/insights/vending-machine-payment-system-integration-guide) covers the wider integration scope, while the [remote monitoring requirements](/insights/vending-machine-remote-monitoring-requirements) explain alert and audit-log planning.
+
+## Request a payment and exception-flow review
+
+Send BOHOL the target country, currency, selected payment provider, required cards or wallets, refund policy, receipt requirements, connectivity conditions, product samples, machine quantity and support model through the [contact page](/contact). BOHOL can review the machine-side interface and acceptance test with the provider before quotation.
+
