@@ -1,5 +1,10 @@
 # BOHOL 后台实施记录
 
+## 2026-10-18 新品与配套文章（执行中）
+- 用户确认发布黑橙色紧凑型零食饮料机。以 `BOHOL_Smart_Vending_Catalogue_v6.pdf` 第 17 页 ZD-C-10 为参数依据：H1955 × W800 × D850 mm（含脚轮）、180 kg、参考容量 180-720 件、6 × 6 弹簧货道、10.1 英寸触屏、Android RK3288、4G/Wi-Fi/有线网络及 AC110-220V/50Hz 参考配置。
+- 新增 `compact-snack-drink-vending-machine` 产品和 `compact-vending-machine-site-planning-checklist` 配套英文 SEO/GEO 文章。未把宣传图中的 NFC、特定钱包、2-12°C、压缩机或真实工厂部署当作已验证标配；相关内容按市场确认、可选配置或宣传概念处理。
+- 5 张用户授权图片已转换为 WebP，未改变机器结构、Logo、屏幕或支付硬件。保存后读回和 `npm run build` 已通过；新品页、文章页、图片、全部新增内外链、metadata、Article/FAQ Schema、sitemap、robots 及产品最新优先排序均在本地验证通过。产品页按规则未输出不完整 Product/Offer Schema。桌面与 390×844 手机视口已检查，首屏图片、标题和导航正常。本地提交 `cb3a814` 已创建，但 GitHub Credential Manager 登录窗口被取消，`git push origin main` 未成功；因此生产部署、正式 URL/图片 200、线上 sitemap 和 Search Console 状态仍未验证，禁止宣称已线上发布。
+
 ## 用户要求
 - 中文后台、英文发布内容；平台式导航、真实数据，不接受演示数字。
 - 产品和文章管理、SEO/GEO、留言收件箱、聊天记录、GA4 报表。
