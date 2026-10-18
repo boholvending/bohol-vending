@@ -5,6 +5,7 @@
 - 新增 `Vending Machine Refund and Failed-Dispense Guide`（主词 `vending machine refund system`），聚焦支付授权、出货证据、撤销/退款、离线与断电恢复、对账、当地货币/结算/汇率、卡/钱包/QR/NFC、税务/票据和 PCI 责任边界；与既有支付集成文章保持不同意图。官方来源为 PCI SSC 与 EMVCo。
 - 使用用户授权的 `E:\自动售货机\冷饮机\5` 图片，原文件保持不动；网站副本按 `bohol-image-seo` 规则转换为 `vending-machine-capacity-planning.webp` 与 `vending-machine-refund-failed-dispense.webp`（1440×810 WebP），同步自然英文 alt。含 Zhongda 标识/水印的源图未使用。
 - 两篇 CMS 保存读回、104 路由生产构建、本地页面、两张图片、全部站内链接、SEO metadata、canonical、Article/FAQ Schema、来源区块、sitemap 与 robots 均通过；两条 meta description 为 154/153 字符。GS1 对自动 HEAD 检查返回 403，但官方页面由浏览器检索确认存在，其余官方来源自动检查为 200。待提交、部署及正式 URL/Search Console 验证，不声称已收录。
+- 提交 `f240a09` 已推送至 `main`，GitHub Actions `Deploy BOHOL website` Run #144 成功。两篇正式 URL、两张 WebP、Article/FAQ Schema、canonical、生产 sitemap 与 robots 均返回 200，sitemap 包含两条新 URL。Search Console 对两条 URL 均显示“网址尚未收录到 Google / Google 无法识别此网址”；容量规划文章已确认加入优先抓取队列，退款文章的请求按钮在多次重试后未出现提交确认，故保留为人工请求待办，不声称已收录。
 
 ## 2026-10-19 图片 SEO/GEO 命名规则
 - 用户要求以后所有新发布图片都自动修改为关键词相关的 SEO/GEO 文件名。已创建并校验本机 `C:\Users\admin\.codex\skills\bohol-image-seo\SKILL.md`，同时写入 `bohol-seo-geo-writer` 与项目 `AGENTS.md`。
