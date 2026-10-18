@@ -1,5 +1,10 @@
 # BOHOL 后台实施记录
 
+## 2026-10-18 ZD-C-7 新品与界面选型文章（执行中）
+- 继续发布用户提供的红色窄柜图片组，按目录第 16 页 ZD-C-7 作为可核实参考：H1955 × W800 × D850 mm（含脚轮）、180 kg、约 180-720 件、6 × 6 弹簧货道、7 英寸触屏、AC110-220V/50Hz 与参考 1-3 kWh/天。图片中的 NFC、制冷、品牌包膜、工厂和场景画面只作为可选配置或宣传概念，不当作全部机器标配或真实客户部署。
+- 新增 `7-inch-mini-snack-drink-vending-machine` 产品及配套 `vending-machine-touchscreen-size-selection-guide` 英文 SEO/GEO 文章；文章对比 7 英寸与 10.1 英寸目录参考，聚焦 UI、无障碍、支付和样机验收，避免与现有紧凑机现场规划文章重复。
+- 7 张产品图及 1 张文章封面已转换为 WebP；CMS 保存读回、102 路由生产构建、本地产品/文章 200、8 张图片解码、全部新增内外链、metadata、canonical、Article/FAQ Schema、产品富摘要缺失字段防回归、sitemap、robots 和最新优先排序均通过。产品列表分页仍固定每页 6 个并保留数字页码与前后页；Insights 既有每页 6 篇、数字页码和指定页跳转实现未改动。提交 `1212678` 已创建；`git push origin main` 后远端仍停留在 `6cac7e6`，本地 main 比远端多 2 个提交，说明 GitHub 凭据仍未授权，不能宣称线上发布。待用户在 GitHub Credential Manager 完成登录后推送，再验证正式 URL、图片版本、线上 sitemap 和 Search Console 状态。最后一张橙色宽柜 `untitled.89.png` 因机器结构不同未混入本产品。
+
 ## 2026-10-18 新品与配套文章（执行中）
 - 用户确认发布黑橙色紧凑型零食饮料机。以 `BOHOL_Smart_Vending_Catalogue_v6.pdf` 第 17 页 ZD-C-10 为参数依据：H1955 × W800 × D850 mm（含脚轮）、180 kg、参考容量 180-720 件、6 × 6 弹簧货道、10.1 英寸触屏、Android RK3288、4G/Wi-Fi/有线网络及 AC110-220V/50Hz 参考配置。
 - 新增 `compact-snack-drink-vending-machine` 产品和 `compact-vending-machine-site-planning-checklist` 配套英文 SEO/GEO 文章。未把宣传图中的 NFC、特定钱包、2-12°C、压缩机或真实工厂部署当作已验证标配；相关内容按市场确认、可选配置或宣传概念处理。
