@@ -1,6 +1,6 @@
 # Google indexing queue
 
-Last checked: 2026-10-17 (local Search Console OAuth configuration/token and an authenticated browser session were unavailable; no reliable query/ranking/indexing data was available. No new URL is marked indexed.)
+Last checked: 2026-10-18 (local Search Console OAuth configuration/token and an authenticated browser session were unavailable; no reliable query/ranking/indexing data was available. No new URL is marked indexed.)
 
 ## Verified indexed
 
@@ -10,6 +10,9 @@ Last checked: 2026-10-17 (local Search Console OAuth configuration/token and an 
 - `https://www.boholvending.com/insights/us-micro-market-workplace-vending-trends`
 
 ## Pending indexing
+
+- `https://www.boholvending.com/insights/vending-machine-remote-monitoring-requirements` — published 2026-10-18; production deployment and Search Console URL inspection pending.
+- `https://www.boholvending.com/insights/vending-machine-warranty-after-sales-checklist` — published 2026-10-18; production deployment and Search Console URL inspection pending.
 
 - `https://www.boholvending.com/vending-machines/custom-branded-refrigerated-vending-machine` — published and production-verified 2026-10-17; waiting for Search Console authorization/manual URL inspection.
 - `https://www.boholvending.com/insights/vending-machine-branding-wrap-specification-guide` — published and production-verified 2026-10-17; waiting for Search Console authorization/manual URL inspection.
