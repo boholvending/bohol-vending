@@ -4,6 +4,7 @@ Last checked: 2026-10-18 (local Search Console OAuth configuration/token and an 
 
 ## Verified indexed
 
+- `https://www.boholvending.com/vending-machines/vape-vending-machine` — Search Console confirmed indexed on 2026-10-20; page was substantially updated the same day and still needs a recrawl request or later recrawl confirmation for the new version.
 - `https://www.boholvending.com/insights/wall-mounted-smart-vending-machine-guide`
 - `https://www.boholvending.com/insights/vape-vending-machine-age-verification-compliance`
 - `https://www.boholvending.com/insights/how-to-choose-vending-machine-manufacturer`
@@ -11,8 +12,7 @@ Last checked: 2026-10-18 (local Search Console OAuth configuration/token and an 
 
 ## Pending indexing
 
-- `https://www.boholvending.com/vending-machines/vape-vending-machine` — substantially updated 2026-10-20 with complete product, image and compliance content; production deployment and Search Console reinspection pending.
-- `https://www.boholvending.com/insights/vape-vending-machine-product-fit-testing-guide` — prepared 2026-10-20; production deployment and Search Console URL inspection/request pending.
+- `https://www.boholvending.com/insights/vape-vending-machine-product-fit-testing-guide` — published and production-verified 2026-10-20; Search Console reported not indexed/unknown URL and an indexing request has not yet been submitted.
 
 - `https://www.boholvending.com/insights/vending-machine-capacity-planning-guide` — published and production-verified 2026-10-19; Search Console reported not indexed/unknown URL and confirmed the indexing request was submitted.
 - `https://www.boholvending.com/insights/vending-machine-refund-failed-dispense-guide` — published and production-verified 2026-10-19; Search Console reported not indexed/unknown URL, but the request control did not produce a confirmation after retries, so manual request remains pending.
