@@ -1,5 +1,12 @@
 # BOHOL 后台实施记录
 
+## 2026-10-20 电子烟机产品页升级与配套采购文章
+- 将原本只有简短摘要的 `Vape Vending Machine` 产品页升级为完整采购页，加入真实产品正面/角度图、容量、支付、机柜、OEM/ODM、制造流程及应用概念图；明确所有宣传信息图为设计概念，不冒充客户部署或工厂纪实。
+- 新增 `Vape Vending Machine Product-Fit Testing Guide`，主词 `vape vending machine product fit`，聚焦包装测量、弹簧货道匹配、不同装载量重复出货、失败出货与支付异常、验收记录和法律准入，避免与既有年龄验证合规文章蚕食。
+- 依据 GS1 包装测量标准、美国 FDA 零售规定及英国卫生与社会关怀部官方禁售指引编写。产品页和文章均明确：自动售卖是否合法必须按目标国家、地区和场所书面确认；英国自 2026-10-29 起禁止面向顾客的电子烟/尼古丁产品自动售卖（官方指引所述狭窄例外除外）。
+- 保留 `E:\自动售货机\没logo产品图片\1` 原图不变，网站副本转换为 10 个小写英文连字符 WebP；可能被误认为真实部署或生产证据的图片文件名均包含 `concept`。文章封面为 1440×810，产品图为 1200×1200 或 1200×1600。
+- CMS 保存读回、105 路由生产构建、本地产品/文章/图片/全部站内链接、metadata、canonical、Article/FAQ Schema、无虚构 Product offers、sitemap、robots、桌面及 390×844 手机显示均通过。GS1 自动请求返回 403，但与既有已核验官方来源相同；FDA 和 GOV.UK 返回 200。待提交、推送、线上部署、正式 200/sitemap 和 Search Console 状态验证，不声称已收录。
+
 ## 2026-10-19 两篇采购文章与图片 SEO
 - 新增 `Vending Machine Capacity Planning Guide`（主词 `vending machine capacity planning`），聚焦包装测量、SKU 货道验证、产品组合、补货频率、冷藏边界和验收标准；与既有螺旋货道选择文章保持不同意图。官方来源为 GS1 Package and Product Measurement Standard、FDA Vending Machine Labeling Requirements 与 FDA Food Code。
 - 新增 `Vending Machine Refund and Failed-Dispense Guide`（主词 `vending machine refund system`），聚焦支付授权、出货证据、撤销/退款、离线与断电恢复、对账、当地货币/结算/汇率、卡/钱包/QR/NFC、税务/票据和 PCI 责任边界；与既有支付集成文章保持不同意图。官方来源为 PCI SSC 与 EMVCo。
