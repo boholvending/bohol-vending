@@ -14,8 +14,8 @@ Last checked: 2026-10-22 (today's two new articles passed local production valid
 
 ## Pending indexing
 
-- `https://www.boholvending.com/insights/vending-machine-electrical-specification-checklist` — prepared and locally production-verified 2026-10-22; production deployment and Search Console URL inspection pending.
-- `https://www.boholvending.com/insights/vending-machine-export-packaging-shipping-checklist` — prepared and locally production-verified 2026-10-22; production deployment and Search Console URL inspection pending.
+- `https://www.boholvending.com/insights/vending-machine-electrical-specification-checklist` — published and production-verified 2026-10-22; Search Console URL inspection/request pending.
+- `https://www.boholvending.com/insights/vending-machine-export-packaging-shipping-checklist` — published and production-verified 2026-10-22; Search Console URL inspection/request pending.
 
 - `https://www.boholvending.com/insights/vape-vending-machine-product-fit-testing-guide` — published and production-verified 2026-10-20; Search Console reported not indexed/unknown URL and an indexing request has not yet been submitted.
 
