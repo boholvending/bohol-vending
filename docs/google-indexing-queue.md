@@ -14,8 +14,8 @@ Last checked: 2026-10-23 (authenticated Search Console URL Inspection reports bo
 
 ## Pending indexing
 
-- `https://www.boholvending.com/insights/vending-machine-spare-parts-planning-checklist` — prepared and locally production-verified 2026-10-23; production deployment and Search Console URL inspection pending.
-- `https://www.boholvending.com/insights/vending-machine-import-documentation-checklist` — prepared and locally production-verified 2026-10-23; production deployment and Search Console URL inspection pending.
+- `https://www.boholvending.com/insights/vending-machine-spare-parts-planning-checklist` — published and production-verified 2026-10-23; authenticated URL Inspection reported not indexed/unknown to Google. No indexing request was submitted in this run.
+- `https://www.boholvending.com/insights/vending-machine-import-documentation-checklist` — published and production-verified 2026-10-23; authenticated URL Inspection reported not indexed/unknown to Google. No indexing request was submitted in this run.
 
 - `https://www.boholvending.com/insights/vending-machine-electrical-specification-checklist` — published and production-verified 2026-10-22; authenticated URL Inspection on 2026-10-23 reported not indexed/unknown to Google. No indexing request was submitted in this run.
 - `https://www.boholvending.com/insights/vending-machine-export-packaging-shipping-checklist` — published and production-verified 2026-10-22; authenticated URL Inspection on 2026-10-23 reported not indexed/unknown to Google. No indexing request was submitted in this run.
