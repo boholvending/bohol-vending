@@ -1,6 +1,6 @@
 # Google indexing queue
 
-Last checked: 2026-10-22 (today's two new articles passed local production validation and remain pending production deployment and authenticated URL Inspection. Existing verified-indexed entries have not been reclassified without fresh evidence.)
+Last checked: 2026-10-23 (authenticated Search Console URL Inspection reports both 2026-10-22 articles are not indexed because Google does not yet recognise the URLs. Today's two new articles passed local production validation and remain pending production deployment and URL Inspection.)
 
 ## Verified indexed
 
@@ -14,8 +14,11 @@ Last checked: 2026-10-22 (today's two new articles passed local production valid
 
 ## Pending indexing
 
-- `https://www.boholvending.com/insights/vending-machine-electrical-specification-checklist` — published and production-verified 2026-10-22; Search Console URL inspection/request pending.
-- `https://www.boholvending.com/insights/vending-machine-export-packaging-shipping-checklist` — published and production-verified 2026-10-22; Search Console URL inspection/request pending.
+- `https://www.boholvending.com/insights/vending-machine-spare-parts-planning-checklist` — prepared and locally production-verified 2026-10-23; production deployment and Search Console URL inspection pending.
+- `https://www.boholvending.com/insights/vending-machine-import-documentation-checklist` — prepared and locally production-verified 2026-10-23; production deployment and Search Console URL inspection pending.
+
+- `https://www.boholvending.com/insights/vending-machine-electrical-specification-checklist` — published and production-verified 2026-10-22; authenticated URL Inspection on 2026-10-23 reported not indexed/unknown to Google. No indexing request was submitted in this run.
+- `https://www.boholvending.com/insights/vending-machine-export-packaging-shipping-checklist` — published and production-verified 2026-10-22; authenticated URL Inspection on 2026-10-23 reported not indexed/unknown to Google. No indexing request was submitted in this run.
 
 - `https://www.boholvending.com/insights/vape-vending-machine-product-fit-testing-guide` — published and production-verified 2026-10-20; Search Console reported not indexed/unknown URL and an indexing request has not yet been submitted.
 

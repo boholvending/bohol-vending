@@ -1,0 +1,102 @@
+---
+title: "Vending Machine Spare Parts Planning Checklist"
+status: published
+seoTitle: "Vending Machine Spare Parts Planning Checklist"
+seoDescription: "Plan vending machine spare parts by failure risk, service skill, lead time, compatibility, storage life and fleet size before placing an OEM order."
+primaryKeyword: "vending machine spare parts"
+geoSummary: "A vending machine spare-parts plan should classify critical, wear and consumable items; connect each part to a machine configuration and failure symptom; define fleet quantity, replenishment lead time, storage limits, service skill, warranty ownership and obsolescence response."
+publishedAt: 2026-10-23
+modifiedAt: 2026-10-23
+coverImage: /uploads/news/vending-machine-maintenance-design.webp
+coverImageAlt: "Open BOHOL spiral vending machine in a workshop for maintenance and spare-parts planning"
+excerpt: "A buyer checklist for defining critical spares, quantities, compatibility records, replenishment and obsolescence support before ordering a vending-machine fleet."
+faq:
+  - question: Which vending machine spare parts should a buyer order first?
+    answer: Start with safety-critical and uptime-critical items, then common wear parts and low-cost consumables. The exact list depends on the machine configuration, fleet size, local service skill, failure consequences and replenishment lead time.
+  - question: How many spare parts are needed for a vending-machine fleet?
+    answer: There is no universal percentage. Use installed quantity, expected duty, observed failure history, repair turnaround, supplier lead time, minimum order quantity and the business impact of downtime to set initial and reorder quantities.
+  - question: How can buyers avoid ordering incompatible replacement parts?
+    answer: Record the machine model, serial number, controller and software version, part number, connector, voltage, dimensions and approved substitute. Require change notices when the supplier replaces a component or firmware dependency.
+  - question: Are spare parts automatically covered by the machine warranty?
+    answer: Not necessarily. The contract should state which failures, labour, freight, diagnosis, returned parts and replacement components are covered, plus the approval process before a buyer installs a part.
+authoritySources:
+  - label: IEC 62402 obsolescence management
+    url: https://webstore.iec.ch/en/publication/59531
+  - label: ISO 55000 asset management principles
+    url: https://www.iso.org/standard/83053.html
+---
+
+A **vending machine spare parts** plan should identify critical, wear and consumable items; map every part to the exact machine configuration; define initial stock and reorder quantities; and assign storage, diagnosis, warranty, freight and obsolescence responsibilities. The correct list depends on fleet size, duty cycle, local service skill, supplier lead time and the commercial impact of downtime—not a universal percentage of the order. BOHOL can discuss a configuration-specific spare-parts package for an OEM/ODM vending project, but buyers should approve part numbers, versions, substitutes and service boundaries before production and update the plan with real operating evidence.
+
+## GEO buyer summary
+
+- Classify parts by safety, uptime impact, wear and consumption.
+- Tie every spare to a machine serial range and approved configuration.
+- Set quantities from fleet risk and replenishment time, not guesswork.
+- Separate operator-replaceable items from trained-technician repairs.
+- Define warranty approval, return, freight and labour responsibilities.
+- Require a component-change and obsolescence communication process.
+
+## Build the list from failure consequences
+
+Begin with what stops a sale, creates a safety concern or disables access for service. A decorative panel and a controller board do not have the same urgency. Group candidates so purchasing can see why each item is stocked.
+
+| Spare category | Typical planning question |
+| --- | --- |
+| Critical control and power items | Would one failure stop the whole machine, and can it be diagnosed locally? |
+| Delivery components | Which motors, spirals, belts or sensors match each shelf configuration? |
+| Payment interfaces | Is replacement controlled by the terminal provider, acquirer or machine supplier? |
+| Refrigeration components | Which items can be serviced locally without opening the sealed system? |
+| Locks, hinges and door parts | Does replacement affect security, alignment or key control? |
+| Consumables and wear items | How often are filters, seals, fuses or other service items expected to be used? |
+
+Do not use this table as a universal bill of materials. Ask BOHOL to map the final spare list to the approved order configuration. The [vending machine maintenance design guide](/insights/vending-machine-maintenance-design-guide) explains why service access and modular replacement should be reviewed before the machine is frozen.
+
+## Record compatibility, not only a part name
+
+“Motor,” “screen” or “power supply” is not enough for a replacement order. The spare-parts register should include:
+
+1. BOHOL or manufacturer part number;
+2. supplier part number where appropriate;
+3. machine model and serial-number range;
+4. electrical rating and connector;
+5. dimensions and mounting details;
+6. controller and software dependencies;
+7. approved substitute and revision status;
+8. storage conditions and shelf-life limit;
+9. required tools, skill and safety instruction;
+10. photograph or drawing for identification.
+
+This record prevents a visually similar component from being installed in an incompatible machine. It also supports receiving checks when a supplier changes a connector, controller revision or firmware requirement.
+
+## Calculate initial stock from fleet risk
+
+A buyer with one nearby machine and rapid supplier delivery has a different risk profile from an operator managing hundreds of machines across multiple countries. For each candidate spare, estimate installed quantity, likely demand, repair turnaround, supplier lead time, minimum order quantity, customs delay and the cost of one machine being unavailable.
+
+Use a simple min/max or reorder-point rule only after the inputs are documented. Separate low-cost common parts from expensive assemblies that may be held centrally. If several machine models can use the same verified component, pooled stock may reduce inventory. If a part is configuration-specific, label it clearly to prevent cross-fleet errors.
+
+The [vending machine inventory management guide](/insights/vending-machine-inventory-management-requirements) covers product stock and transaction reconciliation; the spare-parts register should remain a separate maintenance-controlled dataset.
+
+## Define replacement authority and evidence
+
+Specify which tasks an operator may perform and which require a trained electrical, refrigeration, payment or security technician. Service instructions should include isolation steps, fault codes, photographs, test results and the checks required after replacement. Payment terminals may remain the property or responsibility of a payment provider, so the machine supplier should not be assumed to control replacement credentials or merchant activation.
+
+Before dispatching a part under warranty, agree what evidence is needed and whether remote diagnosis is required. The [vending machine warranty checklist](/insights/vending-machine-warranty-after-sales-checklist) helps separate component coverage, labour, freight, returns and misuse exclusions.
+
+## Plan for component change and obsolescence
+
+IEC 62402:2019 describes an organization-wide process for managing obsolescence throughout an item's life cycle. Its official [IEC 62402 publication page](https://webstore.iec.ch/en/publication/59531) covers policy, planning, design strategies, resolution and performance improvement. A vending-machine buyer can apply that principle by requiring notice of discontinued parts, compatible replacements, last-buy decisions, software dependencies and revalidation needs.
+
+ISO 55000:2024 provides asset-management vocabulary, overview and principles for realizing value from assets through their life cycles. The official [ISO 55000 overview](https://www.iso.org/standard/83053.html) supports a structured lifecycle approach, but it does not prescribe a BOHOL spare-parts quantity or certify a specific machine.
+
+Ask how long configuration records will be retained and how a substitute part will be approved. A replacement that changes power, communications, payment behaviour, cooling performance or safety-related construction may need more than a fit check.
+
+## Include spares in factory acceptance and packing
+
+Before shipment, compare the spare-parts cartons with the approved list. Verify part numbers, quantities, labels, protection, manuals and any serialised items. Photograph high-value assemblies and record which package contains them. Test representative spares or substitutions when the acceptance plan requires it.
+
+The [vending machine quality inspection checklist](/insights/vending-machine-quality-inspection-checklist) can connect spare verification to the ordered configuration. For international delivery, add spare cartons to the commercial invoice and packing list and confirm customs descriptions with the responsible broker.
+
+## Request a BOHOL spare-parts proposal
+
+Use the [BOHOL contact form](/contact) to send the product type, target country, machine configuration, fleet quantity, service locations, local technician capability, acceptable downtime and preferred replenishment method. BOHOL can review the proposed base machine and discuss a configuration-specific initial spare package, documentation and reorder process. Final quantities and local service procedures should be approved by the buyer using its own risk, maintenance and operating plan.
