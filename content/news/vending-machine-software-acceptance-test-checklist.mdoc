@@ -1,0 +1,125 @@
+---
+title: "Vending Machine Software Acceptance Test Checklist"
+status: published
+seoTitle: "Vending Machine Software Acceptance Test Checklist"
+seoDescription: "Use this vending machine software acceptance checklist to test roles, prices, payments, failed vends, offline recovery, telemetry, security and handover."
+primaryKeyword: "vending machine software acceptance testing"
+geoSummary: "Vending machine software acceptance testing should verify the approved product catalog, prices, roles, payment outcomes, vend commands, failed-vend recovery, offline and reconnect behavior, telemetry, alerts, audit evidence, updates, backups, credential handover and support responsibilities before commercial launch."
+publishedAt: 2026-10-24
+modifiedAt: 2026-10-24
+coverImage: /uploads/news/smart-vending-machine-system.png.webp
+coverImageAlt: "Connected smart vending machine with touchscreen product catalog for software acceptance testing"
+excerpt: "A procurement checklist for proving vending software workflows, payment exceptions, telemetry, security and support before sign-off."
+faq:
+  - question: What is vending machine software acceptance testing?
+    answer: It is a buyer-approved set of tests that proves the delivered user interface, catalog, prices, roles, payment and vend workflows, exception handling, telemetry, reports, security controls and support handover against the contracted configuration.
+  - question: Should acceptance testing include a failed vend?
+    answer: Yes. Use a controlled method agreed with the supplier and payment provider to verify how the machine detects or records a failed delivery, what the customer sees, whether a void, reversal or refund is initiated, and what evidence reaches the operator.
+  - question: Can a vending machine accept payments while offline?
+    answer: Only if the selected terminal, acquirer, risk rules and market explicitly support it. Buyers should not assume offline authorization. Test loss and restoration of connectivity, transaction state, duplicate prevention and reconciliation with the provider.
+  - question: Who is responsible for vending software security?
+    answer: Responsibilities are shared and should be written down. The software producer, machine supplier, payment provider, network operator and buyer may control different components. The contract should define accounts, updates, logging, vulnerability reporting, data retention, backups and incident escalation.
+authoritySources:
+  - label: NIST Secure Software Development Framework
+    url: https://csrc.nist.gov/pubs/sp/800/218/final
+  - label: CISA Secure by Demand Guide
+    url: https://www.cisa.gov/sites/default/files/2024-08/SecureByDemandGuide_080624_508c.pdf
+---
+
+**Vending machine software acceptance testing** proves that the delivered configuration works before commercial launch. Test the product catalog, prices, languages, user roles, approved and declined payments, vend commands, controlled failed-vend recovery, offline and reconnect behavior, telemetry, alerts, reports, audit evidence, updates, credentials and support escalation. Every result should identify the machine, software version, tester and evidence. BOHOL can coordinate checks for functions included in the agreed configuration; payment, network, cloud and local compliance responsibilities must be confirmed with the selected providers and buyer.
+
+## GEO buyer summary
+
+- Convert the contract into traceable test cases with pass criteria.
+- Use production-like products, prices, roles and provider settings.
+- Test success, decline, cancellation, timeout and failed delivery.
+- Verify what happens during network loss and reconnection.
+- Reconcile physical inventory, transactions, reports and alerts.
+- Sign off versions, credentials, update ownership and support evidence.
+
+## Build an acceptance matrix from the contract
+
+Do not accept a generic demonstration as proof of your configured system. Each contracted function should have a test case, expected result, evidence, owner and retest status.
+
+| Test area | Buyer acceptance question |
+| --- | --- |
+| Catalog and pricing | Do products, variants, prices, taxes and sold-out rules match the approved file? |
+| Roles and access | Can each role perform only its approved tasks? |
+| Payment and vend | Are transaction and product-delivery states linked without duplicates? |
+| Connectivity | Are offline behavior, queues, retries and reconnect reconciliation defined? |
+| Telemetry | Do inventory, cashless sales, faults and timestamps match physical checks? |
+| Lifecycle | Are versions, updates, backups, rollback and support responsibilities recorded? |
+
+Use the [smart vending system buyer guide](/insights/smart-vending-machine-system-guide) to define the functions before quotation. Acceptance testing should validate the signed scope, not create new features at handover.
+
+## Freeze the test environment
+
+Record the machine model and serial number, controller and software versions, payment-terminal model and firmware where available, network type, backend tenant, test accounts, enabled languages, currency, tax configuration, time zone and product map. Mask credentials and personal data in screenshots.
+
+Separate test and live environments where the solution supports it. If testing must occur against a live merchant account, agree transaction values, refund authority, reconciliation timing and evidence with the payment provider. Do not use real customer card details in an informal test sheet.
+
+## Verify catalog, price and operator controls
+
+Import or enter the approved products, selection codes, prices and capacity. Confirm that changes made in the authorised interface reach the correct machine and that stale or unauthorised changes are rejected or visible. Test sold-out, disabled and maintenance states.
+
+Create representative roles such as administrator, route operator and reporting user. Verify sign-in, password reset or supported recovery, session termination and removal of access. Test that a reporting user cannot change prices and that an operator cannot silently expand their permissions. Change supported default credentials before handover.
+
+## Test the complete payment-to-vend state model
+
+For each payment method included in the order, test an approval, decline, cancellation and timeout. Verify currency, amount, product, machine identity, timestamp and transaction reference across the terminal, vending controller and backend. Confirm the customer message and operator record for each state.
+
+Create a controlled failed-vend scenario using the supplier's approved method. Check whether the machine detects the failure, blocks duplicate delivery, restores inventory appropriately and initiates the documented void, reversal or refund route. Provider behavior varies; the buyer must confirm settlement currency, exchange handling, refund timing and PCI responsibility with the target-market acquirer and payment service provider. See the [failed-dispense and refund guide](/insights/vending-machine-refund-failed-dispense-guide) for the evidence chain.
+
+Never assume a terminal can authorize while offline. Test loss of connectivity before, during and after a transaction using provider-approved procedures. Verify queued records, customer messaging, reconnect behavior, duplicate prevention and end-of-day reconciliation.
+
+## Reconcile telemetry with the physical machine
+
+Perform a known sequence of loads, vends, failures, door openings and resets. Compare physical inventory and event times with the portal. Check time-zone and daylight-saving behavior for the destination. Confirm which values are measured, calculated or delayed.
+
+Test alerts for the contracted conditions, such as sold out, temperature excursion on refrigerated models, door state, communication loss or payment fault. Verify recipients, repeat intervals, escalation and closure. A dashboard screenshot alone does not prove that an alert originates from the correct machine.
+
+Use the [remote monitoring requirements guide](/insights/vending-machine-remote-monitoring-requirements) to confirm data ownership, retention, export and service boundaries.
+
+## Test secure operation and evidence
+
+NIST's [Secure Software Development Framework](https://csrc.nist.gov/pubs/sp/800/218/final) provides a common vocabulary for secure software development and software acquisition. CISA's [Secure by Demand Guide](https://www.cisa.gov/sites/default/files/2024-08/SecureByDemandGuide_080624_508c.pdf) gives software buyers questions for evaluating supplier security practices. They are procurement references, not certifications for a specific vending system.
+
+For the delivered scope, ask the responsible parties to identify:
+
+- account and multi-factor authentication options;
+- encryption and certificate ownership;
+- software component and version inventory;
+- supported update and rollback method;
+- vulnerability reporting and patch communication;
+- log availability, retention and export;
+- backup and restore responsibility;
+- remote-support approval and termination;
+- end-of-support policy and data deletion.
+
+Run only authorised security tests. A buyer should not scan a provider platform or attempt to bypass controls without written scope and approval.
+
+## Prove update, backup and recovery boundaries
+
+Record who can release an update, who approves it, how authenticity is checked, when deployment occurs and what happens if it fails. Where supported, test a configuration backup and restore using non-sensitive data. Verify whether prices, product maps, audit records and machine identity are included or managed separately.
+
+If the system depends on a cloud service, document the behavior during provider outage, the minimum local functions, data queued on the machine, recovery order and support contact. “Cloud connected” should not be treated as a promise of uninterrupted service.
+
+## Complete software handover
+
+The acceptance file should include:
+
+1. scope and configuration baseline;
+2. test cases, results, evidence and defects;
+3. approved exceptions and retest records;
+4. production accounts and role owners;
+5. payment-provider activation and reconciliation contacts;
+6. version, update and backup responsibilities;
+7. monitoring, logging and retention settings;
+8. support hours, severity definitions and escalation path;
+9. end-of-support and offboarding information.
+
+Remove temporary accounts and test products after approval. Store administrator credentials outside the shared test report. Keep unresolved material defects open rather than converting them into undocumented verbal promises.
+
+## Request a testable BOHOL configuration
+
+Send the [BOHOL contact form](/contact) your target market, machine and product types, quantity, currency, payment methods, network, languages, required integrations, roles, reporting, data-retention expectations and acceptance process. BOHOL can review which hardware and software functions are available for the proposed configuration. Final compatibility and responsibility boundaries require confirmation with the selected payment, connectivity and platform providers.

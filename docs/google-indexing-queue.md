@@ -1,6 +1,6 @@
 # Google indexing queue
 
-Last checked: 2026-10-23 (authenticated Search Console URL Inspection reports both 2026-10-22 articles are not indexed because Google does not yet recognise the URLs. Today's two new articles passed local production validation and remain pending production deployment and URL Inspection.)
+Last checked: 2026-10-24 (the 2026-10-23 articles remain pending from authenticated URL Inspection. Today's two articles passed local production validation and remain pending production deployment and URL Inspection.)
 
 ## Verified indexed
 
@@ -13,6 +13,9 @@ Last checked: 2026-10-23 (authenticated Search Console URL Inspection reports bo
 - `https://www.boholvending.com/insights/us-micro-market-workplace-vending-trends`
 
 ## Pending indexing
+
+- `https://www.boholvending.com/insights/vending-machine-installation-commissioning-checklist` — created and locally production-validated 2026-10-24; pending production deployment and authenticated URL Inspection.
+- `https://www.boholvending.com/insights/vending-machine-software-acceptance-test-checklist` — created and locally production-validated 2026-10-24; pending production deployment and authenticated URL Inspection.
 
 - `https://www.boholvending.com/insights/vending-machine-spare-parts-planning-checklist` — published and production-verified 2026-10-23; authenticated URL Inspection reported not indexed/unknown to Google. No indexing request was submitted in this run.
 - `https://www.boholvending.com/insights/vending-machine-import-documentation-checklist` — published and production-verified 2026-10-23; authenticated URL Inspection reported not indexed/unknown to Google. No indexing request was submitted in this run.
