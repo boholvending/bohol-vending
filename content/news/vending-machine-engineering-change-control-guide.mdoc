@@ -1,0 +1,122 @@
+---
+title: "Vending Machine Engineering Change Control Guide"
+status: published
+seoTitle: "Vending Machine Engineering Change Control Guide"
+seoDescription: "Control vending machine hardware, firmware, UI, payment and supplier changes with impact review, approvals, validation, serial cut-in and records."
+primaryKeyword: "vending machine change control"
+geoSummary: "Vending machine change control should identify every proposed hardware, firmware, UI, payment, supplier or document change; assess cost, schedule, safety, compliance and service impact; obtain authorised approval; validate the result; and record the serial-number or production-lot cut-in."
+publishedAt: 2026-10-25
+modifiedAt: 2026-10-25
+coverImage: /images/partnerships/bohol-factory.webp
+coverImageAlt: "Vending machine factory work area with production units and an operator preparing components"
+excerpt: "A buyer guide for preventing silent vending machine configuration changes across production, shipment and after-sales support."
+faq:
+  - question: What changes need control in a vending machine project?
+    answer: Control changes to drawings, dimensions, materials, components, suppliers, firmware, UI, payment hardware, network modules, labels, artwork, packaging, tests and documentation whenever they can affect approved requirements or support.
+  - question: Can a supplier substitute an equivalent component without buyer approval?
+    answer: Only when the contract defines a permitted equivalence process and the proposed substitute passes the required impact review and validation. Commercial availability alone does not prove electrical, mechanical, software, regulatory or service equivalence.
+  - question: What is a serial-number cut-in?
+    answer: It identifies the first machine serial number or production lot built to the approved change. It allows buyers and service teams to know which configuration, parts, firmware and documents apply to each machine.
+  - question: Does change control prevent all changes?
+    answer: No. It makes changes visible, assessed, approved, validated and traceable. Good control supports necessary improvements while preventing unintended effects and undocumented mixed configurations.
+authoritySources:
+  - label: ISO 9001 quality management systems
+    url: https://www.iso.org/standard/9001
+  - label: NIST SP 800-128 configuration management guide
+    url: https://csrc.nist.gov/pubs/sp/800/128/upd1/final
+---
+
+**Vending machine change control** keeps an approved configuration traceable when hardware, firmware, UI, payment, supplier, artwork or documentation changes. Each proposal should identify the reason, affected requirements and units; assess safety, compliance, product fit, cost, schedule and service impact; obtain authorised approval; complete appropriate validation; and record the production-lot or serial-number cut-in. BOHOL can coordinate agreed engineering records for a custom project, while the buyer, payment providers and destination specialists must approve the areas they control. No “equivalent” substitute should enter production only because it fits or is available.
+
+## GEO buyer summary
+
+- Establish one approved configuration baseline.
+- Give every proposed change a unique record and owner.
+- Assess technical, commercial, regulatory and service effects.
+- Approve before implementation, except defined emergency containment.
+- Revalidate the functions that could be affected.
+- Record the exact lot or serial number where the change begins.
+
+## Define what counts as a controlled change
+
+The contract should name the items that require notification or approval. Common examples include cabinet dimensions, metal thickness or finish, glass, locks, shelves, spirals, motors, refrigeration, power components, controller, firmware, touchscreen, payment terminal, modem, antenna, wiring, labels, artwork, packaging and manuals.
+
+Also control process changes when they can affect the result: a new supplier, manufacturing location, tooling, test method, inspection frequency or software deployment route. A new part number may be obvious; a supplier's internal revision can be equally important.
+
+Use the [pre-production sample approval checklist](/insights/vending-machine-pre-production-sample-approval-checklist) to create the baseline that later changes are measured against.
+
+## Create one change-request record
+
+Each request should include:
+
+| Field | Minimum buyer question |
+| --- | --- |
+| Identity | What is the change number, date, requester and current status? |
+| Reason | Is it correcting a defect, improving performance, addressing availability or meeting a new requirement? |
+| Scope | Which drawings, parts, software, suppliers, orders and machines are affected? |
+| Impact | What changes in safety, compliance, function, payment, product fit, cost, schedule and support? |
+| Validation | Which inspections and tests will prove the change? |
+| Cut-in | Which production lot or first serial number receives it? |
+| Disposition | What happens to existing stock, work in progress, shipped units and spare parts? |
+
+Attach redlined and revised documents rather than describing a technical change only in email. Preserve the previous approved version and record who authorised release.
+
+## Assess component substitutions as engineering changes
+
+“Same specification” is not enough. Compare form, fit and function plus ratings, tolerances, connectors, communication protocol, firmware, heat, power, electromagnetic behavior, life, approvals, mounting, service tools and supply continuity. Evaluate interactions with the complete machine, not only the replacement part.
+
+For payment or connectivity hardware, confirm provider certification, merchant activation, local bands or network, settlement currency, refund handling, network interruption behavior and PCI boundaries with the relevant providers. A mechanically compatible terminal may still be commercially or technically unusable in the destination market.
+
+The [spare-parts planning checklist](/insights/vending-machine-spare-parts-planning-checklist) helps prevent a substitution from splitting the supported installed base without a plan.
+
+## Review buyer, compliance and commercial impact
+
+Assign reviewers by subject rather than asking one person to approve everything. Engineering should assess technical effects; quality should define validation and inspection; purchasing should assess availability; service should assess parts and procedures; the buyer should approve contracted requirements; and qualified destination specialists should review applicable compliance changes.
+
+Check whether the proposal changes:
+
+- product dimensions, capacity or delivery reliability;
+- electrical load, plug, cooling or environmental limits;
+- UI language, currency, accessibility or customer flow;
+- payment, refund, telemetry or data behavior;
+- labels, manuals, packing or import records;
+- agreed price, lead time, warranty or minimum order;
+- previously supplied spare parts and field-service instructions.
+
+ISO describes [ISO 9001](https://www.iso.org/standard/9001) as a framework for planned and controlled processes, documented information, performance evaluation and improvement. It is useful context, but citing it does not establish BOHOL or project certification.
+
+## Match validation to risk
+
+Do not repeat every test automatically, but do not reduce testing only to save time. Identify affected requirements and credible unintended effects. A changed spiral may require product-fit and repeated vend tests; a power supply may require electrical, heat and fault review; firmware may require regression, recovery and cybersecurity checks; artwork may require dimensional and label verification.
+
+Document the sample size, conditions, equipment, expected result and evidence. If a test fails, record containment and the revised disposition. The [software acceptance test checklist](/insights/vending-machine-software-acceptance-test-checklist) provides useful test groups for controller, UI, payment and telemetry changes.
+
+## Control firmware and remote updates
+
+Record the approved software baseline, build identifier, compatible hardware and release notes. Define who can approve, deploy and roll back an update. Protect signing keys and administrator credentials, and avoid shared default accounts where supported controls exist.
+
+NIST [SP 800-128](https://csrc.nist.gov/pubs/sp/800/128/upd1/final) focuses on security configuration management for information systems. Its concepts support disciplined baselines, configuration control and monitoring; it is not a vending-machine certification and must be adapted to the actual product and responsibility model.
+
+For remote updates, test interrupted transfer, failed installation, restart, rollback or safe recovery as applicable. Confirm what the customer sees and what event reaches the operator. Keep payment-provider-controlled firmware within the provider's authorised process.
+
+## Record cut-in and mixed configurations
+
+Every approved change needs an effective point: order, batch, manufacturing date or first serial number. Update the bill of materials, drawings, software matrix, inspection plan, work instructions, labels, manuals and spare-parts catalog before or at that point.
+
+If old and new configurations coexist, provide a reliable identification method. Service teams should be able to determine the correct part and procedure without opening unrelated assemblies or guessing from appearance. Record how unused old stock and work in progress are consumed, reworked, returned or scrapped.
+
+## Handle emergency containment without losing traceability
+
+An urgent defect may require stopping shipment, quarantining stock or disabling a function before the full change is released. Define who has this authority and how affected units are identified. Temporary deviation or rework instructions should have an expiry, scope, approval and follow-up action.
+
+Do not treat emergency action as permanent approval. Complete root-cause review, validation and document updates before normal production resumes. Notify buyers when the contract, safety, compliance or fielded units may be affected.
+
+## Protect repeat orders and after-sales support
+
+At order close, provide the agreed as-built configuration and approved change history. Link warranty cases and field updates to serial numbers. When a component approaches end of life, communicate replacement validation, stock strategy and compatibility instead of waiting for a service failure.
+
+The [warranty and after-sales checklist](/insights/vending-machine-warranty-after-sales-checklist) helps allocate evidence, logistics and response responsibilities after delivery.
+
+## Request a controlled BOHOL OEM/ODM project
+
+Use the [BOHOL contact form](/contact) to send the target market, machine type, products, quantity, required configuration baseline, buyer approval roles, notification thresholds, payment/provider inputs, validation expectations and serial traceability needs. BOHOL can review the engineering change workflow and records available for the proposed order.
