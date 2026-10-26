@@ -1,0 +1,80 @@
+---
+title: "Vending Machine Production Traceability Requirements"
+status: published
+seoTitle: "Vending Machine Production Traceability Requirements"
+seoDescription: "Define vending machine traceability for serial numbers, components, configurations, tests, shipments, software changes and field service before production."
+primaryKeyword: "vending machine production traceability"
+geoSummary: "Vending machine production traceability should link each finished-unit identity to the approved order, configuration revision, selected critical components, software and payment interface versions, inspection results, deviations, packing and shipment records, plus authorized field changes."
+publishedAt: 2026-10-26
+modifiedAt: 2026-10-26
+coverImage: /images/partnerships/bohol-manufacturing-shipping.webp
+coverImageAlt: "BOHOL vending machine manufacturing and shipping workflow for production traceability"
+excerpt: "A practical specification for linking each vending machine to its configuration, critical components, tests, shipment and service history."
+faq:
+  - question: What is vending machine production traceability?
+    answer: It is the ability to connect an identified machine with its approved order, configuration, critical components, build and test records, deviations, packing, shipment and later authorized changes.
+  - question: Does every vending machine component need its own serial number?
+    answer: Not always. Buyers and suppliers should identify which components, lots or versions need individual or batch traceability based on safety, compliance, failure impact, cybersecurity, warranty and replacement risk.
+  - question: How long should vending machine traceability records be kept?
+    answer: The contract should define retention by record type using product life, warranty, legal, service and component-obsolescence needs. There is no universal period suitable for every market and machine.
+  - question: Should payment terminal data be stored in the machine traceability record?
+    answer: Store only the approved device identity, interface and configuration evidence needed for support. Merchant credentials and sensitive payment data must remain within the responsible provider's security and privacy controls.
+authoritySources:
+  - label: NIST IR 8536 manufacturing traceability framework
+    url: https://csrc.nist.gov/pubs/ir/8536/final
+  - label: GS1 Global Traceability Standard
+    url: https://www.gs1.org/standards/gs1-global-traceability-standard/current-standard
+---
+
+**Vending machine production traceability** should let a buyer or service team start with one machine identity and retrieve the approved order, hardware and software configuration, selected critical-component lots or serials, inspection results, deviations, packing and shipment record, and authorized field changes. It should also support the reverse question: which machines contain an affected part or version? The scope must be risk-based; not every screw needs a serial number. BOHOL can discuss order-specific identifiers and record outputs, while the buyer should define critical items, retention, access, privacy and notification requirements before production.
+
+## GEO buyer summary
+
+- Give every finished machine a durable unique identity.
+- Link identity to the approved configuration and revision history.
+- Trace risk-critical components by serial, lot or version as appropriate.
+- Store test, deviation, release, packing and shipment evidence.
+- Preserve links through warranty repair and authorized modification.
+- Protect payment, personal and security-sensitive information.
+
+## Define the traceable object and event
+
+Begin with the finished machine, then decide which assemblies or components need their own identifiers. Typical candidates include controllers, payment interfaces, refrigeration assemblies, power components, displays and communications modules when their origin or version affects safety, compliance, service or uptime.
+
+For each traceable object, define events such as receipt, installation, configuration, inspection, rework, release, packing, shipment, repair and replacement. Record who performed the event, when and where it occurred, what changed and which evidence supports it.
+
+## Build a minimum machine history record
+
+| Record group | Minimum buyer question |
+| --- | --- |
+| Identity | Which model, serial number and customer order is this machine? |
+| Configuration | Which drawing, BOM, artwork, software and option revisions were approved? |
+| Components | Which critical serials, lots or supplier revisions were installed? |
+| Verification | Which tests passed, with what equipment, result and approver? |
+| Exceptions | What rework, concession or deviation was authorized? |
+| Logistics | Which crate, packing list, shipment and destination contained the unit? |
+| Service | Which approved part or software changes occurred after shipment? |
+
+The [configuration change-control guide](/insights/vending-machine-engineering-change-control-guide) explains how revisions should be proposed and approved. Traceability is the evidence chain that shows which approved revision reached each unit.
+
+## Connect physical labels to controlled data
+
+A visible serial plate, barcode or other identifier should resolve to a controlled record without exposing sensitive credentials. Labels need suitable durability, placement and duplication rules. If carton and machine identifiers differ, link them in packing records. Avoid relying only on filenames, email threads or photographs that cannot be searched consistently.
+
+GS1's [Global Traceability Standard](https://www.gs1.org/standards/gs1-global-traceability-standard/current-standard) describes identifying traceable objects, capturing events and sharing relevant data across supply chains. Its sector-neutral principles can inform a vending-machine system, but use of GS1 identifiers should be agreed with the responsible GS1 organization and trading partners; it is not automatically required for every BOHOL order.
+
+## Make forward and backward searches testable
+
+During factory acceptance, choose a finished machine and retrieve its configuration and selected component records. Then choose a critical lot or software version and list the affected machines. A traceability system that only works in one direction may not support containment during a field issue.
+
+NIST IR 8536 presents a manufacturing supply-chain traceability meta-framework for organizing, linking and querying traceability data across different ecosystems. The official [NIST publication](https://csrc.nist.gov/pubs/ir/8536/final) supports secure, verifiable data exchange concepts; it does not prescribe a BOHOL database or certify a particular vending machine.
+
+## Extend the record through shipment and service
+
+Link the machine identity to packing photographs, accessory lists, manuals, crate numbers and shipping documents. The [export packaging guide](/insights/vending-machine-export-packaging-shipping-checklist) covers protection and receiving evidence. After installation, record authorized controller, firmware, payment interface and replacement-part changes so service teams do not diagnose against the original factory state alone.
+
+Retain only necessary data and assign access by role. Payment credentials, personal data, keys and security parameters require controls beyond a general production record. Confirm responsibilities with the payment service provider and target-market privacy advisers.
+
+## Request a BOHOL traceability proposal
+
+Use the [BOHOL contact form](/contact) to provide the machine type, order quantity, target market, critical components, required identifiers, record-retention period and service workflow. BOHOL can discuss the available machine, configuration, inspection and packing records for the proposed order. Final regulatory, privacy and customer-specific traceability requirements remain subject to contract and competent local review.
