@@ -40,7 +40,7 @@ The long-term top-five target remains valid, but the current evidence shows disc
 
 1. Changed the apartment guide SEO title to `Vending Machines for Condominiums & Apartments` and rewrote its description around the observed condominium query. The canonical URL remains unchanged to preserve the already indexed page.
 2. Shortened `/vending` to `Vending Machines for Global Retail | BOHOL` and tightened the description. This separates the hub intent from the homepage manufacturer intent and avoids the former overlong title.
-3. Prepared two distinct high-intent articles: supplier audit and production traceability, with approved BOHOL images, official sources, internal links, FAQ and Article/FAQ data. They passed local production build and page checks but are not deployed because GitHub authentication expired.
+3. Published two distinct high-intent articles: supplier audit and production traceability, with approved BOHOL images, official sources, internal links, FAQ and Article/FAQ data. They passed the local production build, were deployed from `main`, and passed production page, image, canonical, Schema, sitemap and robots checks.
 4. Kept the keyword cluster consolidated: no new pages were created for `vending machine size`, `custom vending machine` synonyms or an India supplier page because the evidence is too small and would risk cannibalization.
 
 ## Official technology review
@@ -53,8 +53,8 @@ The long-term top-five target remains valid, but the current evidence shows disc
 
 ## Next-week priorities
 
-1. Restore GitHub authentication, push the verified local commits, wait for deployment, and verify production HTML, images, sitemap and canonical output before any indexing request.
-2. Inspect the two newly deployed URLs plus the Oct 24–25 queue in Search Console; request indexing only with user-authorized submission and never equate submission with indexing.
+1. Recheck the two newly deployed URLs plus the Oct 24–25 queue in Search Console; request indexing only with user-authorized submission and never equate submission with indexing.
+2. Monitor whether Google discovers the two new URLs through the submitted sitemap and internal links; the 2026-10-26 inspection record currently shows both as unknown and not indexed.
 3. Build one dimensions/specification hub or improve an existing page after mapping all size-related pages, rather than creating another overlapping article.
 4. Improve the `/vending-machines` and apartment-guide snippets if impressions continue growing without clicks for another full reporting window.
 5. Add verified company/entity proof and customer cases only after the user supplies real factory credentials, export markets, machine specifications, deployment photographs, customer permission and measurable project outcomes.

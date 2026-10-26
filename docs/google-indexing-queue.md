@@ -1,6 +1,6 @@
 # Google indexing queue
 
-Last checked: 2026-10-26 (today's two articles are prepared and locally verified; production deployment and authenticated URL inspection are pending.)
+Last checked: 2026-10-26 (today's two articles are deployed and production-verified; authenticated URL Inspection reports both as not indexed/unknown to Google.)
 
 ## Verified indexed
 
@@ -14,8 +14,8 @@ Last checked: 2026-10-26 (today's two articles are prepared and locally verified
 
 ## Pending indexing
 
-- `https://www.boholvending.com/insights/vending-machine-supplier-audit-checklist` — prepared and locally verified 2026-10-26; production deployment and authenticated URL inspection pending.
-- `https://www.boholvending.com/insights/vending-machine-production-traceability-requirements` — prepared and locally verified 2026-10-26; production deployment and authenticated URL inspection pending.
+- `https://www.boholvending.com/insights/vending-machine-supplier-audit-checklist` — published and production-verified 2026-10-26; authenticated URL Inspection reported not indexed/unknown to Google, with no referring sitemap detected in the inspection record yet. No indexing request was submitted in this run.
+- `https://www.boholvending.com/insights/vending-machine-production-traceability-requirements` — published and production-verified 2026-10-26; authenticated URL Inspection reported not indexed/unknown to Google, with no referring sitemap detected in the inspection record yet. No indexing request was submitted in this run.
 
 - `https://www.boholvending.com/insights/vending-machine-pre-production-sample-approval-checklist` — published and production-verified 2026-10-25; authenticated URL Inspection reported not indexed/unknown to Google. No indexing request was submitted in this run.
 - `https://www.boholvending.com/insights/vending-machine-engineering-change-control-guide` — published and production-verified 2026-10-25; authenticated URL Inspection reported not indexed/unknown to Google. No indexing request was submitted in this run.
