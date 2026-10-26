@@ -6,9 +6,9 @@ import { JsonLd } from "@/components/json-ld";
 import { siteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Vending | Custom Vending Machines and Smart Vending Solutions",
+  title: "Vending Machines for Global Retail",
   description:
-    "BOHOL builds custom vending machines, smart vending systems and OEM vending solutions for drinks, beauty, vape, cards, fragile goods and global retail projects.",
+    "Explore BOHOL custom vending machines, smart vending systems and OEM solutions for drinks, beauty, vape, cards, fragile goods and global retail projects.",
   keywords: [
     "vending",
     "vending machine",
