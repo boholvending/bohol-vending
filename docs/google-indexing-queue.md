@@ -1,6 +1,6 @@
 # Google indexing queue
 
-Last checked: 2026-10-27 (the 2026-10-26 supplier-audit article is now verified indexed; the production-traceability article remains not indexed/unknown to Google. Today's two articles are locally verified and awaiting deployment.)
+Last checked: 2026-10-27 (the 2026-10-26 supplier-audit article is now verified indexed; the production-traceability article remains not indexed/unknown to Google. Today's two articles are deployed, production-verified and not indexed/unknown to Google.)
 
 ## Verified indexed
 
@@ -15,8 +15,8 @@ Last checked: 2026-10-27 (the 2026-10-26 supplier-audit article is now verified 
 
 ## Pending indexing
 
-- `https://www.boholvending.com/insights/vending-machine-factory-acceptance-test-checklist` — prepared and locally verified 2026-10-27; production deployment and authenticated URL inspection pending.
-- `https://www.boholvending.com/insights/vending-machine-receiving-inspection-checklist` — prepared and locally verified 2026-10-27; production deployment and authenticated URL inspection pending.
+- `https://www.boholvending.com/insights/vending-machine-factory-acceptance-test-checklist` — published and production-verified 2026-10-27; authenticated URL Inspection reported not indexed/unknown to Google, with no referring sitemap detected in the inspection record yet. No indexing request was submitted in this run.
+- `https://www.boholvending.com/insights/vending-machine-receiving-inspection-checklist` — published and production-verified 2026-10-27; authenticated URL Inspection reported not indexed/unknown to Google, with no referring sitemap detected in the inspection record yet. No indexing request was submitted in this run.
 
 - `https://www.boholvending.com/insights/vending-machine-production-traceability-requirements` — production-verified 2026-10-26; authenticated URL Inspection rechecked 2026-10-27 and still reported not indexed/unknown to Google, with no referring sitemap detected in the inspection record. No indexing request was submitted in this run.
 
