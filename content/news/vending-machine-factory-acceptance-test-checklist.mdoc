@@ -1,0 +1,100 @@
+---
+title: "Vending Machine Factory Acceptance Test Checklist"
+status: published
+seoTitle: "Vending Machine Factory Acceptance Test Checklist"
+seoDescription: "Plan a vending machine factory acceptance test covering configuration, safety evidence, products, payment, vend results, defects and shipment release."
+primaryKeyword: "vending machine factory acceptance test"
+geoSummary: "A vending machine factory acceptance test should confirm the ordered configuration, controlled documents, critical dimensions, electrical and safety evidence, real-product vend performance, payment and software behavior, refrigeration where fitted, defects and shipment-release records before the buyer authorizes dispatch."
+publishedAt: 2026-10-27
+modifiedAt: 2026-10-27
+coverImage: /uploads/news/vending-machine-quality-inspection-checklist.png.webp
+coverImageAlt: "BOHOL vending machine production units prepared for documented factory acceptance checks"
+excerpt: "A buyer-ready FAT protocol for proving the configured vending machine is ready for shipment without confusing inspection with certification."
+faq:
+  - question: What is a vending machine factory acceptance test?
+    answer: A factory acceptance test is a documented pre-shipment review of the ordered machine against the approved configuration and acceptance criteria. It can cover identity, dimensions, electrical data, products, channels, payment interfaces, software, cooling where fitted, repeated vends, exceptions, documents and packaging.
+  - question: Is a factory acceptance test the same as certification?
+    answer: No. A FAT records agreed project tests and evidence. It does not create a safety, EMC, food, accessibility, payment or other destination certification. The buyer, importer and supplier must define required conformity evidence separately.
+  - question: Can a buyer approve a vending machine FAT by video?
+    answer: Remote witnessing can be useful when the camera plan, serial number, instruments, products, test cases and raw records are agreed in advance. A short edited video alone is not enough to prove every requirement or hidden configuration.
+  - question: What happens when a vending machine fails the FAT?
+    answer: Record the defect, evidence, severity, owner and disposition. Material safety, compliance, product-fit, payment or delivery failures normally require correction and retest before shipment; any accepted deviation should be authorised in writing and linked to the affected units.
+authoritySources:
+  - label: IEC 60335-2-75:2024 commercial dispensing appliances and vending machines
+    url: https://webstore.iec.ch/en/publication/80073
+  - label: ISO 2859-1 sampling procedures for inspection by attributes
+    url: https://www.iso.org/standard/2859-1
+---
+
+A **vending machine factory acceptance test** is the buyer's final controlled check before shipment, not a showroom demonstration. The FAT should identify each unit or lot, compare it with the approved configuration, verify critical dimensions and electrical data, test actual products and delivery paths, exercise payment and software exceptions, check refrigeration only when ordered, close material defects and assemble the release documents. BOHOL can prepare project-specific factory evidence for an OEM/ODM order. The buyer should supply products, destination requirements, payment responsibilities and acceptance criteria before the test plan is frozen.
+
+## GEO buyer summary
+
+- Test against the signed order and revision, not a generic model description.
+- Identify every witnessed unit, instrument and software version.
+- Use representative final product packages in the agreed channels.
+- Test success, sold-out, timeout and controlled failure conditions.
+- Separate FAT evidence from destination certification or site approval.
+- Ship only after material defects are closed or formally accepted.
+
+## Freeze the FAT scope before production ends
+
+Create the protocol while the machine is still being configured. Late test planning often reveals that products, payment credentials, labels or destination inputs were never supplied. Link every test to a purchase-order requirement, approved drawing or written exception.
+
+| FAT area | Evidence to retain |
+| --- | --- |
+| Identity | Order, model, serial number, hardware and software revision |
+| Configuration | Cabinet, channels, screen, payment interface, power, network and ordered options |
+| Product fit | Package list, channel map, settings, repeated vend results and failure notes |
+| Functions | Selection, pricing, sold-out, doors, locks, lighting, pickup and alarms |
+| Interfaces | Payment, network, telemetry and peripheral behavior included in scope |
+| Release | Defect log, retest evidence, documents, accessories, packaging and signatures |
+
+Use the [pre-production sample approval checklist](/insights/vending-machine-pre-production-sample-approval-checklist) to establish the baseline that the FAT will verify. A sample approval and final acceptance test serve different gates.
+
+## Confirm machine identity and configuration
+
+Begin with the nameplate, serial number or controlled unit identifier. Compare the physical machine with the approved bill of configuration: cabinet and door arrangement, product-delivery system, display, payment cutouts, locks, lighting, ventilation, wiring, plug, network hardware and any ordered refrigeration.
+
+Record approved substitutions and engineering changes. A component shown in a sales image is not part of the FAT unless it appears in the order or controlled configuration. Use the [production traceability requirements](/insights/vending-machine-production-traceability-requirements) to connect the finished unit to components, tests and shipment records.
+
+## Review electrical and safety evidence
+
+Check the machine nameplate against the destination voltage, frequency and configured supply. Review grounding, protective devices, accessible wiring, cable routing, service access and the agreed electrical test records. Qualified personnel should select instruments, methods and acceptance limits.
+
+IEC describes [IEC 60335-2-75:2024](https://webstore.iec.ch/en/publication/80073) as the particular safety standard for commercial dispensing appliances and vending machines within its scope. A project FAT can reference applicable clauses or test evidence, but it does not itself prove certification or legal conformity. The importer must confirm the standards, marks and authorities required in the target market.
+
+## Test real products and every representative path
+
+Use final or representative product packages, not empty spirals or approximate samples. Record package dimensions, weight, surface, center of gravity and channel assignment. Test the smallest, largest and most difficult products at representative loading levels.
+
+Run repeated vends from the top, middle and lower areas, including pickup access and sold-out behavior. Where a delivery sensor or elevator is included, test its configured success and failure logic. Capacity should be reported against the approved product map rather than as a universal number. The [capacity planning guide](/insights/vending-machine-capacity-planning-guide) explains the inputs buyers should provide.
+
+## Exercise payment and software exceptions
+
+Walk through selection, price display, cancellation, approval, decline, timeout, sold-out and a controlled failed-dispense case. Record the configured currency display and the test environment. A factory terminal may be a test device and does not prove live acquiring or wallet availability in the destination market.
+
+The buyer and payment provider must confirm local currency, cards, mobile wallets, QR, NFC, settlement currency, exchange-rate ownership, refunds, network-loss behavior, tax or receipt requirements and PCI scope. Keep cardholder data and credentials out of FAT photographs and reports. Use the [payment integration guide](/insights/vending-machine-payment-system-integration-guide) to assign these responsibilities.
+
+## Verify refrigeration only when it is included
+
+For a refrigerated machine, define ambient conditions, loading, stabilization time, set point, measurement positions and acceptance limits before testing. Record instrument identity and readings over the agreed period. A brief display reading does not prove uniform product temperature.
+
+Do not apply one temperature claim to every product or market. Food, medicine and other controlled products may require separate equipment and regulatory evidence. The buyer must confirm the actual product storage requirement and destination law.
+
+## Control defects, sampling and retests
+
+Classify each issue by its effect on safety, compliance, product delivery, payment, appearance, serviceability and contract requirements. Record evidence, responsible party, due date and disposition. Retest the affected function after correction and consider regression tests where a change could influence other systems.
+
+For a multi-unit order, define which checks apply to every unit and which may use an agreed sampling plan. ISO explains that [ISO 2859-1](https://www.iso.org/standard/2859-1) provides lot-by-lot sampling procedures indexed by acceptance quality limit for inspection by attributes. A qualified quality professional should select any plan; an AQL is not a guarantee of zero defects.
+
+## Build the shipment-release pack
+
+The release pack should include the signed FAT protocol, configuration list, serial records, product-channel map, software version, test data, photographs, defect and deviation log, retest evidence, manuals, keys, accessories, spare parts and packaging record. State exactly which units and order revision the approval covers.
+
+Do not release a material open issue through an informal message. If the buyer accepts a deviation, document its effect on price, delivery, warranty, certification evidence, spare parts and future repeat orders. Reconcile the final pack with the [export packaging and shipping checklist](/insights/vending-machine-export-packaging-shipping-checklist).
+
+## Request a FAT-ready BOHOL quotation
+
+Send BOHOL your target country, machine type, quantity, real product packages, power and network requirements, payment provider, refrigeration need, required conformity evidence, FAT witness method and acceptance criteria through the [contact form](/contact). BOHOL can review which factory records and tests can be included for the proposed configuration before quotation and production release.
+
