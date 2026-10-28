@@ -1,6 +1,6 @@
 # Google indexing queue
 
-Last checked: 2026-10-28 (production traceability and both 2026-10-27 articles are now verified indexed. The two 2026-10-28 articles are locally validated and awaiting production deployment and authenticated URL Inspection.)
+Last checked: 2026-10-28 (production traceability and both 2026-10-27 articles are now verified indexed. The two 2026-10-28 articles are deployed and production-verified but not indexed/unknown to Google.)
 
 ## Verified indexed
 
@@ -18,8 +18,8 @@ Last checked: 2026-10-28 (production traceability and both 2026-10-27 articles a
 
 ## Pending indexing
 
-- `https://www.boholvending.com/insights/vending-machine-preventive-maintenance-schedule` — locally validated 2026-10-28; production deployment and authenticated URL Inspection pending.
-- `https://www.boholvending.com/insights/vending-machine-production-lead-time-planning-guide` — locally validated 2026-10-28; production deployment and authenticated URL Inspection pending.
+- `https://www.boholvending.com/insights/vending-machine-preventive-maintenance-schedule` — published and production-verified 2026-10-28; authenticated URL Inspection reported not indexed/unknown to Google with no referring sitemap detected yet. No indexing request was submitted in this run.
+- `https://www.boholvending.com/insights/vending-machine-production-lead-time-planning-guide` — published and production-verified 2026-10-28; authenticated URL Inspection reported not indexed/unknown to Google with no referring sitemap detected yet. No indexing request was submitted in this run.
 
 - `https://www.boholvending.com/insights/vending-machine-pre-production-sample-approval-checklist` — published and production-verified 2026-10-25; authenticated URL Inspection reported not indexed/unknown to Google. No indexing request was submitted in this run.
 - `https://www.boholvending.com/insights/vending-machine-engineering-change-control-guide` — published and production-verified 2026-10-25; authenticated URL Inspection reported not indexed/unknown to Google. No indexing request was submitted in this run.
