@@ -1,9 +1,12 @@
 # Google indexing queue
 
-Last checked: 2026-10-27 (the 2026-10-26 supplier-audit article is now verified indexed; the production-traceability article remains not indexed/unknown to Google. Today's two articles are deployed, production-verified and not indexed/unknown to Google.)
+Last checked: 2026-10-28 (production traceability and both 2026-10-27 articles are now verified indexed. The two 2026-10-28 articles are locally validated and awaiting production deployment and authenticated URL Inspection.)
 
 ## Verified indexed
 
+- `https://www.boholvending.com/insights/vending-machine-production-traceability-requirements` — authenticated Search Console URL Inspection confirmed indexed on 2026-10-28.
+- `https://www.boholvending.com/insights/vending-machine-factory-acceptance-test-checklist` — authenticated Search Console URL Inspection confirmed indexed on 2026-10-28.
+- `https://www.boholvending.com/insights/vending-machine-receiving-inspection-checklist` — authenticated Search Console URL Inspection confirmed indexed on 2026-10-28.
 - `https://www.boholvending.com/insights/vending-machine-supplier-audit-checklist` — authenticated Search Console URL Inspection confirmed indexed on 2026-10-27.
 - `https://www.boholvending.com/insights/apartment-building-vending-machine-buyer-guide` — Search Console confirmed indexed on 2026-10-21; the same-day condominium wording update is deployed, but a recrawl of the revised version has not yet been confirmed.
 - `https://www.boholvending.com/insights/custom-vending-machine-manufacturer-rfq-guide` — Search Console confirmed indexed on 2026-10-21; the same-day customized/personalized wording update is deployed, but a recrawl of the revised version has not yet been confirmed.
@@ -15,10 +18,8 @@ Last checked: 2026-10-27 (the 2026-10-26 supplier-audit article is now verified 
 
 ## Pending indexing
 
-- `https://www.boholvending.com/insights/vending-machine-factory-acceptance-test-checklist` — published and production-verified 2026-10-27; authenticated URL Inspection reported not indexed/unknown to Google, with no referring sitemap detected in the inspection record yet. No indexing request was submitted in this run.
-- `https://www.boholvending.com/insights/vending-machine-receiving-inspection-checklist` — published and production-verified 2026-10-27; authenticated URL Inspection reported not indexed/unknown to Google, with no referring sitemap detected in the inspection record yet. No indexing request was submitted in this run.
-
-- `https://www.boholvending.com/insights/vending-machine-production-traceability-requirements` — production-verified 2026-10-26; authenticated URL Inspection rechecked 2026-10-27 and still reported not indexed/unknown to Google, with no referring sitemap detected in the inspection record. No indexing request was submitted in this run.
+- `https://www.boholvending.com/insights/vending-machine-preventive-maintenance-schedule` — locally validated 2026-10-28; production deployment and authenticated URL Inspection pending.
+- `https://www.boholvending.com/insights/vending-machine-production-lead-time-planning-guide` — locally validated 2026-10-28; production deployment and authenticated URL Inspection pending.
 
 - `https://www.boholvending.com/insights/vending-machine-pre-production-sample-approval-checklist` — published and production-verified 2026-10-25; authenticated URL Inspection reported not indexed/unknown to Google. No indexing request was submitted in this run.
 - `https://www.boholvending.com/insights/vending-machine-engineering-change-control-guide` — published and production-verified 2026-10-25; authenticated URL Inspection reported not indexed/unknown to Google. No indexing request was submitted in this run.
