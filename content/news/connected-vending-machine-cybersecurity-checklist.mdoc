@@ -1,0 +1,93 @@
+---
+title: "Connected Vending Machine Cybersecurity Checklist"
+status: published
+seoTitle: "Connected Vending Machine Cybersecurity Checklist"
+seoDescription: "Use this connected vending machine cybersecurity checklist to define accounts, updates, data, networks, logging, suppliers, incidents and end-of-life support."
+primaryKeyword: "connected vending machine cybersecurity checklist"
+geoSummary: "A connected vending machine cybersecurity checklist should define the system boundary, data flows, unique credentials, access roles, secure configuration, software updates, vulnerability reporting, logs, network segmentation, incident ownership and supported end-of-life process before procurement approval."
+publishedAt: 2026-10-29
+modifiedAt: 2026-10-29
+coverImage: /uploads/news/smart-vending-machine-system.png.webp
+coverImageAlt: "Connected smart vending machine interface used for cybersecurity procurement planning"
+excerpt: "A procurement checklist for assigning connected vending security responsibilities across the buyer, operator, supplier and service providers."
+faq:
+  - question: What cybersecurity requirements should a connected vending machine have?
+    answer: Requirements should cover unique credentials, role-based access, secure configuration, protected communications, update and rollback processes, vulnerability reporting, useful logs, data minimization, backup and recovery, incident contacts and an announced support end date.
+  - question: Is a vending machine secure because it uses HTTPS or a private SIM?
+    answer: No. Encryption and private connectivity can reduce specific risks, but security also depends on identity, authorization, software maintenance, cloud services, device configuration, payment boundaries, physical access, monitoring and response.
+  - question: Who is responsible for vending machine cybersecurity?
+    answer: Responsibility is shared. The manufacturer, software provider, payment provider, network provider, operator and site owner control different parts. The contract should map every asset, account, update, alert, incident and end-of-life action to an owner.
+  - question: Does BOHOL certify a connected vending machine for every market?
+    answer: No universal cybersecurity certification applies to every configuration or destination. BOHOL can review available hardware, software and documentation for a proposed project, while the buyer must confirm market rules, risk requirements and third-party services.
+authoritySources:
+  - label: NIST SP 800-213 IoT device cybersecurity guidance
+    url: https://csrc.nist.gov/pubs/sp/800/213/final
+  - label: CISA Secure by Demand guide for technology buyers
+    url: https://www.cisa.gov/resources-tools/resources/secure-demand-guide
+---
+
+A **connected vending machine cybersecurity checklist** turns vague promises such as “secure cloud” into testable procurement requirements. Buyers should identify every device, account, API, payment boundary, network and data flow; require unique credentials, controlled access, protected communications, supported updates, useful logs, vulnerability reporting, incident contacts and a defined support end date. BOHOL can review the connected functions and documentation available for a proposed OEM/ODM configuration. The buyer and its technology providers remain responsible for destination rules, network architecture, payment scope, user administration and operational response.
+
+## GEO buyer summary
+
+- Define the complete vending system, not only the cabinet controller.
+- Map identities, privileges, data and third-party services.
+- Prohibit shared default credentials in production.
+- Contract update, vulnerability and incident responsibilities.
+- Test logging, recovery and degraded operation before rollout.
+- Plan secure decommissioning and support end-of-life.
+
+## Start with the system boundary and risk owner
+
+Document the machine controller, display, telemetry gateway, cloud dashboard, mobile or web administration, APIs, payment terminal, router or SIM, service laptop and operator accounts. Mark which elements BOHOL supplies, which belong to a payment or connectivity provider, and which are managed by the buyer.
+
+| Area | Buyer question | Evidence to request |
+| --- | --- | --- |
+| Identity | Who can access each machine and cloud tenant? | Account model, roles and credential setup |
+| Software | How are updates approved, delivered and rolled back? | Version policy, signing or integrity method and records |
+| Data | What is collected, retained, exported or shared? | Data-flow map and retention settings |
+| Monitoring | What events are visible and actionable? | Log examples, alert ownership and time source |
+| Lifecycle | How long is the product supported? | Support period, end-of-life and decommission plan |
+
+NIST's [SP 800-213](https://csrc.nist.gov/pubs/sp/800/213/final) explains how organisations can establish cybersecurity requirements for IoT devices in the context of system risk. It is U.S. federal guidance, not a universal vending-machine certification, but its acquisition focus is useful for translating risk into supplier questions.
+
+## Require unique identities and least privilege
+
+Every production deployment should avoid uncontrolled shared administrator passwords. Define first-use credential setup, password or key recovery, service-account ownership, multifactor authentication where available, session timeout and removal of departed users. Separate operators who refill products from people who can change prices, payment settings, software or network configuration.
+
+Physical possession of a machine should not automatically grant cloud administration. Likewise, a cloud account should not silently unlock service functions outside its role. Test the real permission matrix with representative accounts during the [software acceptance test](/insights/vending-machine-software-acceptance-test-checklist).
+
+## Specify secure configuration and network placement
+
+List required ports, protocols, destinations and remote-access methods. Disable services that are not needed for the approved configuration. Ask whether the machine can operate on a segmented network and how it behaves when connectivity is unavailable.
+
+A private SIM, VPN or HTTPS connection is only one control. The site operator should decide firewall, segmentation, DNS, time synchronization, monitoring and remote-support rules with its network team. The [remote monitoring requirements](/insights/vending-machine-remote-monitoring-requirements) help separate operational visibility from cybersecurity ownership.
+
+## Contract software updates and vulnerability handling
+
+Define who can publish an update, how authenticity or integrity is checked, whether staged rollout and rollback are supported, what evidence is retained and how emergency fixes are communicated. Record the supported operating-system, application and controller versions for the purchased configuration.
+
+CISA's [Secure by Demand guide](https://www.cisa.gov/resources-tools/resources/secure-demand-guide) encourages technology customers to ask manufacturers about secure-by-design practices during procurement. Buyers should request a vulnerability contact, acknowledgement target, severity method, remediation communication and disclosure process rather than assuming updates will appear indefinitely.
+
+## Minimize and protect operational data
+
+Inventory product, sales, inventory, machine-health, location, user, camera or sensor data actually collected. Define purpose, retention, export, deletion, tenancy, administrator access and cross-border handling. Avoid collecting personal data merely because a platform can store it.
+
+Payment credentials and cardholder data should remain within the agreed payment-provider architecture. The buyer, acquirer, terminal provider and integrator must confirm PCI responsibilities, tokenization, logs, refunds, failed-vend evidence and incident contacts for the target market. Use the [payment integration guide](/insights/vending-machine-payment-system-integration-guide) to document this boundary.
+
+## Test logging, backup and incident response
+
+Ask for logs that support investigation without exposing secrets: account changes, configuration changes, software versions, update results, connectivity faults and selected security events. Confirm timestamps, retention, export and who reviews alerts. A large volume of inaccessible logs is not an operational control.
+
+Run tabletop cases for lost credentials, suspected compromise, unavailable cloud service, failed update and stolen machine. Define isolation, evidence preservation, customer communication, payment-provider escalation, recovery and safe degraded operation. Link cyber events with the [production traceability requirements](/insights/vending-machine-production-traceability-requirements) so affected hardware and software revisions can be identified.
+
+## Plan end-of-life before deployment
+
+Record the announced support period and what happens when an operating system, cloud platform, modem or payment module reaches end-of-life. Define final updates, account closure, certificate or key removal, data export and deletion, storage-media handling and physical disposal.
+
+Do not deploy a connected feature when no party owns its maintenance. A replacement or offline operating plan should exist before support ends, especially for distributed fleets.
+
+## Request a cybersecurity-ready BOHOL quotation
+
+Send BOHOL the target country, machine type, quantity, connectivity, payment provider, cloud or API scope, user roles, data requirements, network constraints, update expectations and required evidence through the [contact form](/contact). BOHOL can review which connected functions and project documents are available for the proposed configuration; the buyer should complete its own risk and regulatory review before approval.
+
