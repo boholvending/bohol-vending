@@ -1,6 +1,6 @@
 # Google indexing queue
 
-Last checked: 2026-10-29 (both 2026-10-28 articles remain not indexed/unknown to Google. The two 2026-10-29 articles are locally validated and awaiting production deployment and authenticated URL Inspection.)
+Last checked: 2026-10-29 (both 2026-10-28 articles remain not indexed/unknown to Google. The two 2026-10-29 articles are deployed and production-verified but not indexed/unknown to Google.)
 
 ## Verified indexed
 
@@ -18,8 +18,8 @@ Last checked: 2026-10-29 (both 2026-10-28 articles remain not indexed/unknown to
 
 ## Pending indexing
 
-- `https://www.boholvending.com/insights/connected-vending-machine-cybersecurity-checklist` — locally validated 2026-10-29; production deployment and authenticated URL Inspection pending.
-- `https://www.boholvending.com/insights/vending-machine-service-level-agreement-checklist` — locally validated 2026-10-29; production deployment and authenticated URL Inspection pending.
+- `https://www.boholvending.com/insights/connected-vending-machine-cybersecurity-checklist` — published and production-verified 2026-10-29; authenticated URL Inspection reported not indexed/unknown to Google with no referring sitemap detected yet. No indexing request was submitted in this run.
+- `https://www.boholvending.com/insights/vending-machine-service-level-agreement-checklist` — published and production-verified 2026-10-29; authenticated URL Inspection reported not indexed/unknown to Google with no referring sitemap detected yet. No indexing request was submitted in this run.
 
 - `https://www.boholvending.com/insights/vending-machine-preventive-maintenance-schedule` — published and production-verified 2026-10-28; authenticated URL Inspection reported not indexed/unknown to Google with no referring sitemap detected yet. No indexing request was submitted in this run.
 - `https://www.boholvending.com/insights/vending-machine-production-lead-time-planning-guide` — published and production-verified 2026-10-28; authenticated URL Inspection reported not indexed/unknown to Google with no referring sitemap detected yet. No indexing request was submitted in this run.
