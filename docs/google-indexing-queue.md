@@ -1,8 +1,11 @@
 # Google indexing queue
 
-Last checked: 2026-10-30 (the two 2026-10-30 articles have passed local validation and await production deployment and authenticated URL Inspection.)
+Last checked: 2026-10-30 (both 2026-10-29 articles are now indexed. The two 2026-10-30 articles are deployed and production-verified but not indexed/unknown to Google.)
 
 ## Verified indexed
+
+- `https://www.boholvending.com/insights/connected-vending-machine-cybersecurity-checklist` — authenticated Search Console URL Inspection confirmed indexed on 2026-10-30.
+- `https://www.boholvending.com/insights/vending-machine-service-level-agreement-checklist` — authenticated Search Console URL Inspection confirmed indexed on 2026-10-30.
 
 - `https://www.boholvending.com/insights/vending-machine-production-traceability-requirements` — authenticated Search Console URL Inspection confirmed indexed on 2026-10-28.
 - `https://www.boholvending.com/insights/vending-machine-factory-acceptance-test-checklist` — authenticated Search Console URL Inspection confirmed indexed on 2026-10-28.
@@ -18,11 +21,8 @@ Last checked: 2026-10-30 (the two 2026-10-30 articles have passed local validati
 
 ## Pending indexing
 
-- `https://www.boholvending.com/insights/vending-machine-accessibility-procurement-checklist` — local CMS/build/SEO validation passed 2026-10-30; production deployment and authenticated URL Inspection pending.
-- `https://www.boholvending.com/insights/vending-machine-operator-training-checklist` — local CMS/build/SEO validation passed 2026-10-30; production deployment and authenticated URL Inspection pending.
-
-- `https://www.boholvending.com/insights/connected-vending-machine-cybersecurity-checklist` — published and production-verified 2026-10-29; authenticated URL Inspection reported not indexed/unknown to Google with no referring sitemap detected yet. No indexing request was submitted in this run.
-- `https://www.boholvending.com/insights/vending-machine-service-level-agreement-checklist` — published and production-verified 2026-10-29; authenticated URL Inspection reported not indexed/unknown to Google with no referring sitemap detected yet. No indexing request was submitted in this run.
+- `https://www.boholvending.com/insights/vending-machine-accessibility-procurement-checklist` — published and production-verified 2026-10-30; authenticated URL Inspection reported not indexed/unknown to Google with no referring sitemap detected yet. No indexing request was submitted in this run.
+- `https://www.boholvending.com/insights/vending-machine-operator-training-checklist` — published and production-verified 2026-10-30; authenticated URL Inspection reported not indexed/unknown to Google with no referring sitemap detected yet. No indexing request was submitted in this run.
 
 - `https://www.boholvending.com/insights/vending-machine-preventive-maintenance-schedule` — published and production-verified 2026-10-28; authenticated URL Inspection reported not indexed/unknown to Google with no referring sitemap detected yet. No indexing request was submitted in this run.
 - `https://www.boholvending.com/insights/vending-machine-production-lead-time-planning-guide` — published and production-verified 2026-10-28; authenticated URL Inspection reported not indexed/unknown to Google with no referring sitemap detected yet. No indexing request was submitted in this run.
