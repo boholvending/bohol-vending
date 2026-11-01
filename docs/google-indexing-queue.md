@@ -1,6 +1,6 @@
 # Google indexing queue
 
-Last checked: 2026-10-30 (both 2026-10-29 articles are now indexed. The two 2026-10-30 articles are deployed and production-verified but not indexed/unknown to Google.)
+Last checked: 2026-11-01 (the two 2026-10-30 articles remain pending. The operator-training article is now discovered with the production sitemap detected; the accessibility article remains unknown to Google.)
 
 ## Verified indexed
 
@@ -21,8 +21,8 @@ Last checked: 2026-10-30 (both 2026-10-29 articles are now indexed. The two 2026
 
 ## Pending indexing
 
-- `https://www.boholvending.com/insights/vending-machine-accessibility-procurement-checklist` — published and production-verified 2026-10-30; authenticated URL Inspection reported not indexed/unknown to Google with no referring sitemap detected yet. No indexing request was submitted in this run.
-- `https://www.boholvending.com/insights/vending-machine-operator-training-checklist` — published and production-verified 2026-10-30; authenticated URL Inspection reported not indexed/unknown to Google with no referring sitemap detected yet. No indexing request was submitted in this run.
+- `https://www.boholvending.com/insights/vending-machine-accessibility-procurement-checklist` — published and production-verified 2026-10-30; authenticated URL Inspection on 2026-11-01 still reported not indexed/unknown to Google with no referring sitemap detected. No indexing request was submitted in this run.
+- `https://www.boholvending.com/insights/vending-machine-operator-training-checklist` — published and production-verified 2026-10-30; authenticated URL Inspection on 2026-11-01 reported `Discovered – currently not indexed`, with `https://www.boholvending.com/sitemap.xml` detected as a referring sitemap. No indexing request was submitted in this run.
 
 - `https://www.boholvending.com/insights/vending-machine-preventive-maintenance-schedule` — published and production-verified 2026-10-28; authenticated URL Inspection reported not indexed/unknown to Google with no referring sitemap detected yet. No indexing request was submitted in this run.
 - `https://www.boholvending.com/insights/vending-machine-production-lead-time-planning-guide` — published and production-verified 2026-10-28; authenticated URL Inspection reported not indexed/unknown to Google with no referring sitemap detected yet. No indexing request was submitted in this run.
