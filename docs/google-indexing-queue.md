@@ -1,6 +1,6 @@
 # Google indexing queue
 
-Last checked: 2026-11-01 (the two 2026-10-30 articles remain pending. The operator-training article is now discovered with the production sitemap detected; the accessibility article remains unknown to Google.)
+Last checked: 2026-11-03 (the two 2026-10-30 articles remain pending. A new dimensions and doorway-planning article is awaiting deployment and Search Console inspection.)
 
 ## Verified indexed
 
@@ -20,6 +20,8 @@ Last checked: 2026-11-01 (the two 2026-10-30 articles remain pending. The operat
 - `https://www.boholvending.com/insights/us-micro-market-workplace-vending-trends`
 
 ## Pending indexing
+
+- `https://www.boholvending.com/insights/vending-machine-dimensions-doorway-site-planning` — prepared 2026-11-03; local build and quality checks passed. Production deployment and authenticated Search Console inspection are pending; do not treat publication or sitemap inclusion as indexing.
 
 - `https://www.boholvending.com/insights/vending-machine-accessibility-procurement-checklist` — published and production-verified 2026-10-30; authenticated URL Inspection on 2026-11-01 still reported not indexed/unknown to Google with no referring sitemap detected. No indexing request was submitted in this run.
 - `https://www.boholvending.com/insights/vending-machine-operator-training-checklist` — published and production-verified 2026-10-30; authenticated URL Inspection on 2026-11-01 reported `Discovered – currently not indexed`, with `https://www.boholvending.com/sitemap.xml` detected as a referring sitemap. No indexing request was submitted in this run.
