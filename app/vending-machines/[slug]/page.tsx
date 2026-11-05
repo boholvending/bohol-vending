@@ -11,6 +11,20 @@ import { ProductGallery } from "@/components/product-gallery";
 import { CompanyProofShowcase, ProductFeatureShowcase } from "@/components/product-feature-showcase";
 import { getProductFaq } from "@/lib/product-template";
 
+const productImageAltByPath: Record<string, string> = {
+  "/uploads/products/vape-vending-machine-20261020/vape-vending-machine-b2b-overview-concept.webp": "BOHOL vape vending machine B2B product overview concept",
+  "/uploads/products/vape-vending-machine-20261020/vape-vending-machine-spiral-channels-concept.webp": "Vape vending machine spiral-channel merchandising concept",
+  "/uploads/products/vape-vending-machine-20261020/vape-vending-machine-keypad-payment-concept.webp": "Vape vending machine keypad and payment hardware concept",
+  "/uploads/products/vape-vending-machine-20261020/vape-vending-machine-pickup-cabinet-concept.webp": "Vape vending machine cabinet and pickup-bay concept",
+  "/uploads/products/vape-vending-machine-20261020/vape-vending-machine-oem-options-concept.webp": "OEM vape vending machine cabinet and interface options concept",
+  "/uploads/products/vape-vending-machine-20261020/vape-vending-machine-assembly-qc-concept.webp": "Illustrative vape vending machine assembly and quality-check workflow",
+  "/uploads/products/vape-vending-machine-20261020/vape-vending-machine-adult-retail-concept.webp": "Vape vending machine concept for legally permitted controlled retail",
+};
+
+function productImageAlt(src: string, fallback: string) {
+  return productImageAltByPath[src] || fallback;
+}
+
 export async function generateStaticParams() {
   return (await getProducts()).map((product) => ({ slug: product.slug }));
 }
@@ -62,7 +76,7 @@ export default async function Product({ params }: { params: Promise<{ slug: stri
   const product = await getProduct(slug);
   if (!product) notFound();
   const faq = getProductFaq(product.faq);
-  const gallery = [...new Set([product.image, ...(product.gallery || [])].filter(Boolean))].map((src, index) => ({ src, alt: index === 0 ? product.name : `${product.name} product detail ${index + 1}` }));
+  const gallery = [...new Set([product.image, ...(product.gallery || [])].filter(Boolean))].map((src, index) => ({ src, alt: productImageAlt(src, index === 0 ? product.name : `${product.name} product detail ${index + 1}`) }));
   const highlights = product.highlights?.length ? product.highlights : product.features.slice(0, 3).map((feature) => ({ title: feature.split(":")[0], description: feature.includes(":") ? feature.split(":").slice(1).join(":").trim() : "Configured by BOHOL engineering for production-ready vending projects." }));
   const featuredHighlights = highlights.slice(0, 4).map((item, index) => ({ ...item, image: gallery[(index + 1) % gallery.length].src }));
   const keyDetails = [
@@ -115,7 +129,7 @@ export default async function Product({ params }: { params: Promise<{ slug: stri
       </div>
     <ProductFeatureShowcase features={featuredHighlights} productName={product.name} />
     </section>
-    {!!product.detailGallery?.length && <section className="product-detail-gallery" aria-label="Product detail images"><h2>Product details</h2><div>{product.detailGallery.map((src, index) => <Image key={src} src={src} alt={`${product.name} detail ${index + 1}`} width={1800} height={1200} />)}</div></section>}
+    {!!product.detailGallery?.length && <section className="product-detail-gallery" aria-label="Product detail images"><h2>Product details</h2><div>{product.detailGallery.map((src, index) => <Image key={src} src={src} alt={productImageAlt(src, `${product.name} detail ${index + 1}`)} width={1800} height={1200} />)}</div></section>}
     <section className="product-factory-section" id="company-proof">
       <div className="product-factory-heading"><h2>{product.companyStrengthTitle || "Factory proof, production and quotation in one view."}</h2><p>{product.companyStrengthDescription || "Review BOHOL’s manufacturing base, workshop, company documents and the information needed for a project quotation."}</p><Link href="/about">Company profile <ArrowUpRight size={17} /></Link></div>
       <CompanyProofShowcase productImage={product.image} factoryGallery={product.factoryGallery} />
