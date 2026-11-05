@@ -72,6 +72,23 @@ export default async function Product({ params }: { params: Promise<{ slug: stri
     ["Target markets", labelList(product.marketRegions) || "Global"],
     ["Payment", labelList(product.paymentOptions) || "Custom options"],
   ];
+  const planningResources = slug === "compact-snack-drink-vending-machine" ? [
+    {
+      href: "/insights/compact-vending-machine-site-planning-checklist",
+      title: "Compact vending machine site checklist",
+      description: "Check access, service clearance, power, connectivity and product samples before quotation.",
+    },
+    {
+      href: "/insights/vending-machine-dimensions-doorway-site-planning",
+      title: "Doorway and delivery-route planning",
+      description: "Record the narrowest doorway, lift, turning point and final machine position before shipment.",
+    },
+    {
+      href: "/insights/vending-machine-payment-system-integration-guide",
+      title: "Payment integration guide",
+      description: "Confirm the target market, currency, acquirer, refunds, offline behavior and responsibility boundaries.",
+    },
+  ] : [];
   return <SiteShell>
     {!!faq.length && <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(faqJsonLd(faq.map(item=>({q:item.question,a:item.answer})))).replace(/</g,"\\u003c")}} />}
     <BreadcrumbJson items={[{ name: "Home", url: siteUrl }, { name: "Vending Machines", url: `${siteUrl}/vending-machines` }, { name: product.name, url: `${siteUrl}/vending-machines/${slug}` }]} />
@@ -104,7 +121,9 @@ export default async function Product({ params }: { params: Promise<{ slug: stri
       <CompanyProofShowcase productImage={product.image} factoryGallery={product.factoryGallery} />
     </section>
     <section className="product-quick-details" id="quick-details">
-      <div className="product-faq-panel"><h2>Buyer questions</h2>{faq.map((item) => <details key={item.question}><summary>{item.question}</summary><p>{item.answer}</p></details>)}</div>
+      <div className="product-faq-panel"><h2>Buyer questions</h2>{faq.map((item) => <details key={item.question}><summary>{item.question}</summary><p>{item.answer}</p></details>)}
+        {!!planningResources.length && <div className="product-planning-resources"><h3>Plan the project before quotation</h3><p>Use these buyer resources to prepare site and payment details for a configuration review.</p><div>{planningResources.map((resource) => <Link key={resource.href} href={resource.href}><span>{resource.title}</span><small>{resource.description}</small><ArrowUpRight size={16} /></Link>)}</div></div>}
+      </div>
     </section>
     <EnquirySection productName={product.name} />
   </SiteShell>;
