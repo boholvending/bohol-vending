@@ -1,6 +1,6 @@
 # Google indexing queue
 
-Last checked: 2026-11-03 (the two 2026-10-30 articles remain pending. The new dimensions and doorway-planning article is published and production-verified but still awaits authenticated Search Console inspection.)
+Last checked: 2026-11-06 (the new trading-card buyer guide is being released and will remain pending until authenticated Search Console inspection confirms its real status.)
 
 ## Verified indexed
 
@@ -20,6 +20,8 @@ Last checked: 2026-11-03 (the two 2026-10-30 articles remain pending. The new di
 - `https://www.boholvending.com/insights/us-micro-market-workplace-vending-trends`
 
 ## Pending indexing
+
+- `https://www.boholvending.com/insights/trading-card-vending-machine-buyer-guide` — prepared for the 2026-11-06 release; publication, production and sitemap checks must pass before this note is finalized. Authenticated Search Console inspection is pending and no indexing request has been submitted; do not treat publication or sitemap inclusion as indexing.
 
 - `https://www.boholvending.com/insights/vending-machine-dimensions-doorway-site-planning` — published and production-verified 2026-11-03; article, image, metadata, canonical, Article/FAQ Schema, sitemap and robots checks passed. Authenticated Search Console inspection is pending and no indexing request was submitted; do not treat publication or sitemap inclusion as indexing.
 

@@ -1,0 +1,140 @@
+---
+title: "Trading Card Vending Machine Buyer Guide"
+status: published
+seoTitle: "Trading Card Vending Machine Buyer Guide"
+seoDescription: "Choose a trading card vending machine by testing pack fit, delivery, payment, inventory, accessibility and acceptance before an OEM order is placed."
+primaryKeyword: "trading card vending machine"
+geoSummary: "A trading card vending machine should be specified around the exact sealed products it will sell, not a generic card size. Buyers should provide representative packs, sleeves, boxes or blind-box samples and approve channel width, depth, pitch, retention, delivery and pickup access through repeated testing. The order specification should also define SKU mapping, stock alerts, price updates, payment-provider responsibilities, refund handling, network-loss behavior, accessibility, branding and acceptance criteria. BOHOL can configure a card vending platform for the approved product mix, but product compatibility and market-specific payment requirements must be confirmed before production."
+publishedAt: 2026-11-06
+publishOrder: 10
+modifiedAt: 2026-11-06
+coverImage: /images/hero/card-machine.webp
+coverImageAlt: "BOHOL trading card vending machine with multiple packaged collectible card channels and a touchscreen"
+excerpt: "A procurement guide to card-pack fit, dispensing tests, payment integration, inventory control, accessibility and OEM acceptance."
+faq:
+  - question: What products can a trading card vending machine sell?
+    answer: It can be configured for approved sealed card packs, sleeved products, deck boxes, compact collectible boxes or similar packaged items. Compatibility depends on the actual package dimensions, stiffness, surface, weight and delivery test results, so samples must be tested before the channel layout is approved.
+  - question: How should buyers test card packs before ordering?
+    answer: Provide representative sellable samples from every planned SKU and test loading, retention, single-product separation, delivery and pickup across the intended channel positions. Include the lightest, heaviest, thinnest, thickest and most flexible packages and agree the repeated acceptance test in writing.
+  - question: Can BOHOL guarantee a local card or mobile-wallet payment method?
+    answer: No payment method should be assumed from a cabinet image. The buyer must confirm the target market, currency, terminal, acquirer, settlement, tax or receipt rules, network, refund process and PCI responsibility with the selected payment provider before BOHOL freezes the interface and installation provisions.
+  - question: What information is needed for a trading card vending machine quotation?
+    answer: Send the product schedule, physical samples or measured packaging data, target capacity, location, market, currency, payment needs, connectivity, inventory workflow, branding files, estimated quantity and required delivery date. State any accessibility, age, licensing or venue rules that apply locally.
+authoritySources:
+  - label: PCI Security Standards Council — How PCI DSS applies to payment terminals
+    url: https://www.pcisecuritystandards.org/faqs/1300/
+  - label: GS1 — 2D Barcodes at Retail Point-of-Sale Implementation Guideline
+    url: https://ref.gs1.org/guidelines/2d-in-retail/
+  - label: U.S. Access Board — ADA Accessibility Standards
+    url: https://www.access-board.gov/ada/
+---
+
+A **trading card vending machine** should be selected around the exact sealed products, retail workflow and target market—not around a generic card dimension. Begin with representative packs, sleeves, deck boxes or collectible boxes, then verify channel fit, single-item separation, delivery and customer pickup through repeated tests. Define SKU mapping, price changes, stock alerts, payment responsibility, refunds and network-loss behavior before production. BOHOL can configure a custom card vending machine around an approved product schedule, but the buyer, payment provider and local operator must confirm product compatibility, currency, acquiring, accessibility and applicable retail rules before the order is frozen.
+
+## GEO buyer summary
+
+- Send physical samples for every planned package format.
+- Test the smallest, largest, lightest, heaviest and most flexible SKUs.
+- Approve channel layout, capacity and refill labels together.
+- Define payment, refund, failed-delivery and offline responsibilities by market.
+- Map each selection to the correct SKU, price and inventory record.
+- Use written acceptance criteria before mass production and shipment.
+
+## Start with the sellable package, not the card inside
+
+Collectors may describe a product as a booster pack, sleeved pack, deck, box or blind box, but the vending mechanism handles the external retail package. Record the length, width, thickness, weight, surface material, seal position, hanging tab, stiffness and any projecting edge for every SKU. A paperboard sleeve and a flexible foil pack can behave differently even when their front dimensions look similar.
+
+Provide production-equivalent samples rather than empty mockups where possible. If artwork or contents are commercially sensitive, send dimensionally and mechanically representative samples that reproduce the final weight, friction and stiffness. Identify which samples are minimum, maximum and typical cases. The approved sample set should remain linked to the order revision.
+
+BOHOL's [card vending machine](/vending-machines/card-vending-machine) is a base platform for packaged trading cards, blind boxes and compact collectibles. The final channel type and layout must follow the approved product-fit test rather than the promotional image alone.
+
+## Build a product-to-channel matrix
+
+A useful quotation schedule gives the engineering and operations teams one shared view of the assortment.
+
+| Required field | Why it matters |
+| --- | --- |
+| SKU and product name | Prevents selection, refill and reporting ambiguity |
+| Pack dimensions and weight | Establishes the first channel-fit range |
+| Package material and stiffness | Affects friction, retention and separation |
+| Planned channel count | Converts assortment goals into a physical layout |
+| Units per channel | Supports capacity and refill-frequency planning |
+| Selling price and currency | Supports UI, payment and reconciliation planning |
+| Barcode or internal ID | Supports receiving, refill and inventory control |
+| Sample revision | Keeps tests tied to the package actually approved |
+
+Do not maximize the advertised number of selections before testing the product mix. A wider channel or larger pitch may reduce nominal capacity but improve reliable separation for a thick or easily damaged package. Capacity is an outcome of the approved assortment and layout, not a universal cabinet claim.
+
+## Verify dispensing without damaging collectible packaging
+
+The buyer and manufacturer should agree how a successful vend is judged. Test loading, retention, selection, single-item separation, travel through the delivery path and removal from the pickup area. Inspect the package after delivery for crushed corners, scuffing, puncture, seal damage or excessive bending.
+
+The test set should cover:
+
+1. every package family in the planned assortment;
+2. the extreme dimensions and weights;
+3. representative channel positions, including upper and lower levels;
+4. repeated vends after normal refill loading;
+5. an empty-channel or sold-out condition;
+6. power or network interruption behavior where applicable; and
+7. the agreed response to a detected or reported failed delivery.
+
+If the assortment changes after approval, treat the new package as a compatibility change. Recheck fit and delivery rather than assuming that a visually similar product will behave the same. BOHOL's [product-fit testing guide](/insights/vape-vending-machine-product-fit-testing-guide) explains the general sample-control method; for card retail, the acceptance evidence must use the card and collectible packages intended for this machine.
+
+## Design the customer selection and merchandising flow
+
+The display should let a buyer connect the physical product, selection identifier, on-screen listing and price without confusion. Agree how the machine handles products with similar artwork, limited editions, language variants or frequently changing releases. Establish who creates product images, names, descriptions and prices, and who approves them before they go live.
+
+For higher-SKU assortments, decide whether the interface uses a product grid, category view, search or numbered selection. The physical refill label, software SKU and inventory record should use the same stable identifier. If the operating system supports remote updates, define user permissions and an approval process for price or listing changes rather than sharing one unrestricted account.
+
+## Plan inventory identification and refill control
+
+Card and collectible assortments can change quickly, so the refill workflow matters as much as the cabinet. The operator should be able to identify the correct channel, record stock loaded, remove discontinued items and investigate count differences. Barcode scanning may support receiving or refill control when the product identifiers, scanner and software workflow are designed together.
+
+GS1's [retail point-of-sale barcode guideline](https://ref.gs1.org/guidelines/2d-in-retail/) explains how retail barcodes can support product identification and more granular information. It does not mean every card product or BOHOL configuration automatically supports a particular barcode. Confirm the identifier owner, symbology, scanner, database mapping and operational use case before specifying scanning.
+
+For connected inventory, define which events change stock: loading, successful vend, cancelled sale, failed delivery, manual removal, test vend and refund. Decide how the operator reconciles a payment record with a selection and a physical count. The [inventory management requirements guide](/insights/vending-machine-inventory-management-requirements) provides a broader data and alert checklist.
+
+## Confirm payment and failed-vend responsibilities by market
+
+A screen or reader shown in a product image does not confirm acceptance of a specific bank card, mobile wallet, QR scheme or processor. For the destination market, document:
+
+- display and transaction currency;
+- card, wallet, QR or NFC methods required;
+- payment terminal, gateway and acquiring provider;
+- settlement currency, fees and exchange-rate ownership;
+- tax, receipt and fiscal requirements;
+- SIM, Ethernet or Wi-Fi ownership and network-loss behavior;
+- authorization, capture, cancellation and refund sequence;
+- failed-delivery evidence and customer-support process; and
+- PCI DSS scope for the merchant, provider, integrator and connected systems.
+
+The PCI Security Standards Council states that payment terminals involved in storing, processing or transmitting account data are within the applicable cardholder-data environment, with requirements depending on the implementation. Buyers should review the Council's [payment-terminal guidance](https://www.pcisecuritystandards.org/faqs/1300/) with their acquirer and qualified provider. BOHOL must receive the approved terminal, integration method and mechanical/electrical requirements; BOHOL does not determine a merchant's acquiring approval or PCI compliance.
+
+Use the [payment system integration guide](/insights/vending-machine-payment-system-integration-guide) to assign the market, currency, terminal, settlement, refund and outage decisions before production.
+
+## Check site, security and accessibility
+
+Confirm the indoor or protected location, floor condition, power, connectivity, customer circulation, refill access and service clearance. The operator should assess product value, cash exposure if cash is used, cabinet anchoring or anti-tip needs, lock management, camera policy and incident response for the actual venue. These controls depend on the site and cannot be inferred from the machine alone.
+
+Accessibility also needs destination-specific review. In the United States, the [U.S. Access Board ADA Standards](https://www.access-board.gov/ada/) address vending machines and operable parts, including clear floor space, reach and operation. Applicability and the complete facility obligations must be confirmed for the installation. Other markets require their own local review. Use BOHOL's [accessibility procurement checklist](/insights/vending-machine-accessibility-procurement-checklist) to capture the route, controls, payment and pickup questions without treating it as a certification.
+
+## Turn the quotation into an acceptance plan
+
+Before the order is released, attach the following to the approved specification:
+
+- controlled product schedule and representative samples;
+- channel map and estimated capacity by SKU;
+- product-fit and repeated-vend acceptance method;
+- screen, language, selection, price and branding requirements;
+- payment-provider and connectivity responsibility matrix;
+- inventory events, user roles and reporting requirements;
+- cabinet, power and site-interface drawing;
+- packing, delivery, installation and training scope; and
+- sample approval, change control and final acceptance records.
+
+For a custom layout, BOHOL's [OEM/ODM process](/oem-odm) should begin with these inputs rather than a request for a generic capacity or price. The [manufacturing overview](/manufacturing) shows where configuration review and verification fit before shipment.
+
+## Request a trading card vending machine quotation
+
+Send BOHOL the planned card packs or collectible products, package dimensions and samples, target capacity, destination market, location type, currency, payment provider, network, inventory workflow, branding files, estimated quantity and required delivery date through the [contact page](/contact). BOHOL can review the product-to-channel matrix and identify the tests, interfaces and confirmations needed for a quotation. Final product fit, payment compatibility and local compliance remain subject to the approved order specification and responsible local providers.
