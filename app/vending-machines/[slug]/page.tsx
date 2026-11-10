@@ -19,6 +19,8 @@ const productImageAltByPath: Record<string, string> = {
   "/uploads/products/vape-vending-machine-20261020/vape-vending-machine-oem-options-concept.webp": "OEM vape vending machine cabinet and interface options concept",
   "/uploads/products/vape-vending-machine-20261020/vape-vending-machine-assembly-qc-concept.webp": "Illustrative vape vending machine assembly and quality-check workflow",
   "/uploads/products/vape-vending-machine-20261020/vape-vending-machine-adult-retail-concept.webp": "Vape vending machine concept for legally permitted controlled retail",
+  "/uploads/products/vape-vending-machine-20261111/vape-vending-machine-oem-branding-concept.webp": "Vape vending machine OEM branding and interface options shown as a concept",
+  "/uploads/products/vape-vending-machine-20261111/vape-vending-machine-adult-retail-concept.webp": "Concept rendering of a vape vending machine for legally permitted adult-only retail",
 };
 
 function productImageAlt(src: string, fallback: string) {

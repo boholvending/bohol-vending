@@ -13,7 +13,7 @@ Last checked: 2026-11-07 (the eyelash buyer guide is published and production-ve
 - `https://www.boholvending.com/insights/vending-machine-supplier-audit-checklist` — authenticated Search Console URL Inspection confirmed indexed on 2026-10-27.
 - `https://www.boholvending.com/insights/apartment-building-vending-machine-buyer-guide` — Search Console confirmed indexed on 2026-10-21; the same-day condominium wording update is deployed, but a recrawl of the revised version has not yet been confirmed.
 - `https://www.boholvending.com/insights/custom-vending-machine-manufacturer-rfq-guide` — Search Console confirmed indexed on 2026-10-21; the same-day customized/personalized wording update is deployed, but a recrawl of the revised version has not yet been confirmed.
-- `https://www.boholvending.com/vending-machines/vape-vending-machine` — Search Console confirmed indexed on 2026-10-20; page was substantially updated the same day and still needs a recrawl request or later recrawl confirmation for the new version.
+- `https://www.boholvending.com/vending-machines/vape-vending-machine` — Search Console last confirmed indexed on 2026-10-20; product visuals were refreshed on 2026-11-11. No new URL Inspection or indexing request was made, so recrawl of the latest version remains unconfirmed.
 - `https://www.boholvending.com/insights/wall-mounted-smart-vending-machine-guide`
 - `https://www.boholvending.com/insights/vape-vending-machine-age-verification-compliance`
 - `https://www.boholvending.com/insights/how-to-choose-vending-machine-manufacturer`
