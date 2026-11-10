@@ -1,6 +1,12 @@
 "use client";
 import { useState } from "react";
 
+declare global {
+  interface Window {
+    gtag?: (command: string, eventName: string, parameters?: Record<string, string>) => void;
+  }
+}
+
 export function QuoteForm({ locale = "en", productName = "" }: { locale?: "en" | "zh"; productName?: string }) {
   const zh = locale === "zh";
   const [status, setStatus] = useState<{ type: "idle" | "success" | "error"; message: string }>({ type: "idle", message: "" });
@@ -28,6 +34,7 @@ export function QuoteForm({ locale = "en", productName = "" }: { locale?: "en" |
       const result = await response.json();
       if (!response.ok || !result.success) throw new Error(result.message || "Submission failed");
       window.umami?.track("Quote form submitted", { product: productName || "General enquiry" });
+      window.gtag?.("event", "generate_lead", { form_type: "quote", product_name: productName || "general_enquiry", page_path: window.location.pathname });
       form.reset();
       setStatus({ type: "success", message: zh ? "感谢您的询盘。BOHOL 团队会尽快与您联系。" : "Thank you. Your enquiry has been sent and the BOHOL team will contact you shortly." });
     } catch {

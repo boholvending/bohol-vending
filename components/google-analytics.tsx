@@ -1,2 +1,17 @@
 import Script from "next/script";
-export function GoogleAnalytics(){const id=process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID || "G-B0MDFF5E3B";return <><Script src={`https://www.googletagmanager.com/gtag/js?id=${id}`} strategy="afterInteractive"/><Script id="google-analytics" strategy="afterInteractive">{`window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '${id}', { anonymize_ip: true });`}</Script></>}
+
+export const ga4MeasurementId = process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID || "G-JL0MQ1697G";
+
+export function GoogleAnalytics() {
+  if (!/^G-[A-Z0-9]+$/.test(ga4MeasurementId)) return null;
+  return <>
+    <Script src={`https://www.googletagmanager.com/gtag/js?id=${ga4MeasurementId}`} strategy="afterInteractive" />
+    <Script id="google-analytics" strategy="afterInteractive">{`
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){window.dataLayer.push(arguments);}
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', '${ga4MeasurementId}');
+    `}</Script>
+  </>;
+}
