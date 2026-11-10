@@ -9,7 +9,9 @@ export const gscRedirectUri = "https://www.boholvending.com/api/admin/google-sea
 export const gscProperty = "sc-domain:boholvending.com";
 
 type OAuthConfig = { client_id: string; client_secret: string; redirect_uris: string[] };
-type TokenData = { access_token?: string; refresh_token?: string; expires_in?: number; expires_at?: number };
+type TokenData = { access_token?: string; refresh_token?: string; expires_in?: number; expires_at?: number; scope?: string };
+export const ga4PropertyId = "563457157";
+export const googleReadonlyScopes = ["https://www.googleapis.com/auth/webmasters.readonly", "https://www.googleapis.com/auth/analytics.readonly"];
 
 async function privateWrite(path: string, value: unknown) {
   const directory = dirname(path);
@@ -41,7 +43,9 @@ async function readToken(): Promise<TokenData | null> {
 }
 
 export async function gscStatus() {
-  return { configured: Boolean(await readGscConfig()), connected: Boolean((await readToken())?.refresh_token) };
+  const token = await readToken();
+  const scopes = token?.scope?.split(/\s+/) || [];
+  return { configured: Boolean(await readGscConfig()), connected: Boolean(token?.refresh_token), analyticsConnected: scopes.includes("https://www.googleapis.com/auth/analytics.readonly") };
 }
 
 export async function exchangeGscCode(code: string) {
@@ -54,7 +58,7 @@ export async function exchangeGscCode(code: string) {
   await privateWrite(tokenPath, { ...token, expires_at: Date.now() + (token.expires_in || 3600) * 1000 });
 }
 
-async function accessToken() {
+export async function accessToken() {
   const [config, token] = await Promise.all([readGscConfig(), readToken()]);
   if (!config || !token?.refresh_token) throw new Error("not_connected");
   if (token.access_token && (token.expires_at || 0) > Date.now() + 60_000) return token.access_token;
@@ -64,6 +68,29 @@ async function accessToken() {
   const next = { ...token, ...refreshed, expires_at: Date.now() + (refreshed.expires_in || 3600) * 1000 };
   await privateWrite(tokenPath, next);
   return next.access_token!;
+}
+
+export async function getGa4Dashboard(days = 28) {
+  const token = await accessToken();
+  const end = new Date(); end.setUTCDate(end.getUTCDate() - 1);
+  const start = new Date(end); start.setUTCDate(start.getUTCDate() - days + 1);
+  const dateRanges = [{ startDate: isoDate(start), endDate: isoDate(end) }];
+  const run = async (dimensions: string[], metrics: string[], limit = 8, excludeAdmin = false) => {
+    const dimensionFilter = excludeAdmin ? { notExpression: { filter: { fieldName: "landingPagePlusQueryString", stringFilter: { matchType: "CONTAINS", value: "/bohol-control-7e9c2f", caseSensitive: false } } } } : undefined;
+    const response = await fetch(`https://analyticsdata.googleapis.com/v1beta/properties/${ga4PropertyId}:runReport`, { method: "POST", headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" }, body: JSON.stringify({ dateRanges, dimensions: dimensions.map(name => ({ name })), metrics: metrics.map(name => ({ name })), limit: String(limit), ...(dimensionFilter ? { dimensionFilter } : {}) }), cache: "no-store" });
+    if (!response.ok) throw new Error(`ga4_${response.status}`);
+    const data = await response.json();
+    return (data.rows || []).map((row: { dimensionValues?: { value?: string }[]; metricValues?: { value?: string }[] }) => ({ dimensions: (row.dimensionValues || []).map(value => value.value || ""), metrics: (row.metricValues || []).map(value => value.value || "0") }));
+  };
+  const [summary, landingPages, sources, countries, devices, events] = await Promise.all([
+    run([], ["activeUsers", "sessions", "screenPageViews", "bounceRate", "averageSessionDuration", "keyEvents"], 1),
+    run(["landingPagePlusQueryString"], ["sessions", "activeUsers"], 8, true),
+    run(["sessionSourceMedium"], ["sessions", "keyEvents"], 8),
+    run(["country"], ["activeUsers", "sessions"], 8),
+    run(["deviceCategory"], ["activeUsers", "sessions"], 5),
+    run(["eventName"], ["eventCount", "keyEvents"], 10),
+  ]);
+  return { propertyId: ga4PropertyId, range: { startDate: isoDate(start), endDate: isoDate(end) }, summary: summary[0]?.metrics || ["0", "0", "0", "0", "0", "0"], landingPages, sources, countries, devices, events };
 }
 
 function isoDate(date: Date) { return date.toISOString().slice(0, 10); }
