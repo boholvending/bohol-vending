@@ -1,6 +1,6 @@
 # Google indexing queue
 
-Last verified: 2026-11-14 (authenticated Search Console URL Inspection confirms the vape vending-machine product page is indexed. A Nov 15 refresh was attempted, but the browser connection was unavailable; other pending URLs remain uninspected.)
+Last checked: 2026-11-16 (Search Console coverage report last updated Nov 9: 97 indexed and 165 not indexed. The latest URL Inspection remains the Nov 14 confirmation for the vape vending-machine product page; no new URL was inspected today.)
 
 ## Verified indexed
 
