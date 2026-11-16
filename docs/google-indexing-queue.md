@@ -1,6 +1,5 @@
 # Google indexing queue
-
-Last checked: 2026-11-16 (Search Console coverage report last updated Nov 9: 97 indexed and 165 not indexed. The latest URL Inspection remains the Nov 14 confirmation for the vape vending-machine product page; no new URL was inspected today.)
+Last checked: 2026-11-16 (Search Console coverage report updated Nov 13: 106 indexed and 156 not indexed. Sitemap last read Nov 14: Success, 141 discovered pages. Latest URL Inspection remains the Nov 14 confirmation for the vape vending-machine product page; no new URL was inspected or submitted for indexing this week.)
 
 ## Verified indexed
 
@@ -92,3 +91,9 @@ Only move a URL to “Verified indexed” after it is confirmed in Google Search
 - `https://www.boholvending.com/insights/vending-machine-spiral-channel-selection-guide` — published 2026-10-15; production deployment and Search Console URL inspection/request pending.
 - `https://www.boholvending.com/vending-machines/blue-snack-drink-vending-machine` — published 2026-10-16; production deployment and Search Console URL inspection/request pending.
 - `https://www.boholvending.com/insights/blue-snack-drink-vending-machine-buying-guide` — published 2026-10-16; paired article; production deployment and Search Console URL inspection/request pending.
+
+## Coverage follow-up (2026-11-16)
+
+- Nov 13 coverage snapshot: 106 indexed / 156 not indexed. Breakdown: 75 auto redirects, 36 404, 10 alternate with canonical, 1 robots blocked, 31 discovered not indexed, 3 Google-selected canonical differs, 0 crawled not indexed. Sitemap is Success with 141 discovered pages; last read Nov 14.
+- On Nov 16, the first ten current 404 examples sampled under `/zh/insights/` returned HTTP 404. These English-only article paths are not in the sitemap; the sitemap currently includes only translated Chinese insights. They may be stale crawl examples. Keep them under investigation; do not mass-redirect absent evidence of intended translations or inbound links. Check source links and re-evaluate after a later Google crawl.
+- Latest confirmed URL status remains `/vending-machines/vape-vending-machine` inspected Nov 14 as “URL is on Google.” No new URL Inspection or indexing request was performed during this weekly review.
