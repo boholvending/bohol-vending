@@ -1,5 +1,5 @@
 # Google indexing queue
-Last checked: 2026-11-20 (Search Console coverage report updated Nov 16: 106 indexed and 156 not indexed. Sitemap last read Nov 18: Success, 141 discovered pages. Latest URL Inspection remains the Nov 14 confirmation for the vape vending-machine product page; no URL inspection or indexing request was made today.)
+Last checked: 2026-11-21 (Search Console coverage report updated Nov 16: 106 indexed and 156 not indexed, across 6 reported reasons. Sitemap last read Nov 20: Success, 141 discovered pages. Latest URL Inspection remains the Nov 14 confirmation for the vape vending-machine product page; no new URL inspection or indexing request was completed today.)
 
 ## Verified indexed
 
