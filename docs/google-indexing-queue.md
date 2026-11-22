@@ -1,10 +1,11 @@
 # Google indexing queue
-Last checked: 2026-11-21 (Search Console coverage report updated Nov 16: 106 indexed and 156 not indexed, across 6 reported reasons. Sitemap last read Nov 20: Success, 141 discovered pages. Latest URL Inspection remains the Nov 14 confirmation for the vape vending-machine product page; no new URL inspection or indexing request was completed today.)
+Last checked: 2026-11-22 (Search Console coverage report updated Nov 16: 106 indexed and 156 not indexed, across 6 reported reasons. Sitemap last read Nov 20: Success, 141 discovered pages. URL Inspection on Nov 22 confirmed the capacity-planning guide is indexed; no indexing request was submitted.)
 
 ## Verified indexed
 
 - `https://www.boholvending.com/insights/connected-vending-machine-cybersecurity-checklist` — authenticated Search Console URL Inspection confirmed indexed on 2026-10-30.
 - `https://www.boholvending.com/insights/vending-machine-service-level-agreement-checklist` — authenticated Search Console URL Inspection confirmed indexed on 2026-10-30.
+- `https://www.boholvending.com/insights/vending-machine-capacity-planning-guide` — authenticated Search Console URL Inspection confirmed indexed on 2026-11-22.
 
 - `https://www.boholvending.com/insights/vending-machine-production-traceability-requirements` — authenticated Search Console URL Inspection confirmed indexed on 2026-10-28.
 - `https://www.boholvending.com/insights/vending-machine-factory-acceptance-test-checklist` — authenticated Search Console URL Inspection confirmed indexed on 2026-10-28.
