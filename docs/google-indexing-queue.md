@@ -1,5 +1,5 @@
 # Google indexing queue
-Last checked: 2026-11-23 (Search Console coverage report remains updated Nov 16: 106 indexed and 156 not indexed, across 6 reported reasons. Sitemap read Nov 23: Success, 141 discovered pages. URL Inspection on Nov 22 confirmed the capacity-planning guide is indexed; no new inspection or indexing request was made today.)
+Last checked: 2026-11-24 (Search Console coverage report remains updated Nov 16: 106 indexed and 156 not indexed, across 6 reported reasons. Sitemap last read Nov 23: Success, 141 discovered pages. URL Inspection on Nov 22 confirmed the capacity-planning guide is indexed; no new inspection or indexing request was made today.)
 
 ## Verified indexed
 
