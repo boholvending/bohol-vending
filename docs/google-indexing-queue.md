@@ -1,11 +1,12 @@
 # Google indexing queue
-Last checked: 2026-11-24 (Search Console coverage report remains updated Nov 16: 106 indexed and 156 not indexed, across 6 reported reasons. Sitemap last read Nov 23: Success, 141 discovered pages. URL Inspection on Nov 22 confirmed the capacity-planning guide is indexed; no new inspection or indexing request was made today.)
+Last checked: 2026-11-25 (Coverage report remains updated Nov 16: 106 indexed and 156 not indexed across 6 reasons. Sitemap read Nov 25: Success, 141 discovered pages, 0 videos. URL Inspection on Nov 25 confirms the operator-training checklist is indexed; it was last crawled Nov 3. No indexing request was made.)
 
 ## Verified indexed
 
 - `https://www.boholvending.com/insights/connected-vending-machine-cybersecurity-checklist` — authenticated Search Console URL Inspection confirmed indexed on 2026-10-30.
 - `https://www.boholvending.com/insights/vending-machine-service-level-agreement-checklist` — authenticated Search Console URL Inspection confirmed indexed on 2026-10-30.
 - `https://www.boholvending.com/insights/vending-machine-capacity-planning-guide` — authenticated Search Console URL Inspection confirmed indexed on 2026-11-22.
+- `https://www.boholvending.com/insights/vending-machine-operator-training-checklist` — authenticated Search Console URL Inspection confirmed indexed on 2026-11-25; last crawl Nov 3, Googlebot Smartphone, crawl and indexing allowed, user-declared canonical matches this URL. No indexing request was made.
 
 - `https://www.boholvending.com/insights/vending-machine-production-traceability-requirements` — authenticated Search Console URL Inspection confirmed indexed on 2026-10-28.
 - `https://www.boholvending.com/insights/vending-machine-factory-acceptance-test-checklist` — authenticated Search Console URL Inspection confirmed indexed on 2026-10-28.
@@ -28,7 +29,6 @@ Last checked: 2026-11-24 (Search Console coverage report remains updated Nov 16:
 - `https://www.boholvending.com/insights/vending-machine-dimensions-doorway-site-planning` — published and production-verified 2026-11-03; article, image, metadata, canonical, Article/FAQ Schema, sitemap and robots checks passed. Authenticated Search Console inspection is pending and no indexing request was submitted; do not treat publication or sitemap inclusion as indexing.
 
 - `https://www.boholvending.com/insights/vending-machine-accessibility-procurement-checklist` — published and production-verified 2026-10-30; authenticated URL Inspection on 2026-11-01 still reported not indexed/unknown to Google with no referring sitemap detected. No indexing request was submitted in this run.
-- `https://www.boholvending.com/insights/vending-machine-operator-training-checklist` — published and production-verified 2026-10-30; authenticated URL Inspection on 2026-11-01 reported `Discovered – currently not indexed`, with `https://www.boholvending.com/sitemap.xml` detected as a referring sitemap. No indexing request was submitted in this run.
 
 - `https://www.boholvending.com/insights/vending-machine-preventive-maintenance-schedule` — published and production-verified 2026-10-28; authenticated URL Inspection reported not indexed/unknown to Google with no referring sitemap detected yet. No indexing request was submitted in this run.
 - `https://www.boholvending.com/insights/vending-machine-production-lead-time-planning-guide` — published and production-verified 2026-10-28; authenticated URL Inspection reported not indexed/unknown to Google with no referring sitemap detected yet. No indexing request was submitted in this run.
