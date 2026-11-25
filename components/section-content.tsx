@@ -22,7 +22,7 @@ export async function SectionContent({ section, locale = "en" }: { section: stri
     {section === "solutions" && !zh && <section className={s.guideLinks} aria-labelledby="venue-guides-heading">
       <div className={s.guideIntro}><h3 id="venue-guides-heading">Compare buyer guides by location.</h3><p>Use these checklists to shape a machine brief around the venue, products and service routine.</p></div>
       <ul>{[
-        { title: "Apartment building vending", description: "Plan resident access, placement and product mix.", href: "/insights/apartment-building-vending-machine-buyer-guide" },
+        { title: "Condominium & apartment vending machines", description: "Plan resident access, site fit, cabinet size and product mix.", href: "/insights/apartment-building-vending-machine-buyer-guide" },
         { title: "Hotel vending", description: "Assess guest convenience, cabinet fit and restocking.", href: "/insights/hotel-vending-machine-buyer-guide" },
         { title: "Gym vending", description: "Match drinks, snacks and replenishment to members.", href: "/insights/gym-vending-machine-buyer-guide" },
       ].map((guide) => <li key={guide.href}><Link href={guide.href}><strong>{guide.title}</strong><small>{guide.description}</small><ArrowUpRight size={18} aria-hidden="true"/></Link></li>)}</ul>
