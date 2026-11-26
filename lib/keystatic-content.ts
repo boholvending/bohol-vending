@@ -231,23 +231,36 @@ export async function getProductDocument(slug: string) {
   return entry ? entry.details() : null;
 }
 
+function shanghaiToday() {
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Shanghai",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(new Date());
+  const values = Object.fromEntries(parts.map(({type, value}) => [type, value]));
+  return `${values.year}-${values.month}-${values.day}`;
+}
+
 export async function getNews() {
   const records = await reader.collections.news.all();
+  const shanghaiDate = shanghaiToday();
   return records
-    .filter(({ entry }) => entry.status !== "draft")
+    .filter(({ entry }) => entry.status === "published" && entry.publishedAt <= shanghaiDate)
     .map(({ slug, entry }) => ({ slug, ...entry }))
     .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt) || (b.publishOrder ?? 0) - (a.publishOrder ?? 0) || a.title.localeCompare(b.title));
 }
 
 export async function getNewsArticle(slug: string) {
   const entry = await reader.collections.news.read(slug);
-  return entry?.status === "draft" ? null : entry;
+  const shanghaiDate = shanghaiToday();
+  return entry?.status === "published" && entry.publishedAt <= shanghaiDate ? entry : null;
 }
 
 export async function getAdminContent() {
   const [products, news] = await Promise.all([reader.collections.products.all(), reader.collections.news.all()]);
   return {
     products: products.map(({slug, entry}) => ({slug, title:entry.name, status:entry.status, category:categoryLabel(entry.category)})),
-    news: news.map(({slug, entry}) => ({slug, title:entry.title, status:entry.status, category:entry.publishedAt})),
+    news: news.map(({slug, entry}) => ({slug, title:entry.title, status:entry.status, category:entry.status === "scheduled" ? (entry.publishAt || entry.publishedAt) : entry.publishedAt})),
   };
 }

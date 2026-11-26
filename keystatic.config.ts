@@ -241,12 +241,13 @@ export default config({
       format: { contentField: "content" },
       schema: {
         title: fields.slug({ name: { label: "文章标题（英文）", validation: { isRequired: true } } }),
-        status: fields.select({ label: "发布状态", defaultValue: "draft", options: [{ label: "草稿", value: "draft" }, { label: "已发布", value: "published" }] }),
+        status: fields.select({ label: "发布状态", defaultValue: "draft", options: [{ label: "草稿", value: "draft" }, { label: "定时发布", value: "scheduled" }, { label: "已发布", value: "published" }] }),
         seoTitle: fields.text({ label: "Google 收录 · SEO 标题（英文）", description: "留空使用文章标题。" }),
         seoDescription: fields.text({ label: "Google 收录 · SEO 描述（英文）", multiline: true, description: "留空使用文章摘要。" }),
         primaryKeyword: fields.text({ label: "主要关键词（英文）" }),
         geoSummary: fields.text({ label: "GEO / AI 摘要（英文）", multiline: true }),
         publishedAt: fields.date({ label: "发布日期", validation: { isRequired: true } }),
+        publishAt: fields.date({ label: "定时发布时间（北京时间）", description: "状态选“定时发布”时必填。自动发布器每天 09:00（北京时间）检查，到期后自动发布并部署。" }),
         publishOrder: fields.integer({ label: "同日发布顺序（数字越大越靠前）", defaultValue: 0, description: "同一天有多篇文章时使用；最新发布填写更大的数字。" }),
         modifiedAt: fields.date({ label: "更新日期" }),
         coverImage: fields.image({

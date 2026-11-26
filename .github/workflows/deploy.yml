@@ -3,10 +3,12 @@ name: Deploy BOHOL website
 on:
   push:
     branches: [main]
+  schedule:
+    - cron: "0 1 * * *"
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: production
@@ -19,13 +21,37 @@ jobs:
     steps:
       - name: Update and deploy website
         shell: bash
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPOSITORY: ${{ github.repository }}
         run: |
           set -Eeuo pipefail
           cd /var/www/bohol-vending
           test "$(whoami)" = "sicotcna03"
           git pull --ff-only origin main
+          article_slug=""
+          article_path=""
+          publish_committed="false"
+          if [[ "${GITHUB_EVENT_NAME}" == "schedule" || "${GITHUB_EVENT_NAME}" == "workflow_dispatch" ]]; then
+            article_slug="$(node scripts/promote-scheduled-article.mjs)"
+            if [[ -n "$article_slug" ]]; then
+              article_path="content/news/${article_slug}.mdoc"
+              trap 'if [[ "$publish_committed" != "true" && -n "$article_path" ]]; then git restore --staged -- "$article_path" || true; git restore -- "$article_path" || true; fi' ERR
+            fi
+          fi
           npm ci --include=dev
           npm run build
+          if [[ -n "$article_slug" ]]; then
+            previous_commit="$(git rev-parse HEAD)"
+            git add -- "$article_path"
+            git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit --only -m "Publish scheduled article ${article_slug}" -- "$article_path"
+            if ! git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${REPOSITORY}.git" HEAD:main; then
+              git reset --mixed "$previous_commit"
+              git restore -- "$article_path"
+              exit 1
+            fi
+            publish_committed="true"
+          fi
           if [ -f "$HOME/.config/bohol-vending/admin.env" ]; then
             set -a
             source "$HOME/.config/bohol-vending/admin.env"
