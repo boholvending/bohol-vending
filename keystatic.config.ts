@@ -247,7 +247,7 @@ export default config({
         primaryKeyword: fields.text({ label: "主要关键词（英文）" }),
         geoSummary: fields.text({ label: "GEO / AI 摘要（英文）", multiline: true }),
         publishedAt: fields.date({ label: "发布日期", validation: { isRequired: true } }),
-        publishAt: fields.date({ label: "定时发布时间（北京时间）", description: "状态选“定时发布”时必填。自动发布器每天 09:00（北京时间）检查，到期后自动发布并部署。" }),
+        publishAt: fields.date({ label: "定时发布时间（北京时间）", description: "状态选“定时发布”时必填。自动发布器每天 09:05（北京时间）检查，到期后自动发布并部署。" }),
         publishOrder: fields.integer({ label: "同日发布顺序（数字越大越靠前）", defaultValue: 0, description: "同一天有多篇文章时使用；最新发布填写更大的数字。" }),
         modifiedAt: fields.date({ label: "更新日期" }),
         coverImage: fields.image({
