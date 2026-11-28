@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: { title: "Meet BOHOL. Your vending manufacturing partner.", images: ["/images/bohol-guangzhou-factory.webp"] },
 };
 export default function AboutPage() {
-  const organization = { "@context": "https://schema.org", "@type": "Organization", name: "BOHOL", url: "https://www.boholvending.com", email: "sales@boholvending.com", telephone: "+86 19128839757", address: { "@type": "PostalAddress", streetAddress: "10 Shilian Road, Yongshan Village", addressLocality: "Panyu District, Guangzhou", addressRegion: "Guangdong", addressCountry: "CN" } };
+  const organization = { "@context": "https://schema.org", "@type": "Organization", name: "BOHOL", url: "https://www.boholvending.com", email: "bohol6688@gmail.com", telephone: "+86 19128839757", address: { "@type": "PostalAddress", streetAddress: "10 Shilian Road, Yongshan Village", addressLocality: "Panyu District, Guangzhou", addressRegion: "Guangdong", addressCountry: "CN" } };
   return <SiteShell>
     <BreadcrumbJson items={[{name:"Home",url:"https://www.boholvending.com"},{name:"About BOHOL",url:"https://www.boholvending.com/about"}]}/>
     <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(organization)}}/>
