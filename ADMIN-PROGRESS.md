@@ -589,4 +589,5 @@
 ## Public contact email update (2026-11-28)
 - The user confirmed `bohol6688@gmail.com` as an approved public BOHOL website email. Updated the public contact address, mailto links, chat-form failure fallback, and Organization JSON-LD from the prior `sales@boholvending.com` address.
 - The quote and chat inquiry forms still save to the existing admin inbox workflow. This change does not configure email notifications or claim that form submissions are forwarded to Gmail.
-- Validation/build/deployment: pending.
+- Validation: production build passed (prebuild checked 113 images, zero changed); `git diff --check` passed. Existing unrelated Turbopack warnings remain in the Google Search Console file reader.
+- Deployment: commit `f367941` pushed to `main`; GitHub Deploy BOHOL run `46125215575` completed successfully. Production `/contact`, `/about`, and `/` returned HTTP 200 and show `bohol6688@gmail.com`; the old `sales@boholvending.com` address is absent from those rendered pages. `robots.txt` and `sitemap.xml` both returned HTTP 200; no routes or sitemap entries changed. Layout structure is unchanged; no separate 390px visual inspection was run for this email-only text/link update.
